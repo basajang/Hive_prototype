@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-123
 
 //        Map<String, String> map = new HashMap<>();
 //        map.put("key", "val");
