@@ -2,10 +2,13 @@ package com.waem.hivePrototype;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import com.google.android.material.tabs.TabLayout;
 import com.waem.hivePrototype.util.requestHelper.HttpTask;
 import com.waem.ndklib.NativeWrapper;
 
@@ -21,11 +24,7 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String TAG = "MainActivity";
-
-    @BindView(R2.id.test)
-    TextView test;
-
+    private TabLayout tabMain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         NativeWrapper wrapper = new NativeWrapper();
         wrapper.nativeSum(10, 20);
-        test.setText(wrapper.nativeSum(10, 20)+"");
+
+
 //        Map<String, String> map = new HashMap<>();
 //        map.put("key", "val");
 //
@@ -50,21 +50,34 @@ public class MainActivity extends AppCompatActivity {
 //                Log.d(TAG, "onResponse: "+response.body().string());
 //            }
 //        });
-//
-//        new HttpTask().get("asdf").execute();
-//        new HttpTask().post("asdf").addParam("key", "val").Build().enqueue(new Callback() {
-//            @Override
-//            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-//
-//            }
-//
-//            @Override
-//            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-//
-//            }
-//        });
-//        new HttpTask().post("http://www.google.co.kr/").addParam("key", "Value").addParam("key", "Value").Build().execute();
+        Log.d(Constants.TAG, "onCreate: ");
+        new HttpTask().get(Constants.APIURL).execute();
+     /*   new HttpTask().post("asdf").addParam("key", "val").Build().enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
 
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+
+            }
+        });*/
+        //new HttpTask().post("http://www.google.co.kr/").addParam("key", "Value").addParam("key", "Value").Build().execute();
+        init();
+        listener();
+    }
+    private void init(){
+        tabMain=(TabLayout) findViewById(R.id.tab_main);
+
+        tabMain.addTab(tabMain.newTab().setText("친구"));
+
+        tabMain.addTab(tabMain.newTab().setText("채팅"));
+
+        tabMain.addTab(tabMain.newTab().setText("복원"));
+
+    }
+    private void listener(){
 
     }
 }
