@@ -3,26 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FriendListFragment"
+
     android:orientation="vertical">
     <!--친구목록 프래그먼트-->
-    <ScrollView
+   <!-- <ScrollView
         android:id="@+id/sl_friend"
         android:overScrollMode="never"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fadeScrollbars="true" >
-        <!--전체-->
+        &lt;!&ndash;전체&ndash;&gt;
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <!--즐겨찾기-->
+            &lt;!&ndash;즐겨찾기&ndash;&gt;
             <RelativeLayout
                 android:id="@+id/rl_friend_favorite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp">
-                <!--즐겨찾기 탭-->
+                &lt;!&ndash;즐겨찾기 탭&ndash;&gt;
                 <RelativeLayout
                     android:layout_marginLeft="21dp"
                     android:layout_marginRight="21dp"
@@ -94,6 +94,6 @@
                 </androidx.recyclerview.widget.RecyclerView>
             </RelativeLayout>
         </RelativeLayout>
-    </ScrollView>
+    </ScrollView>-->
 
 </RelativeLayout>
