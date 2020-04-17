@@ -17,10 +17,12 @@ public class Notification {
     @NotNull
     private NotiType notiType = NotiType.MESSAGE;
 
+    private boolean read = false;
+
     public Notification() {
     }
 
-    public Notification(String id, String title, String userId, String userName, String profilePath, Date updateTime, @NotNull NotiType notiType) {
+    public Notification(String id, String title, String userId, String userName, String profilePath, Date updateTime, @NotNull NotiType notiType, boolean read) {
         this.id = id;
         this.title = title;
         this.userId = userId;
@@ -28,6 +30,7 @@ public class Notification {
         this.profilePath = profilePath;
         this.updateTime = updateTime;
         this.notiType = notiType;
+        this.read = read;
     }
 
     public String getId() {
@@ -87,6 +90,14 @@ public class Notification {
         this.notiType = notiType;
     }
 
+    public boolean isRead() {
+        return read;
+    }
+
+    public void setRead(boolean read) {
+        this.read = read;
+    }
+
     @Override
     public String toString() {
         return "Notification{" +
@@ -97,6 +108,7 @@ public class Notification {
                 ", profilePath='" + profilePath + '\'' +
                 ", updateTime=" + updateTime +
                 ", notiType=" + notiType +
+                ", read=" + read +
                 '}';
     }
 }
