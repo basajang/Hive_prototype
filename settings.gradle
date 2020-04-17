@@ -1,2 +1,3 @@
 rootProject.name='Hive_prototype'
 include ':app'
+include ':ndklib'
