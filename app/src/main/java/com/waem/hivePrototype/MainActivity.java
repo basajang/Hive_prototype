@@ -1,5 +1,6 @@
 package com.waem.hivePrototype;
 
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +17,7 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private TabLayout tabMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +54,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });*/
-        new HttpTask().post("http://www.google.co.kr/").addParam("key", "Value").addParam("key", "Value").Build().execute();
+        //new HttpTask().post("http://www.google.co.kr/").addParam("key", "Value").addParam("key", "Value").Build().execute();
+        init();
+        listener();
+    }
+    private void init(){
+        tabMain=(TabLayout) findViewById(R.id.tab_main);
 
+        tabMain.addTab(tabMain.newTab().setText("친구"));
+
+        tabMain.addTab(tabMain.newTab().setText("채팅"));
+
+        tabMain.addTab(tabMain.newTab().setText("복원"));
+
+    }
+    private void listener(){
 
     }
 }

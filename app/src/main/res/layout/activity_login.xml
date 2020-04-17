@@ -32,7 +32,6 @@
             android:layout_height="wrap_content"
             android:text="로그인"/>
 
-
             <TextView
                 android:layout_gravity="center"
                 android:id="@+id/tv_login_signup"
