@@ -21,6 +21,7 @@ public class People {
     private boolean Hide = false;
 
     public People() {
+
     }
 
     public People(@NotNull String id, @NotNull String name, String profilePath, String accessToken, String statusMessage, boolean favorites, boolean me, Date lastUpdate, boolean block, boolean hide) {
