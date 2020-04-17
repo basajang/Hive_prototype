@@ -1,6 +1,6 @@
 package com.waem.hivePrototype.chatRoomList.vo;
 
-import com.waem.hivePrototype.chatRoomList.FileType;
+import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
 
 public class RoomFile {
     private String id;
