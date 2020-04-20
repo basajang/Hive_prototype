@@ -8,9 +8,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 
 import com.google.android.material.tabs.TabLayout;
+import com.waem.hivePrototype.peopleList.adapter.TabPagerAdapter;
 import com.waem.hivePrototype.peopleList.fragment.FriendListFragment;
 import com.waem.hivePrototype.util.requestHelper.HttpTask;
 import com.waem.ndklib.NativeWrapper;
@@ -28,6 +31,10 @@ import okhttp3.Response;
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout tabMain;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+    private FriendListFragment fragment;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +46,13 @@ public class MainActivity extends AppCompatActivity {
         NativeWrapper wrapper = new NativeWrapper();
         wrapper.nativeSum(10, 20);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+       /* fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
 
-        FriendListFragment fragment = new FriendListFragment();
+        fragment = new FriendListFragment();
         fragmentTransaction.add(R.id.viewer, fragment);
-        fragmentTransaction.commit();
+        fragmentTransaction.commit();*/
+
 
 //        Map<String, String> map = new HashMap<>();
 //        map.put("key", "val");
@@ -80,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
         listener();
     }
     private void init(){
+        viewPager =(ViewPager) findViewById(R.id.viewer);
+
         tabMain=(TabLayout) findViewById(R.id.tab_main);
 
         tabMain.addTab(tabMain.newTab().setText("친구"));
@@ -90,6 +100,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void listener(){
+        TabPagerAdapter tabPagerAdapter =new TabPagerAdapter(getSupportFragmentManager(), tabMain.getTabCount());
+        viewPager.setAdapter(tabPagerAdapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabMain));
+
+        tabMain.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
 
     }
 }

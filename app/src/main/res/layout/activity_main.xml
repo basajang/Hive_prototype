@@ -9,8 +9,8 @@
     android:orientation="vertical">
 
 
-    <FrameLayout android:name="com.waem.hivePrototype.peopleList.fragment.FriendListFragment"
-
+    <androidx.viewpager.widget.ViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/viewer"
         android:layout_weight="1"
         android:layout_width="match_parent"
