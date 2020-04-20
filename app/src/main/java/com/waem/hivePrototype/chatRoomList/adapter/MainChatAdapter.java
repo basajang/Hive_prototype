@@ -11,10 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.peopleList.vo.People;
-
 import java.util.ArrayList;
-
+/**
+ * 채팅 리사이클러뷰 어댑터
+ * */
 public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatViewHolder> {
+
 	private ArrayList<ChatRoom> chatRooms;
 
 	public static class ChatViewHolder extends RecyclerView.ViewHolder {
@@ -27,32 +29,29 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 
 		}
 	}
+
 	@NonNull
 	@Override
 	public MainChatAdapter.ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
 		View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_chatlist_item,parent,false);
 		ChatViewHolder cvh= new ChatViewHolder(view);
 		return cvh;
+
 	}
 
 	public MainChatAdapter(ArrayList<ChatRoom> myDataset) {
-
 		this.chatRooms = myDataset;
 	}
 
 	@Override
 	public void onBindViewHolder(@NonNull MainChatAdapter.ChatViewHolder holder, int position) {
-
 		holder.tvChatName.setText(chatRooms.get(position).getRoomName());
-
 	}
 
 	@Override
 	public int getItemCount() {
-
 		return chatRooms.size();
-
 	}
-
 
 }

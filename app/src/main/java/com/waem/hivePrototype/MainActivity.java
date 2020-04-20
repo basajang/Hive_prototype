@@ -27,7 +27,9 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
-
+/**
+ * 메인 화면 액티비티
+ * */
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout tabMain;
@@ -84,8 +86,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
         //new HttpTask().post("http://www.google.co.kr/").addParam("key", "Value").addParam("key", "Value").Build().execute();
+
         init();
         listener();
+
     }
     private void init(){
         viewPager =(ViewPager) findViewById(R.id.viewer);
@@ -100,11 +104,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void listener(){
+
+        /*텝 레이아웃 관련 코드*/
         TabPagerAdapter tabPagerAdapter =new TabPagerAdapter(getSupportFragmentManager(), tabMain.getTabCount());
         viewPager.setAdapter(tabPagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabMain));
-
         tabMain.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
@@ -119,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
-        });
 
+        });
 
     }
 }

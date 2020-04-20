@@ -7,7 +7,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+/**
+ * 로그인 화면 액티비티
+ * */
 public class LoginActivity extends AppCompatActivity {
 
 	private EditText etLoginId,etLoginPw;
@@ -20,8 +22,10 @@ public class LoginActivity extends AppCompatActivity {
 
 		init();
 		listener();
+
 	}
 	private void init(){
+
 		etLoginId=(EditText)findViewById(R.id.et_login_id);
 		etLoginPw=(EditText)findViewById(R.id.et_login_pw);
 
@@ -31,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
 
 	}
 	private void listener(){
+
 		tvLoginSignup.setOnClickListener(view -> {
 			Intent intent = new Intent(LoginActivity.this,SignupActivity.class);
 			startActivity(intent);
@@ -39,5 +44,6 @@ public class LoginActivity extends AppCompatActivity {
 			Intent intent = new Intent(LoginActivity.this,MainActivity.class);
 			startActivity(intent);
 		});
+
 	}
 }

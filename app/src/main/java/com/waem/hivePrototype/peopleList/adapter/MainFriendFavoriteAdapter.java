@@ -12,14 +12,16 @@ import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.peopleList.vo.People;
 
 import java.util.ArrayList;
-
+/**
+ *  친구 즐겨찾기 리사이클러뷰 어댑터
+* */
 public class MainFriendFavoriteAdapter extends RecyclerView.Adapter<MainFriendFavoriteAdapter.FriendFavoriteViewHolder> {
 
 	private ArrayList<People> friendFavoriteList;
 
 	public class FriendFavoriteViewHolder extends RecyclerView.ViewHolder {
 
-		public TextView uname,uemail,upw,user_id;
+		private TextView uname;
 
 		public FriendFavoriteViewHolder(@NonNull View view) {
 
@@ -55,6 +57,5 @@ public class MainFriendFavoriteAdapter extends RecyclerView.Adapter<MainFriendFa
 	public int getItemCount() {
 		return friendFavoriteList.size();
 	}
-
 
 }

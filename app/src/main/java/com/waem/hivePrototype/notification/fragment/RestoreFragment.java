@@ -10,19 +10,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.adapter.MainChatAdapter;
-
+/**
+ * 복구화면 프래그먼트
+ * */
 public class RestoreFragment extends Fragment {
+
 	private View view;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
 		view= inflater.inflate(R.layout.fragment_restore, container, false);
+
 		init();
 		listener();
 
-
 		return view;
 	}
+
 	private void init(){
 
 	}

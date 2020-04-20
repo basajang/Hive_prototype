@@ -6,7 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+/**
+ * 회원가입 화면 액티비티
+ * */
 public class SignupActivity extends AppCompatActivity {
 
 	private Button btnSignup;
@@ -18,18 +20,25 @@ public class SignupActivity extends AppCompatActivity {
 
 		init();
 		listener();
+
 	}
+
 	private void init(){
+
 		etSignupId=(EditText)findViewById(R.id.et_signup_id);
 		etSignupPw=(EditText)findViewById(R.id.et_signup_pw);
 		etSignupName=(EditText)findViewById(R.id.et_signup_name);
+
 		btnSignup=(Button)findViewById(R.id.btn_signup);
 
 	}
+
 	private void listener(){
+
 		btnSignup.setOnClickListener(view -> {
 			Intent intent = new Intent(SignupActivity.this,LoginActivity.class);
 			startActivity(intent);
 		});
+
 	}
 }

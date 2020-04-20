@@ -18,8 +18,11 @@ import com.waem.hivePrototype.peopleList.vo.People;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * 친구 리스트 프래그먼트
+ * */
 public class FriendListFragment extends Fragment {
+
 	private ArrayList<People> friendArray =new ArrayList<>();
 	private ArrayList<People> friendFavoriteArray =new ArrayList<>();
 	private View view;
@@ -30,7 +33,6 @@ public class FriendListFragment extends Fragment {
 	private RecyclerView rvMainFriendList,rvMainFriendFavoriteList;
 
 	private Date time = new Date();
-
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,9 +55,9 @@ public class FriendListFragment extends Fragment {
 		rvMainFriendFavoriteList.setLayoutManager(FavoriteLayoutManager);
 		rvMainFriendFavoriteList.setAdapter(mainFriendFavoriteAdapter);
 
-
 		return view;
 	}
+
 	private void init(){
 
 		rvMainFriendList =(RecyclerView) view.findViewById(R.id.rv_main_friend_list);
@@ -84,6 +86,7 @@ public class FriendListFragment extends Fragment {
 		friendArray.add(people10);
 
 	}
+
 	private void listener(){
 
 	}

@@ -16,23 +16,26 @@ import com.waem.hivePrototype.peopleList.vo.People;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ * 친구 리사이클러뷰 어댑터
+ * */
 public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.FriendViewHolder>  {
+
 	private ArrayList<People> friendList;
 	private Context context=null;
+
 	// Provide a reference to the views for each data item
 	// Complex data items may need more than one view per item, and
 	// you provide access to all the views for a data item in a view holder
 	public static class FriendViewHolder extends RecyclerView.ViewHolder {
 		// each data item is just a string in this case
 
-		public TextView tvFriendName;
+		private TextView tvFriendName;
 
 		public FriendViewHolder(View v) {
 
 			super(v);
 			tvFriendName = (TextView) v.findViewById(R.id.tv_friend_name);
-
 
 		}
 	}
@@ -41,7 +44,6 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 	public MainFriendAdapter(ArrayList<People> myDataset) {
 		this.friendList = myDataset;
 	}
-
 
 	/**
 	 * 이 메소드는 뷰 홀더가 콘텐츠를 표시하기 위해 사용하는 뷰를 설정해야합니다.
@@ -55,7 +57,6 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 		context=parent.getContext();
 		return fvh;
 	}
-
 
 	/**
 	 * position에 해당하는 데이터를 뷰 홀더의 아이템뷰에 표시
