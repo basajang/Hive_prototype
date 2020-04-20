@@ -60,12 +60,19 @@ public class FriendListFragment extends Fragment {
 
 		rvMainFriendList =(RecyclerView) view.findViewById(R.id.rv_main_friend_list);
 		rvMainFriendFavoriteList =(RecyclerView) view.findViewById(R.id.rv_main_friend_favorite_list);
-		People people1 =new People();
 
 		People people1 =new People("qwer","김홍도","123","123","hi",false,false,time,false,false);
+		People people2 =new People("qwer","김아무개","123","123","hi",false,false,time,false,false);
+		People people3 =new People("qwer","홍길동","123","123","hi",false,false,time,false,false);
+		People people4 =new People("qwer","홍동길","123","123","hi",false,false,time,false,false);
+		People people5 =new People("qwer","동길홍","123","123","hi",false,false,time,false,false);
 
 
 		friendArray.add(people1);
+		friendArray.add(people2);
+		friendArray.add(people3);
+		friendArray.add(people4);
+		friendArray.add(people5);
 	}
 	private void listener(){
 

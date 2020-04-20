@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
         Log.d(Constants.TAG, "onCreate: ");
-        new HttpTask().get(Constants.APIURL).execute();
+        //new HttpTask().get(Constants.APIURL).execute();
      /*   new HttpTask().post("asdf").addParam("key", "val").Build().enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
