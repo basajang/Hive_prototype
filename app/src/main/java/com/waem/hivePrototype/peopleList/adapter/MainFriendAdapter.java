@@ -2,6 +2,7 @@ package com.waem.hivePrototype.peopleList.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.waem.hivePrototype.PopupFriendActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.peopleList.vo.People;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.FriendViewHolder>  {
@@ -66,6 +68,7 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 
 		holder.tvFriendName.setOnClickListener(view -> {
 			Intent intent =new Intent(context, PopupFriendActivity.class);
+			intent.putExtra("friendName",friendList.get(position).getName());
 			context.startActivity(intent);
 		});
 	}

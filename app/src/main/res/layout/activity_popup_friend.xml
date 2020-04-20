@@ -11,12 +11,23 @@
         android:layout_height="150dp"
         android:orientation="vertical"
         android:background="@color/colorWhite">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="채팅 하시겠습니까?"
-            android:textColor="@color/colorBlack"/>
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_popup_friend_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ddddd"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 님과 채팅을 하시겠습니까?"
+                android:textColor="@color/colorBlack"/>
+        </LinearLayout>
+
         <LinearLayout
 
             android:layout_width="match_parent"

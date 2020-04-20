@@ -1,5 +1,6 @@
 package com.waem.hivePrototype;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -10,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class PopupFriendActivity extends AppCompatActivity {
 	private Button btnYes,btnNo;
 	private LinearLayout liTransparent;
+	private String name="";
+	private TextView tvPopupFriendName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +20,16 @@ public class PopupFriendActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_popup_friend);
 
 
+
 		init();
 		listener();
+		Intent intent =getIntent();
+		tvPopupFriendName.setText(intent.getStringExtra("friendName"));
 	}
 	private void init(){
 		btnNo=(Button)findViewById(R.id.btn_no);
 		btnYes=(Button)findViewById(R.id.btn_yes);
-
+		tvPopupFriendName=(TextView) findViewById(R.id.tv_popup_friend_name);
 		liTransparent=(LinearLayout)findViewById(R.id.li_transparent);
 	}
 	private void listener(){
