@@ -32,11 +32,12 @@ import okhttp3.Response;
  * */
 public class MainActivity extends AppCompatActivity {
 
-    private TabLayout tabMain;
+    @BindView(R.id.tab_main) TabLayout tabMain;
+    @BindView(R.id.viewer) ViewPager viewPager;
+
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private FriendListFragment fragment;
-    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,14 +93,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void init(){
-        viewPager =(ViewPager) findViewById(R.id.viewer);
 
-        tabMain=(TabLayout) findViewById(R.id.tab_main);
+      /*  viewPager =(ViewPager) findViewById(R.id.viewer);
+
+        tabMain=(TabLayout) findViewById(R.id.tab_main);*/
 
         tabMain.addTab(tabMain.newTab().setText("친구"));
-
         tabMain.addTab(tabMain.newTab().setText("채팅"));
-
         tabMain.addTab(tabMain.newTab().setText("복원"));
 
     }

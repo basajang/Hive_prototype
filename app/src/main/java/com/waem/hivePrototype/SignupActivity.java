@@ -6,17 +6,26 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * 회원가입 화면 액티비티
  * */
 public class SignupActivity extends AppCompatActivity {
 
-	private Button btnSignup;
-	private EditText etSignupId,etSignupPw,etSignupName;
+	@BindView(R.id.btn_signup) Button btnSignup;
+
+	@BindView(R.id.et_signup_id) EditText etSignupId;
+	@BindView(R.id.et_signup_pw) EditText etSignupPw;
+	@BindView(R.id.et_signup_name) EditText etSignupName;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_signup);
+
+		ButterKnife.bind(this);
 
 		init();
 		listener();
@@ -25,11 +34,11 @@ public class SignupActivity extends AppCompatActivity {
 
 	private void init(){
 
-		etSignupId=(EditText)findViewById(R.id.et_signup_id);
+		/*etSignupId=(EditText)findViewById(R.id.et_signup_id);
 		etSignupPw=(EditText)findViewById(R.id.et_signup_pw);
 		etSignupName=(EditText)findViewById(R.id.et_signup_name);
 
-		btnSignup=(Button)findViewById(R.id.btn_signup);
+		btnSignup=(Button)findViewById(R.id.btn_signup);*/
 
 	}
 

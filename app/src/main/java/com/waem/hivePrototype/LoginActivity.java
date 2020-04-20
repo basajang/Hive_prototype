@@ -7,18 +7,26 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * 로그인 화면 액티비티
  * */
 public class LoginActivity extends AppCompatActivity {
 
-	private EditText etLoginId,etLoginPw;
-	private TextView tvLoginSignup;
-	private Button btnLogin;
+	@BindView(R.id.et_login_id) EditText etLoginId;
+	@BindView(R.id.et_login_pw) EditText etLoginPw;
+
+	@BindView(R.id.btn_login) Button btnLogin;
+	@BindView(R.id.tv_login_signup) TextView tvLoginSignup;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+
+		ButterKnife.bind(this);
 
 		init();
 		listener();
@@ -26,12 +34,12 @@ public class LoginActivity extends AppCompatActivity {
 	}
 	private void init(){
 
-		etLoginId=(EditText)findViewById(R.id.et_login_id);
+	/*	etLoginId=(EditText)findViewById(R.id.et_login_id);
 		etLoginPw=(EditText)findViewById(R.id.et_login_pw);
 
 		tvLoginSignup=(TextView) findViewById(R.id.tv_login_signup);
 
-		btnLogin=(Button) findViewById(R.id.btn_login);
+		btnLogin=(Button) findViewById(R.id.btn_login);*/
 
 	}
 	private void listener(){
