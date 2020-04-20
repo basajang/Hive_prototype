@@ -6,9 +6,12 @@ import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 
 import com.google.android.material.tabs.TabLayout;
+import com.waem.hivePrototype.peopleList.fragment.FriendListFragment;
 import com.waem.hivePrototype.util.requestHelper.HttpTask;
 import com.waem.ndklib.NativeWrapper;
 
@@ -25,15 +28,23 @@ import okhttp3.Response;
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout tabMain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ButterKnife.bind(this);
 
         NativeWrapper wrapper = new NativeWrapper();
         wrapper.nativeSum(10, 20);
 
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        FriendListFragment fragment = new FriendListFragment();
+        fragmentTransaction.add(R.id.viewer, fragment);
+        fragmentTransaction.commit();
 
 //        Map<String, String> map = new HashMap<>();
 //        map.put("key", "val");
