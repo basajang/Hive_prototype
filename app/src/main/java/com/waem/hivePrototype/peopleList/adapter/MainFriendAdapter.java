@@ -1,5 +1,7 @@
 package com.waem.hivePrototype.peopleList.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.waem.hivePrototype.PopupFriendActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.peopleList.vo.People;
 
@@ -14,18 +17,20 @@ import java.util.ArrayList;
 
 public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.FriendViewHolder>  {
 	private ArrayList<People> friendList;
+	private Context context=null;
 	// Provide a reference to the views for each data item
 	// Complex data items may need more than one view per item, and
 	// you provide access to all the views for a data item in a view holder
 	public static class FriendViewHolder extends RecyclerView.ViewHolder {
 		// each data item is just a string in this case
 
-		public TextView uname;
+		public TextView tvFriendName;
 
 		public FriendViewHolder(View v) {
 
 			super(v);
-			uname = (TextView) v.findViewById(R.id.tv_friend_name);
+			tvFriendName = (TextView) v.findViewById(R.id.tv_friend_name);
+
 
 		}
 	}
@@ -45,6 +50,7 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 		View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_friendlist_item, parent, false);
 
 		FriendViewHolder fvh = new FriendViewHolder(v);
+		context=parent.getContext();
 		return fvh;
 	}
 
@@ -56,8 +62,12 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 	public void onBindViewHolder(FriendViewHolder holder, int position) {
 		// - get element from your dataset at this position
 		// - replace the contents of the view with that element
-		holder.uname.setText(friendList.get(position).getName());
+		holder.tvFriendName.setText(friendList.get(position).getName());
 
+		holder.tvFriendName.setOnClickListener(view -> {
+			Intent intent =new Intent(context, PopupFriendActivity.class);
+			context.startActivity(intent);
+		});
 	}
 
 	// Return the size of your dataset (invoked by the layout manager)
