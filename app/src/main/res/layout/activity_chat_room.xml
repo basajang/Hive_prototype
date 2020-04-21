@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/chat_title"
+        android:id="@+id/rl_chatroom_title"
         android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -13,7 +13,7 @@
         android:gravity="bottom"
         android:layout_marginEnd="10dp">
         <LinearLayout
-            android:id="@+id/ln_chatroom_back"
+            android:id="@+id/li_chatroom_back"
 
             android:layout_width="40dp"
             android:gravity="center"
@@ -37,8 +37,7 @@
             android:text="단체 톡"/>
 
         <LinearLayout
-            android:id="@+id/ln_chatroom_menu"
-
+            android:id="@+id/li_chatroom_menu"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:gravity="center"

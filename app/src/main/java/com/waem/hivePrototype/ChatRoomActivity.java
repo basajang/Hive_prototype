@@ -1,12 +1,18 @@
 package com.waem.hivePrototype;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ChatRoomActivity extends AppCompatActivity {
+
+	@BindView(R.id.li_chatroom_back) LinearLayout liChatroomBack;
+	@BindView(R.id.li_chatroom_menu) LinearLayout liChatroomMenu;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,6 +28,16 @@ public class ChatRoomActivity extends AppCompatActivity {
 
 	}
 	private void listener(){
+		liChatroomBack.setOnClickListener(view -> {
 
+			finish();
+
+		});
+		liChatroomMenu.setOnClickListener(view -> {
+
+			Intent intent =new Intent(ChatRoomActivity.this,ChatRoomMenuActivity.class);
+			startActivity(intent);
+
+		});
 	}
 }
