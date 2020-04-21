@@ -1,4 +1,4 @@
-package com.waem.hivePrototype.util.requestHelper;
+package com.waem.hivePrototype.util.requestHelper.Request;
 
 import android.util.Log;
 
@@ -7,17 +7,17 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class GetRequestInterface {
+public class GetRequest {
 
     private OkHttpClient okHttpClient;
     private Request request;
     private String TAG = "HttpTask";
 
-    public GetRequestInterface(OkHttpClient okHttpClient) {
+    public GetRequest(OkHttpClient okHttpClient) {
         this.okHttpClient = okHttpClient;
     }
 
-    protected GetRequestInterface setRequest(Request request) {
+    protected GetRequest setRequest(Request request) {
         this.request = request;
         return this;
     }

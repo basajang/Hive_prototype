@@ -1,4 +1,4 @@
-package com.waem.hivePrototype.util.requestHelper;
+package com.waem.hivePrototype.util.requestHelper.Request;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,39 +8,39 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
-public class PostRequestInterface  {
+public class PostRequest {
 
     private OkHttpClient okHttpClient;
     private Request request;
     private Map<String, String> map = new HashMap<>();
     private String url;
 
-    public PostRequestInterface(OkHttpClient okHttpClient) {
+    public PostRequest(OkHttpClient okHttpClient) {
         this.okHttpClient = okHttpClient;
     }
 
-    protected PostRequestInterface setUrl(String url) {
+    protected PostRequest setUrl(String url) {
         this.url = url;
         return this;
     }
 
 
-    public PostRequestInterface addParam(String key, String value){
+    public PostRequest addParam(String key, String value){
         map.put(key, value);
         return this;
     }
 
 
-    public GetRequestInterface Build(){
+    public GetRequest Build(){
 
-        GetRequestInterface getRequestInterface = new GetRequestInterface(okHttpClient);
+        GetRequest getRequest = new GetRequest(okHttpClient);
 
-        getRequestInterface.setRequest(new Request.Builder()
+        getRequest.setRequest(new Request.Builder()
 //                    .addHeader("x-api-key", RestTestCommon.API_KEY)
                 .url(url)
                 .post(RequestBody.create(MediaType.parse("application/json"), map.toString()))
                 .build());
-        return getRequestInterface;
+        return getRequest;
     }
 
 

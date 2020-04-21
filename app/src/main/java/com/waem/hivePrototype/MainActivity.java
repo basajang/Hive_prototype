@@ -3,20 +3,20 @@ package com.waem.hivePrototype;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.google.android.material.tabs.TabLayout;
-import com.waem.hivePrototype.util.requestHelper.HttpTask;
+import com.waem.hivePrototype.util.requestHelper.Request.HttpTask;
+import com.waem.hivePrototype.util.requestHelper.Request.file.UIProgressRequestListener;
+import com.waem.hivePrototype.util.requestHelper.Request.file.UIProgressResponseListener;
 import com.waem.ndklib.NativeWrapper;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        // ndk 샘플 실행
         NativeWrapper wrapper = new NativeWrapper();
         wrapper.nativeSum(10, 20);
 
@@ -52,7 +53,14 @@ public class MainActivity extends AppCompatActivity {
 //        });
         Log.d(Constants.TAG, "onCreate: ");
         new HttpTask().get(Constants.APIURL).execute();
-     /*   new HttpTask().post("asdf").addParam("key", "val").Build().enqueue(new Callback() {
+
+        // 파일 다운로드 샘플
+        new HttpTask().fileDownload("http://www.google.co.kr/").download(new UIProgressResponseListener() {
+            @Override
+            public void onUIResponseProgress(long bytesRead, long contentLength, boolean done) {
+                Log.d(Constants.TAG, "onUIResponseProgress: "+bytesRead);
+            }
+        }).enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
 
@@ -62,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
 
             }
-        });*/
-        //new HttpTask().post("http://www.google.co.kr/").addParam("key", "Value").addParam("key", "Value").Build().execute();
+        });
+
         init();
         listener();
     }
