@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,10 +24,10 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 	private ArrayList<ChatRoom> chatRooms;
 	private ArrayList<Message> messages;
 
-	public ChatRoomAdapter(ArrayList<ChatRoom> myDataset, ArrayList<Message> messages) {
+	public ChatRoomAdapter(ArrayList<Message> messages) {
 
-		this.chatRooms = myDataset;
 		this.messages= messages;
+
 	}
 
 	@NonNull
@@ -42,7 +43,7 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 			view = inflater.inflate(R.layout.recyclerview_my_chatting_item,parent,false);
 			return new MyViewHolder(view);
 
-		}else if(false){
+		}else if(true){
 
 			view = inflater.inflate(R.layout.recyclerview_user_chatting_item,parent,false);
 			return new UserViewHolder(view);
@@ -57,12 +58,12 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 		if(holder instanceof MyViewHolder){
 
-			//((MyViewHolder) holder).messageList.set();
+			((MyViewHolder) holder).tvMyChatting.setText(messages.get(position).getText());
 
 		}else if(holder instanceof UserViewHolder){
 
-		/*	((UserViewHolder) holder).senderId.setText(myDataList.get(position).getName());
-			((UserViewHolder) holder).content.setText(myDataList.get(position).getContent());*/
+			((UserViewHolder) holder).tvUserName.setText(messages.get(position).getSenderId());
+			((UserViewHolder) holder).tvUserSetting.setText(messages.get(position).getText());
 
 		}
 
@@ -71,18 +72,18 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 	@Override
 	public int getItemCount() {
 
-		return chatRooms.size();
+		return messages.size();
 
 	}
 
 	public class MyViewHolder extends RecyclerView.ViewHolder{
 
-		private List<Message> messageList ;
+		TextView tvMyChatting;
 
 		public MyViewHolder(@NonNull View itemView) {
 
 			super(itemView);
-			messageList = itemView.findViewById(R.id.tv_my_chatting);
+			tvMyChatting =(TextView) itemView.findViewById(R.id.tv_my_chatting);
 
 		}
 
@@ -90,8 +91,14 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 	public class UserViewHolder extends RecyclerView.ViewHolder{
 
+		TextView tvUserName,tvUserSetting;
+
 		public UserViewHolder(@NonNull View itemView) {
+
 			super(itemView);
+			tvUserName=(TextView)itemView.findViewById(R.id.tv_user_name);
+			tvUserSetting=(TextView)itemView.findViewById(R.id.tv_user_chatting);
+
 		}
 
 	}

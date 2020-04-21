@@ -12,7 +12,7 @@ public class Message {
     // 파일 타입일 경우 fileType. filePath  반드시 필요
     private FileType fileType;
     private String filepath = "";
-
+    private String text ="";
     private String senderTime;
     private boolean read = false;
     private boolean delete = false;
@@ -20,12 +20,13 @@ public class Message {
     public Message() {
     }
 
-    public Message(String id, String senderId, boolean messageType, FileType fileType, String filepath, String senderTime, boolean read, boolean delete) {
+    public Message(String id, String senderId, boolean messageType, FileType fileType, String filepath,String text, String senderTime, boolean read, boolean delete) {
         this.id = id;
         this.senderId = senderId;
         this.messageType = messageType;
         this.fileType = fileType;
         this.filepath = filepath;
+        this.text=text;
         this.senderTime = senderTime;
         this.read = read;
         this.delete = delete;
@@ -71,6 +72,14 @@ public class Message {
         this.filepath = filepath;
     }
 
+    public String getText(){
+        return text;
+    }
+
+    public void setText(String text){
+        this.text=text;
+    }
+
     public String getSenderTime() {
         return senderTime;
     }
@@ -103,6 +112,7 @@ public class Message {
                 ", messageType=" + messageType +
                 ", fileType=" + fileType +
                 ", filepath='" + filepath + '\'' +
+                ", text='" + text + '\'' +
                 ", senderTime='" + senderTime + '\'' +
                 ", read=" + read +
                 ", delete=" + delete +
