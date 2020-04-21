@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/chat_title"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:gravity="bottom"
+        android:layout_marginEnd="10dp">
+        <LinearLayout
+            android:id="@+id/ln_chatroom_back"
+
+            android:layout_width="40dp"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_alignParentBottom="true"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="22dp"
+                android:background="@drawable/back2"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_chatroom_name"
+
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorBlack"
+            android:text="단체 톡"/>
+
+        <LinearLayout
+            android:id="@+id/ln_chatroom_menu"
+
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="24dp"
+                android:background="@drawable/listup"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chat_room"
+        android:overScrollMode="never"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/chatplus"
+            android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/chatcamera"
+            android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/chatpicture"
+            android:layout_gravity="center"/>
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/chatting_edit_round"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/emoticon"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</LinearLayout>
