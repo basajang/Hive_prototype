@@ -7,6 +7,7 @@ import java.util.Date;
 public class People {
 
     @NotNull
+    /*사용자 아이디*/
     private String id = "";
     @NotNull
     private String name = "";
