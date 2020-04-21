@@ -21,17 +21,18 @@ public static OkHttpClient addProgressResponseListener(OkHttpClient client, fina
          //cloning
     OkHttpClient clone = (OkHttpClient) client.clone();
          // Increase the interceptor
-    clone.networkInterceptors().add(new Interceptor() {
+    clone.newBuilder().addNetworkInterceptor(new Interceptor() {
         @Override
         public Response intercept(Chain chain) throws IOException {
-                         // interception
+            // interception
             Response originalResponse = chain.proceed(chain.request());
-                         //Pack the response body and return
+            //Pack the response body and return
             return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
         }
     });
+
     return clone;
 }
  

@@ -2,11 +2,23 @@ package com.waem.hivePrototype;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.waem.hivePrototype.util.requestHelper.Request.HttpTask;
+import com.waem.hivePrototype.util.requestHelper.Request.file.UIProgressResponseListener;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,6 +32,37 @@ public class LoginActivity extends AppCompatActivity {
 
 		init();
 		listener();
+
+		// 테스트 코드
+//		LoginActivity.this.runOnUiThread(new Runnable() {
+//			@Override
+//			public void run() {
+//				new HttpTask().fileDownload("https://www.google.co.kr/logos/doodles/2020/stay-home-save-lives-april-20-copy-6753651837108785-law.gif").download(new UIProgressResponseListener() {
+//					@Override
+//					public void onUIResponseProgress(long bytesRead, long contentLength, boolean done) {
+//						Log.d(Constants.TAG, "onUIResponseProgress: "+bytesRead);
+//					}
+//				}).enqueue(new Callback() {
+//					@Override
+//					public void onFailure(@NotNull Call call, @NotNull IOException e) {
+//						Log.d(Constants.TAG, "onFailure: "+call.request().body());
+//						try {
+//							Log.d(Constants.TAG, "onFailure: "+call.execute().body());
+//
+//						} catch (IOException ex) {
+//							ex.printStackTrace();
+//						}
+//					}
+//
+//					@Override
+//					public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+//						Log.d(Constants.TAG, "onResponse: "+response.body());
+//					}
+//				});
+//			}
+//		});
+		// 테스트 코드
+
 	}
 	private void init(){
 		etLoginId=(EditText)findViewById(R.id.et_login_id);
