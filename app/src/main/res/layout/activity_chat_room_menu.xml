@@ -28,6 +28,7 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
                 android:text="복원 기록"/>
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
