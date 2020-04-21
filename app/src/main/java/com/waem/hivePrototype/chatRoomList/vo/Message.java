@@ -5,7 +5,8 @@ import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
 public class Message {
 
     private String id;
-    //senderId가 사용자 ID와 같을 경우 본인
+
+    /*senderId가 사용자 아이디랑 같으면 자기 메시지*/
     private String senderId;
     // true 일 경우 텍스트 메세지 이외 전부 파일 타입
     private boolean messageType = true;

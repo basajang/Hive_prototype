@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical">
     <!--친구목록 프래그먼트-->
     <ScrollView
@@ -46,14 +45,15 @@
                         android:src="@drawable/listup"/>
 
                 </RelativeLayout>
+                <!--즐겨찾기 리사이클러뷰 -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_main_friend_favorite_list"
                     android:overScrollMode="never"
                     android:layout_below="@+id/rl_friend_favorite_text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"/>
 
-                </androidx.recyclerview.widget.RecyclerView>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -83,15 +83,14 @@
                         android:layout_height="8dp"
                         android:src="@drawable/listup"/>
                 </RelativeLayout>
-
+                <!--전체 친구 리사이클러뷰 -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_main_friend_list"
                     android:layout_below="@+id/rl_friend_all_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:overScrollMode="never">
+                    android:overScrollMode="never"/>
 
-                </androidx.recyclerview.widget.RecyclerView>
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>

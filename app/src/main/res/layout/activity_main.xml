@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,15 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
+<!--메인화면-->
 
-
-    <FrameLayout android:name="com.waem.hivePrototype.peopleList.fragment.FriendListFragment"
-
+    <!--뷰페이저-->
+    <androidx.viewpager.widget.ViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/viewer"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <android.support.design.widget.TabLayout
+    <!--탭 레이아웃-->
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="65dp">
-    <!--    리사이클러뷰 친구 목록 item-->
-
+    <!--    리사이클러뷰 채팅 목록 item-->
     <LinearLayout
+        android:id="@+id/li_chat"
         android:layout_marginLeft="21dp"
         android:layout_marginRight="21dp"
         android:layout_marginBottom="5dp"
@@ -19,12 +19,13 @@
             android:layout_height="53dp"
             android:src="@drawable/settingprofile"/>
         <TextView
-            android:id="@+id/tv_friend_name"
+            android:id="@+id/tv_chat_name"
             android:layout_gravity="center"
-            android:text="홍길동"
+            android:text="권은비 외 9명"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            />
 
     </LinearLayout>
 

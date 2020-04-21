@@ -8,6 +8,7 @@ public class People {
 
     // 사용자 ID
     @NotNull
+    /*사용자 아이디*/
     private String id = "";
     @NotNull
     private String name = "";
@@ -22,6 +23,7 @@ public class People {
     private boolean Hide = false;
 
     public People() {
+
     }
 
     public People(@NotNull String id, @NotNull String name, String profilePath, String accessToken, String statusMessage, boolean favorites, boolean me, Date lastUpdate, boolean block, boolean hide) {
