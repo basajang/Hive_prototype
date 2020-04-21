@@ -13,7 +13,7 @@ import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.peopleList.vo.People;
 import java.util.ArrayList;
 /**
- * 채팅 리사이클러뷰 어댑터
+ * 채팅리스트 리사이클러뷰 어댑터
  * */
 public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatViewHolder> {
 
