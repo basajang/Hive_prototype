@@ -49,7 +49,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 	}
 	private void init(){
 		rvChatRoom=(RecyclerView) findViewById(R.id.rv_chat_room);
-
+        fileType = FileType.IMAGE;
 		Message message1 = new Message("1","qwer",true,fileType,"1","안녕하신가?","123",false,false);
 		Message message2 = new Message("2","q",true,fileType,"1","오! 그래 안녕하신가?","123",false,false);
 

@@ -12,14 +12,18 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
+import com.waem.hivePrototype.chatRoomList.vo.Message;
 import com.waem.hivePrototype.util.requestHelper.Request.CallbackToDownloadFile;
 import com.waem.hivePrototype.util.requestHelper.Request.HttpTask;
 import com.waem.hivePrototype.util.requestHelper.Request.file.UIProgressResponseListener;
 
 import java.io.File;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 /**
  * 로그인 화면 액티비티
@@ -44,9 +48,28 @@ public class LoginActivity extends AppCompatActivity {
 		listener();
 
 		// 테스트 코드
+		Realm.init(this);
+		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(1).build();
+		Realm realm = Realm.getDefaultInstance();
 
-		ChatRoom chatRoom = new ChatRoom();
-		chatRoom.setRoomId("0");
+
+
+		realm.executeTransaction(new Realm.Transaction() {
+			@Override
+			public void execute(Realm realm) {
+				ChatRoom chatRoom = new ChatRoom();
+				chatRoom.getRoomId();
+				chatRoom.setRoomName("썩어질");
+				realm.copyToRealmOrUpdate(chatRoom);
+			}
+		});
+
+		List<ChatRoom> chatRooms =  realm.where(ChatRoom.class).findAll();
+		for(ChatRoom room : chatRooms){
+			Log.d(Constants.TAG, "onCreate: room"+room);
+		}
+
+
 
         new HttpTask().fileDownload("https://www.google.co.kr/logos/doodles/2020/stay-home-save-lives-april-20-copy-6753651837108785-law.gif")
 				.download(new UIProgressResponseListener() {
@@ -54,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onUIResponseProgress(long bytesRead, long contentLength, boolean done) {
                 Log.d(Constants.TAG, "onUIResponseProgress: " + bytesRead);
             }
-        }).enqueue(new CallbackToDownloadFile(ConfigureManager.getInstance().getImageDir(chatRoom), "stay-home-save-lives-april-20-copy-6753651837108785-law.gif") );
+        }).enqueue(new CallbackToDownloadFile(ConfigureManager.getInstance().getImageDir(chatRooms.get(chatRooms.size()-1)), "stay-home-save-lives-april-20-copy-6753651837108785-law.gif") );
 
 		// 테스트 코드
 

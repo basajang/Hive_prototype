@@ -4,20 +4,26 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-public class ChatRoom {
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class ChatRoom extends RealmObject {
 
     @NotNull
-    private String roomId;
+    @PrimaryKey
+    private String roomId = UUID.randomUUID().toString();
     @NotNull
     private String roomName;
     // 채팅방 리스트에 출력될 사용자들 프로필 사진의 list
-    private List<String> roomProfilePath = new ArrayList<>();
+    private RealmList<String> roomProfilePath = new RealmList<>();
 
-    private List<Message> messageList = new ArrayList<>();
+    private RealmList<Message> messageList;
 
     // 채팅방 파일 리스트  추후 변경 가능
-    private List<RoomFile> fileList = new ArrayList<>();
+    private RealmList<RoomFile> fileList;
     @NotNull
     private String wallpapers = "";
     private boolean favorites = false;
@@ -39,8 +45,7 @@ public class ChatRoom {
     public ChatRoom() {
     }
 
-    public ChatRoom(@NotNull String roomId, @NotNull String roomName, List<String> roomProfilePath, List<Message> messageList, List<RoomFile> fileList, @NotNull String wallpapers, boolean favorites, boolean divisionMessage, boolean divisionImage, boolean divisionMovie, boolean divisionFile, int securityStrength, int blindType, int blindTime, boolean noti) {
-        this.roomId = roomId;
+    public ChatRoom(@NotNull String roomName, RealmList<String> roomProfilePath, RealmList<Message> messageList, RealmList<RoomFile> fileList, @NotNull String wallpapers, boolean favorites, boolean divisionMessage, boolean divisionImage, boolean divisionMovie, boolean divisionFile, int securityStrength, int blindType, int blindTime, boolean noti) {
         this.roomName = roomName;
         this.roomProfilePath = roomProfilePath;
         this.messageList = messageList;
@@ -62,10 +67,6 @@ public class ChatRoom {
         return roomId;
     }
 
-    public void setRoomId(@NotNull String roomId) {
-        this.roomId = roomId;
-    }
-
     @NotNull
     public String getRoomName() {
         return roomName;
@@ -79,23 +80,23 @@ public class ChatRoom {
         return roomProfilePath;
     }
 
-    public void setRoomProfilePath(List<String> roomProfilePath) {
+    public void setRoomProfilePath(RealmList<String> roomProfilePath) {
         this.roomProfilePath = roomProfilePath;
     }
 
-    public List<Message> getMessageList() {
+    public RealmList<Message> getMessageList() {
         return messageList;
     }
 
-    public void setMessageList(List<Message> messageList) {
+    public void setMessageList(RealmList<Message> messageList) {
         this.messageList = messageList;
     }
 
-    public List<RoomFile> getFileList() {
+    public RealmList<RoomFile> getFileList() {
         return fileList;
     }
 
-    public void setFileList(List<RoomFile> fileList) {
+    public void setFileList(RealmList<RoomFile> fileList) {
         this.fileList = fileList;
     }
 

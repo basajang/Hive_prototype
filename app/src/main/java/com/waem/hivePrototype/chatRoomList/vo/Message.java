@@ -2,7 +2,10 @@ package com.waem.hivePrototype.chatRoomList.vo;
 
 import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
 
-public class Message {
+
+import io.realm.RealmObject;
+
+public class Message extends RealmObject {
 
     private String id;
 
@@ -11,7 +14,7 @@ public class Message {
     // true 일 경우 텍스트 메세지 이외 전부 파일 타입
     private boolean messageType = true;
     // 파일 타입일 경우 fileType. filePath  반드시 필요
-    private FileType fileType;
+    private String fileType;
     private String filepath = "";
 
     private String text ="";
@@ -27,7 +30,7 @@ public class Message {
         this.id = id;
         this.senderId = senderId;
         this.messageType = messageType;
-        this.fileType = fileType;
+        this.fileType = fileType.toString();
         this.filepath = filepath;
         this.text=text;
         this.senderTime = senderTime;
@@ -61,11 +64,11 @@ public class Message {
     }
 
     public FileType getFileType() {
-        return fileType;
+        return FileType.valueOf(fileType);
     }
 
     public void setFileType(FileType fileType) {
-        this.fileType = fileType;
+        this.fileType = fileType.toString();
     }
 
     public String getFilepath() {

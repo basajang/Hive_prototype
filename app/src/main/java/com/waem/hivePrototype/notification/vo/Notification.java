@@ -5,17 +5,22 @@ import com.waem.hivePrototype.notification.notiEnum.NotiType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
+import java.util.UUID;
+
+import io.realm.annotations.PrimaryKey;
 
 public class Notification {
 
-    private String id;
+    @PrimaryKey
+    private String id = UUID.randomUUID().toString();
+
     private String title;
     private String userId;
     private String userName;
     private String profilePath = "";
     private Date updateTime;
     @NotNull
-    private NotiType notiType = NotiType.MESSAGE;
+    private String notiType;
 
     private boolean read = false;
 
@@ -29,7 +34,7 @@ public class Notification {
         this.userName = userName;
         this.profilePath = profilePath;
         this.updateTime = updateTime;
-        this.notiType = notiType;
+        this.notiType = notiType.toString();
         this.read = read;
     }
 
@@ -83,11 +88,11 @@ public class Notification {
 
     @NotNull
     public NotiType getNotiType() {
-        return notiType;
+        return NotiType.valueOf(notiType);
     }
 
     public void setNotiType(@NotNull NotiType notiType) {
-        this.notiType = notiType;
+        this.notiType = notiType.toString();
     }
 
     public boolean isRead() {
