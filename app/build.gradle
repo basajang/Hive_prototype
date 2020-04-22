@@ -65,14 +65,14 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     // 버터 나이프
 
+
 }
 configurations.all {
     resolutionStrategy.eachDependency { DependencyResolveDetails details ->
         def requested = details.requested
-        if (requested.group == "androidx.appcompat") {
+        if (requested.group == "androidx") {
             if (!requested.name.startsWith("multidex")) {
-                details.useVersion "1.+"
+                details.useVersion "${targetSdk}.+"
             }
         }
-    }
-}
+    }}
