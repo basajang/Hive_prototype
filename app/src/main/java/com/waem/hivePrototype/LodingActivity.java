@@ -56,7 +56,7 @@ public class LodingActivity extends Activity {
 
 	}
 	/**
-	 로딩 화면 1초동안 나오게 하는 함수
+	 로딩 화면 2초동안 나오게 하는 함수
 	 */
 	private void startLoading() {
 
