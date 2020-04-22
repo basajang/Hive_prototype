@@ -2,10 +2,13 @@ package com.waem.hivePrototype.chatRoomList.vo;
 
 import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
 
-public class RoomFile {
+import io.realm.RealmModel;
+import io.realm.RealmObject;
+
+public class RoomFile extends RealmObject  {
     private String id;
     private String filePath;
-    private FileType fileType;
+    private String fileType;
     private boolean division = true;
 
     public RoomFile() {
@@ -14,7 +17,7 @@ public class RoomFile {
     public RoomFile(String id, String filePath, FileType fileType, boolean division) {
         this.id = id;
         this.filePath = filePath;
-        this.fileType = fileType;
+        this.fileType = fileType.toString();
         this.division = division;
     }
 
@@ -35,11 +38,11 @@ public class RoomFile {
     }
 
     public FileType getFileType() {
-        return fileType;
+        return FileType.valueOf(fileType);
     }
 
     public void setFileType(FileType fileType) {
-        this.fileType = fileType;
+        this.fileType = fileType.toString();
     }
 
     public boolean isDivision() {
