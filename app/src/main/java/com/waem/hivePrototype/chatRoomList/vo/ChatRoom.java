@@ -1,5 +1,7 @@
 package com.waem.hivePrototype.chatRoomList.vo;
 
+import com.waem.hivePrototype.peopleList.vo.People;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -24,6 +26,8 @@ public class ChatRoom extends RealmObject {
 
     // 채팅방 파일 리스트  추후 변경 가능
     private RealmList<RoomFile> fileList;
+
+    private RealmList<People> peopleList;
     @NotNull
     private String wallpapers = "";
     private boolean favorites = false;

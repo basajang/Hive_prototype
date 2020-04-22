@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.waem.hivePrototype.chatRoomList.adapter.ChatRoomAdapter;
 import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
+import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.chatRoomList.vo.Message;
 import com.waem.hivePrototype.peopleList.adapter.MainFriendAdapter;
 
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Realm;
 
 public class ChatRoomActivity extends AppCompatActivity {
 
@@ -51,12 +53,17 @@ public class ChatRoomActivity extends AppCompatActivity {
 		rvChatRoom=(RecyclerView) findViewById(R.id.rv_chat_room);
 
         fileType = FileType.IMAGE;
-		Message message1 = new Message("1","qwer",true,fileType,"1","안녕하신가?","123",false,false,0);
-		Message message2 = new Message("2","q",true,fileType,"1","오! 그래 안녕하신가?","123",false,false,1);
 
+		Realm realm = Realm.getDefaultInstance();
+		ChatRoom chatRoom = realm.where(ChatRoom.class).equalTo("roomId", "0c91e078-f1f7-4b1a-af34-5e6893b85652").findFirst();
+		if(chatRoom != null ){
+			Message message1 = new Message("1", chatRoom.getRoomId(),"qwer",true,fileType,"1","안녕하신가?","123",false,false,0);
+			Message message2 = new Message("2", chatRoom.getRoomId(),"q",true,fileType,"1","오! 그래 안녕하신가?","123",false,false,1);
 
-		messages.add(message1);
-		messages.add(message2);
+			messages.add(message1);
+			messages.add(message2);
+		}
+
 	}
 	private void listener(){
 

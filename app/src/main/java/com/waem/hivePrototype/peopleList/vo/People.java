@@ -4,7 +4,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 
-public class People {
+import io.realm.RealmObject;
+
+public class People extends RealmObject {
 
     // 사용자 ID
     @NotNull

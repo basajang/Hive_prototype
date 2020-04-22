@@ -16,6 +16,13 @@ import com.gun0912.tedpermission.TedPermission;
 
 import java.util.ArrayList;
 
+import io.realm.DynamicRealm;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmMigration;
+import io.realm.RealmObjectSchema;
+import io.realm.RealmSchema;
+
 /**
  * 로딩 화면 클래스
  * */
@@ -52,6 +59,23 @@ public class LodingActivity extends Activity {
 				.check();
 
 		ConfigureManager.getInstance().checkExternalStorage();
+        Realm.init(getApplicationContext());
+		// realm DB 설정 참고 https://black-jin0427.tistory.com/98
+		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(1).migration(new RealmMigration() {
+			@Override
+			public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
+				RealmSchema realmSchema = realm.getSchema();
+
+				if(oldVersion == 1){
+					RealmObjectSchema realmObjectSchema = realmSchema.get("Message");
+					realmObjectSchema.addField("roomId", String.class, null);
+				}
+
+
+			}
+		}).build();
+
+
 		startLoading();
 
 	}
