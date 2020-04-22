@@ -5,6 +5,7 @@ import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
 public class Message {
 
     private String id;
+
     /*senderId가 사용자 아이디랑 같으면 자기 메시지*/
     private String senderId;
     // true 일 경우 텍스트 메세지 이외 전부 파일 타입
@@ -12,7 +13,9 @@ public class Message {
     // 파일 타입일 경우 fileType. filePath  반드시 필요
     private FileType fileType;
     private String filepath = "";
+
     private String text ="";
+
     private String senderTime;
     private boolean read = false;
     private boolean delete = false;
@@ -28,6 +31,7 @@ public class Message {
         this.filepath = filepath;
         this.text=text;
         this.senderTime = senderTime;
+        this.text = text;
         this.read = read;
         this.delete = delete;
     }
@@ -72,20 +76,20 @@ public class Message {
         this.filepath = filepath;
     }
 
-    public String getText(){
-        return text;
-    }
-
-    public void setText(String text){
-        this.text=text;
-    }
-
     public String getSenderTime() {
         return senderTime;
     }
 
     public void setSenderTime(String senderTime) {
         this.senderTime = senderTime;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public boolean isRead() {
@@ -114,6 +118,7 @@ public class Message {
                 ", filepath='" + filepath + '\'' +
                 ", text='" + text + '\'' +
                 ", senderTime='" + senderTime + '\'' +
+                ", text='" + text + '\'' +
                 ", read=" + read +
                 ", delete=" + delete +
                 '}';

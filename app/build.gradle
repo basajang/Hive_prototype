@@ -44,13 +44,17 @@ dependencies {
     // For control over item selection of both touch and mouse driven selection
 
 
+    //권 한
+    implementation 'gun0912.ted:tedpermission:2.0.0'
+
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // 통신
     implementation("com.squareup.okhttp3:okhttp:4.5.0")
-
+    implementation 'org.conscrypt:conscrypt-android:2.2.1'
 
     // 샘플 ndk 추가
     implementation project(path: ':ndklib')
