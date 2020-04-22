@@ -9,6 +9,7 @@ public class Message extends RealmObject {
 
     private String id;
 
+    private String roomId;
     /*senderId가 사용자 아이디랑 같으면 자기 메시지*/
     private String senderId;
     // true 일 경우 텍스트 메세지 이외 전부 파일 타입
@@ -26,8 +27,9 @@ public class Message extends RealmObject {
     public Message() {
     }
 
-    public Message(String id, String senderId, boolean messageType, FileType fileType, String filepath,String text, String senderTime, boolean read, boolean delete) {
+    public Message(String id, String roomId, String senderId, boolean messageType, FileType fileType, String filepath,String text, String senderTime, boolean read, boolean delete) {
         this.id = id;
+        this.roomId = roomId;
         this.senderId = senderId;
         this.messageType = messageType;
         this.fileType = fileType.toString();
@@ -45,6 +47,15 @@ public class Message extends RealmObject {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+
+    public String getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 
     public String getSenderId() {

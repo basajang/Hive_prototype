@@ -48,22 +48,22 @@ public class LoginActivity extends AppCompatActivity {
 		listener();
 
 		// 테스트 코드
-		Realm.init(this);
-		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(1).build();
+
 		Realm realm = Realm.getDefaultInstance();
 
 
 
-		realm.executeTransaction(new Realm.Transaction() {
-			@Override
-			public void execute(Realm realm) {
-				ChatRoom chatRoom = new ChatRoom();
-				chatRoom.getRoomId();
-				chatRoom.setRoomName("썩어질");
-				realm.copyToRealmOrUpdate(chatRoom);
-			}
-		});
-
+		if(realm.where(ChatRoom.class).count() == 0){
+			realm.executeTransaction(new Realm.Transaction() {
+				@Override
+				public void execute(Realm realm) {
+					ChatRoom chatRoom = new ChatRoom();
+					chatRoom.getRoomId();
+					chatRoom.setRoomName("썩어질");
+					realm.copyToRealmOrUpdate(chatRoom);
+				}
+			});
+		}
 		List<ChatRoom> chatRooms =  realm.where(ChatRoom.class).findAll();
 		for(ChatRoom room : chatRooms){
 			Log.d(Constants.TAG, "onCreate: room"+room);
