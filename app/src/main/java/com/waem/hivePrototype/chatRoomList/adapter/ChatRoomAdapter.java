@@ -24,10 +24,12 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 	private ArrayList<ChatRoom> chatRooms;
 	private ArrayList<Message> messages;
 	private Context context;
+	public static final int VIEW_TYPE_A = 0;
+	public static final int VIEW_TYPE_B = 1;
+
 	public ChatRoomAdapter(ArrayList<Message> messages) {
 
 		this.messages = messages;
-
 
 	}
 
@@ -41,20 +43,18 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 		//senderId가 (People)사용자 아이디랑 같으면 자기 메세지
 
-		if(messages.get(1).toString()=="a"){
+		if(viewType==VIEW_TYPE_A){
 
 			//	자기 메시지 item
 			view = inflater.inflate(R.layout.recyclerview_my_chatting_item,parent,false);
 			return new MyViewHolder(view);
 
-		}else if(messages.get(1).toString()=="b"){
+		}else{
 
 			//	다른 유저 메시지 item
 			view = inflater.inflate(R.layout.recyclerview_user_chatting_item,parent,false);
 			return new UserViewHolder(view);
 
-		}else {
-			return null;
 		}
 
 	}
@@ -84,7 +84,12 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 	@Override
 	public int getItemViewType(int position) {
-		return super.getItemViewType(position);
+		if(messages.get(position).getItemViewType()==0){
+			return VIEW_TYPE_A;
+		}else {
+			return VIEW_TYPE_B;
+		}
+
 	}
 
 	public class MyViewHolder extends RecyclerView.ViewHolder{

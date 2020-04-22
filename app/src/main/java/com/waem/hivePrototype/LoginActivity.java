@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
 		List<ChatRoom> chatRooms =  realm.where(ChatRoom.class).findAll();
 		for(ChatRoom room : chatRooms){
-			Log.d(Constants.TAG, "onCreate: room"+room);
+			Log.d(Constants.TAG, "onCreate: room "+room);
 		}
 
 

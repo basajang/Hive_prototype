@@ -23,10 +23,13 @@ public class Message extends RealmObject {
     private boolean read = false;
     private boolean delete = false;
 
+    /*테스트용 */
+    private int itemViewType;
+
     public Message() {
     }
 
-    public Message(String id, String senderId, boolean messageType, FileType fileType, String filepath,String text, String senderTime, boolean read, boolean delete) {
+    public Message(String id, String senderId, boolean messageType, FileType fileType, String filepath,String text, String senderTime, boolean read, boolean delete, int itemViewType) {
         this.id = id;
         this.senderId = senderId;
         this.messageType = messageType;
@@ -37,6 +40,7 @@ public class Message extends RealmObject {
         this.text = text;
         this.read = read;
         this.delete = delete;
+        this.itemViewType= itemViewType;
     }
 
     public String getId() {
@@ -111,6 +115,13 @@ public class Message extends RealmObject {
         this.delete = delete;
     }
 
+    public int getItemViewType() {
+        return itemViewType;
+    }
+
+    public void setItemViewType(int itemViewType) {
+        this.itemViewType = itemViewType;
+    }
     @Override
     public String toString() {
         return "Message{" +
@@ -124,6 +135,7 @@ public class Message extends RealmObject {
                 ", text='" + text + '\'' +
                 ", read=" + read +
                 ", delete=" + delete +
+                ", itemViewType=" + itemViewType +
                 '}';
     }
 }
