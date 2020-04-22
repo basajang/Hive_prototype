@@ -53,6 +53,7 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 
 	@Override
 	public void onBindViewHolder(@NonNull MainChatAdapter.ChatViewHolder holder, int position) {
+
 		holder.tvChatName.setText(chatRooms.get(position).getRoomName());
 
 		holder.tvChatName.setOnClickListener(view -> {

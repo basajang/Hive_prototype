@@ -30,7 +30,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 	private RecyclerView.LayoutManager layoutManager;
 	private ChatRoomAdapter chatRoomAdapter;
 
-	private FileType fileType;
+	private FileType fileType=null;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,8 +50,8 @@ public class ChatRoomActivity extends AppCompatActivity {
 	private void init(){
 		rvChatRoom=(RecyclerView) findViewById(R.id.rv_chat_room);
 
-		Message message1 = new Message("1","qwer",true,fileType,"1","안녕하신가?","123",false,false);
-		Message message2 = new Message("2","q",true,fileType,"1","오! 그래 안녕하신가?","123",false,false);
+		Message message1 = new Message("1","a",true,fileType,"1","안녕하신가?","123",false,false);
+		Message message2 = new Message("2","b",true,fileType,"1","오! 그래 안녕하신가?","123",false,false);
 
 		messages.add(message1);
 		messages.add(message2);

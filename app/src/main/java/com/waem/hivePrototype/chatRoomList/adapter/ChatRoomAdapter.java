@@ -23,10 +23,11 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 	private ArrayList<ChatRoom> chatRooms;
 	private ArrayList<Message> messages;
-
+	private Context context;
 	public ChatRoomAdapter(ArrayList<Message> messages) {
 
-		this.messages= messages;
+		this.messages = messages;
+
 
 	}
 
@@ -38,19 +39,24 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 		Context context = parent.getContext();
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-		if(true){
+		//senderId가 (People)사용자 아이디랑 같으면 자기 메세지
 
+		if(messages.get(1).toString()=="a"){
+
+			//	자기 메시지 item
 			view = inflater.inflate(R.layout.recyclerview_my_chatting_item,parent,false);
 			return new MyViewHolder(view);
 
-		}else if(true){
+		}else if(messages.get(1).toString()=="b"){
 
+			//	다른 유저 메시지 item
 			view = inflater.inflate(R.layout.recyclerview_user_chatting_item,parent,false);
 			return new UserViewHolder(view);
 
+		}else {
+			return null;
 		}
 
-		return null;
 	}
 
 	@Override
@@ -74,6 +80,11 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 		return messages.size();
 
+	}
+
+	@Override
+	public int getItemViewType(int position) {
+		return super.getItemViewType(position);
 	}
 
 	public class MyViewHolder extends RecyclerView.ViewHolder{
