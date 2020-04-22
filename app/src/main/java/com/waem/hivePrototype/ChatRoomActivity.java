@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,6 +57,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
 		Realm realm = Realm.getDefaultInstance();
 		ChatRoom chatRoom = realm.where(ChatRoom.class).equalTo("roomId", "0c91e078-f1f7-4b1a-af34-5e6893b85652").findFirst();
+		Log.d(Constants.TAG, "init: " + chatRoom);
 		if(chatRoom != null ){
 			Message message1 = new Message("1", chatRoom.getRoomId(),"qwer",true,fileType,"1","안녕하신가?","123",false,false,0);
 			Message message2 = new Message("2", chatRoom.getRoomId(),"q",true,fileType,"1","오! 그래 안녕하신가?","123",false,false,1);

@@ -49,14 +49,14 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 			view = inflater.inflate(R.layout.recyclerview_my_chatting_item,parent,false);
 			return new MyViewHolder(view);
 
-		}else{
+		}else if(viewType==VIEW_TYPE_B){
 
 			//	다른 유저 메시지 item
 			view = inflater.inflate(R.layout.recyclerview_user_chatting_item,parent,false);
 			return new UserViewHolder(view);
 
 		}
-
+		return null;
 	}
 
 	@Override

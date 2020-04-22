@@ -61,14 +61,14 @@ public class LodingActivity extends Activity {
 		ConfigureManager.getInstance().checkExternalStorage();
         Realm.init(getApplicationContext());
 		// realm DB 설정 참고 https://black-jin0427.tistory.com/98
-		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(1).migration(new RealmMigration() {
+		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(3).migration(new RealmMigration() {
 			@Override
 			public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
 				RealmSchema realmSchema = realm.getSchema();
 
-				if(oldVersion == 1){
+				if(oldVersion == 2){
 					RealmObjectSchema realmObjectSchema = realmSchema.get("Message");
-					realmObjectSchema.addField("roomId", String.class, null);
+					realmObjectSchema.addField("itemViewType", int.class, null);
 				}
 
 
