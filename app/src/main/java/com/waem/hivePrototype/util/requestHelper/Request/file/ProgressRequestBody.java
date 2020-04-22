@@ -1,5 +1,9 @@
 package com.waem.hivePrototype.util.requestHelper.Request.file;
 
+import android.util.Log;
+
+import com.waem.hivePrototype.Constants;
+
 import java.io.IOException;
 
 import okhttp3.MediaType;
@@ -95,6 +99,7 @@ public class ProgressRequestBody extends RequestBody {
                 }
                 // Increase the number of bytes currently written
                 bytesWritten += byteCount;
+                Log.d(Constants.TAG, "write: bytesWritten = "+bytesWritten);
                 //callback
                 progressListener.onRequestProgress(bytesWritten, contentLength, bytesWritten == contentLength);
             }
