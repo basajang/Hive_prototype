@@ -9,9 +9,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="사용자 이름"/>
+
     <TextView
         android:id="@+id/tv_user_chatting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="내용"/>
+        android:text="내용"
+        android:textColor="@color/colorBlack"
+        android:background="@color/colorWhite"/>
 </LinearLayout>

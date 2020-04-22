@@ -56,7 +56,8 @@
         android:overScrollMode="never"
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@color/colorgray_light"/>
     <!--채팅 하단 부분-->
     <LinearLayout
         android:paddingRight="21dp"

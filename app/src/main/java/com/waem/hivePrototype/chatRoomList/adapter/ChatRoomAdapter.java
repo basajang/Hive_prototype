@@ -76,13 +76,6 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 	}
 
 	@Override
-	public int getItemCount() {
-
-		return messages.size();
-
-	}
-
-	@Override
 	public int getItemViewType(int position) {
 		if(messages.get(position).getItemViewType()==0){
 			return VIEW_TYPE_A;
@@ -116,6 +109,13 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 			tvUserSetting=(TextView)itemView.findViewById(R.id.tv_user_chatting);
 
 		}
+
+	}
+
+	@Override
+	public int getItemCount() {
+
+		return messages.size();
 
 	}
 }
