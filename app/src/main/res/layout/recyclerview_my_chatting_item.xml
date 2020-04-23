@@ -9,5 +9,7 @@
         android:layout_height="wrap_content"
         android:text="내용"
         android:textColor="@color/colorBlack"
-        android:background="@color/colorWhite"/>
+        android:background="@drawable/chatting_text_round"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"/>
 </LinearLayout>
