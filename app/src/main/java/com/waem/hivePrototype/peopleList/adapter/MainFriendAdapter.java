@@ -70,6 +70,7 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 			intent.putExtra("friendName",friendList.get(position).getName());
 			context.startActivity(intent);
 		});
+
 	}
 
 	// Return the size of your dataset (invoked by the layout manager)

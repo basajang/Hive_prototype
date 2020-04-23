@@ -68,7 +68,6 @@ public class LodingActivity extends Activity {
 					realmObjectSchema.addField("itemViewType", int.class, null);
 				}
 
-
 			}
 		}).build();
 

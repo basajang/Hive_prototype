@@ -19,7 +19,6 @@ import butterknife.ButterKnife;
 public class SignupActivity extends AppCompatActivity {
 
 	@BindView(R.id.btn_signup) Button btnSignup;
-
 	@BindView(R.id.et_signup_id) EditText etSignupId;
 	@BindView(R.id.et_signup_pw) EditText etSignupPw;
 	@BindView(R.id.et_signup_name) EditText etSignupName;
