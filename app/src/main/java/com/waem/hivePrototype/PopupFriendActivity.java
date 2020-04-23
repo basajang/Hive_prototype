@@ -16,8 +16,8 @@ import butterknife.ButterKnife;
  * */
 public class PopupFriendActivity extends AppCompatActivity {
 
-	@BindView(R.id.btn_yes) Button btnYes;
-	@BindView(R.id.btn_no) Button btnNo;
+	@BindView(R.id.btn_popup_friend_yes) Button btnPopupFriendYes;
+	@BindView(R.id.btn_popup_friend_no) Button btnPopupFriendNo;
 	@BindView(R.id.li_transparent) LinearLayout liTransparent;
 	@BindView(R.id.tv_popup_friend_name) TextView tvPopupFriendName;
 
@@ -49,10 +49,10 @@ public class PopupFriendActivity extends AppCompatActivity {
 
 	private void listener(){
 
-		btnNo.setOnClickListener(v -> {
+		btnPopupFriendNo.setOnClickListener(v -> {
 			this.finish();
 		});
-		btnYes.setOnClickListener(v -> {
+		btnPopupFriendYes.setOnClickListener(v -> {
 
 		});
 		liTransparent.setOnClickListener(v -> {
