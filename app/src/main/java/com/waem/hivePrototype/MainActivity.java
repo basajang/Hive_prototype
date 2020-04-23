@@ -3,6 +3,7 @@ package com.waem.hivePrototype;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.tab_main) TabLayout tabMain;
     @BindView(R.id.viewer) ViewPager viewPager;
+    @BindView(R.id.tv_main_title) TextView tvMainTitle;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         tabMain.addTab(tabMain.newTab().setText("채팅"));
         tabMain.addTab(tabMain.newTab().setText("복원"));
 
+        tvMainTitle=(TextView)findViewById(R.id.tv_main_title);
     }
     private void listener(){
 
@@ -104,6 +107,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+
+                switch (tab.getPosition()){
+
+                    case 0:
+                        tvMainTitle.setText("친구");
+                        return;
+                    case 1:
+                        tvMainTitle.setText("채팅");
+                        return;
+                    case 2:
+                        tvMainTitle.setText("복원알림");
+                        return;
+                }
+
             }
 
             @Override
@@ -117,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
 
     }
 }

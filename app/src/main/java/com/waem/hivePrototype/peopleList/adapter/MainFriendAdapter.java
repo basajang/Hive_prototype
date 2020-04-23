@@ -2,7 +2,6 @@ package com.waem.hivePrototype.peopleList.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +9,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.waem.hivePrototype.PopupFriendActivity;
+import com.waem.hivePrototype.peopleList.PopupFriendActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.peopleList.vo.People;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 /**
  * 친구 리사이클러뷰 어댑터

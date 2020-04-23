@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +19,9 @@ import com.waem.hivePrototype.peopleList.vo.People;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+
+
 /**
  * 친구 리스트 프래그먼트
  * */
@@ -37,6 +41,8 @@ public class FriendListFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		view =  inflater.inflate(R.layout.fragment_friend_list, container, false);
+
+
 
 		init();
 		listener();

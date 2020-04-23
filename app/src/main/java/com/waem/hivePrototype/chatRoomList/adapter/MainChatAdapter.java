@@ -10,10 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.waem.hivePrototype.ChatRoomActivity;
+import com.waem.hivePrototype.chatRoomList.ChatRoomActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
-import com.waem.hivePrototype.peopleList.vo.People;
+
 import java.util.ArrayList;
 /**
  * 채팅리스트 리사이클러뷰 어댑터

@@ -1,4 +1,4 @@
-package com.waem.hivePrototype;
+package com.waem.hivePrototype.peopleList;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.waem.hivePrototype.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

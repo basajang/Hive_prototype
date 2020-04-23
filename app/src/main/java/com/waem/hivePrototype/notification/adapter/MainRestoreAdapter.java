@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.waem.hivePrototype.PopupRestoreActivity;
+import com.waem.hivePrototype.notification.PopupRestoreActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.notification.vo.Notification;
 

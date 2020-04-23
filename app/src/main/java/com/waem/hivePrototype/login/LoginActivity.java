@@ -1,9 +1,7 @@
-package com.waem.hivePrototype;
+package com.waem.hivePrototype.login;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,19 +9,21 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.waem.hivePrototype.ConfigureManager;
+import com.waem.hivePrototype.Constants;
+import com.waem.hivePrototype.MainActivity;
+import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
-import com.waem.hivePrototype.chatRoomList.vo.Message;
+import com.waem.hivePrototype.join.SignupActivity;
 import com.waem.hivePrototype.util.requestHelper.Request.CallbackToDownloadFile;
 import com.waem.hivePrototype.util.requestHelper.Request.HttpTask;
 import com.waem.hivePrototype.util.requestHelper.Request.file.UIProgressResponseListener;
 
-import java.io.File;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 
 /**
  * 로그인 화면 액티비티
@@ -95,11 +95,11 @@ public class LoginActivity extends AppCompatActivity {
 	private void listener(){
 
 		tvLoginSignup.setOnClickListener(view -> {
-			Intent intent = new Intent(LoginActivity.this,SignupActivity.class);
+			Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
 			startActivity(intent);
 		});
 		btnLogin.setOnClickListener(view -> {
-			Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 			startActivity(intent);
 		});
 

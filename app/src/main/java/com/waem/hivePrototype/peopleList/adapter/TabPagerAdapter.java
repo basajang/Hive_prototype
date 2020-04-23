@@ -30,6 +30,7 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
 		switch (position){
 			case 0:
 				FriendListFragment friendListFragment =new FriendListFragment();
+
 				return friendListFragment;
 			case 1:
 				ChatListFragment chatListFragment =new ChatListFragment();

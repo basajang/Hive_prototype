@@ -1,7 +1,5 @@
-package com.waem.hivePrototype;
+package com.waem.hivePrototype.chatRoomList;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,11 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.waem.hivePrototype.Constants;
+import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.adapter.ChatRoomAdapter;
 import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.chatRoomList.vo.Message;
-import com.waem.hivePrototype.peopleList.adapter.MainFriendAdapter;
 
 import java.util.ArrayList;
 
@@ -80,7 +79,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 		});
 		liChatroomMenu.setOnClickListener(view -> {
 
-			Intent intent =new Intent(ChatRoomActivity.this,ChatRoomMenuActivity.class);
+			Intent intent =new Intent(ChatRoomActivity.this, ChatRoomMenuActivity.class);
 			startActivity(intent);
 
 		});

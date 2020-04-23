@@ -1,4 +1,4 @@
-package com.waem.hivePrototype;
+package com.waem.hivePrototype.join;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.waem.hivePrototype.login.LoginActivity;
+import com.waem.hivePrototype.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,7 +48,7 @@ public class SignupActivity extends AppCompatActivity {
 	private void listener(){
 
 		btnSignup.setOnClickListener(view -> {
-			Intent intent = new Intent(SignupActivity.this,LoginActivity.class);
+			Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
 			startActivity(intent);
 		});
 

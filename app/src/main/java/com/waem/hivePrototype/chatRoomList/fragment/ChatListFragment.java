@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.waem.hivePrototype.MainActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.adapter.MainChatAdapter;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.RealmList;
+
 
 /**
  * 채팅 리스트 프래그먼트
@@ -40,6 +42,8 @@ public class ChatListFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
 		view= inflater.inflate(R.layout.fragment_chat_list, container, false);
+
+
 
 		init();
 		listener();

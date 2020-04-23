@@ -18,7 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"/>
+        <activity android:name=".login.LoginActivity"/>
 
         <activity android:name="com.waem.hivePrototype.LodingActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
@@ -27,11 +27,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".SignupActivity"/>
-        <activity android:name=".PopupFriendActivity" android:theme="@style/Theme.AppCompat.Translucent"/>
-        <activity android:name=".ChatRoomActivity"/>
-        <activity android:name=".ChatRoomMenuActivity"/>
-        <activity android:name=".PopupRestoreActivity"  android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:name=".join.SignupActivity"/>
+        <activity android:name=".peopleList.PopupFriendActivity" android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:name=".chatRoomList.ChatRoomActivity"/>
+        <activity android:name=".chatRoomList.ChatRoomMenuActivity" />
+        <activity android:name=".notification.PopupRestoreActivity"  android:theme="@style/Theme.AppCompat.Translucent"/>
 
     </application>
 

@@ -1,8 +1,10 @@
-package com.waem.hivePrototype;
+package com.waem.hivePrototype.chatRoomList;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.waem.hivePrototype.R;
 
 import org.jetbrains.annotations.Nullable;
 

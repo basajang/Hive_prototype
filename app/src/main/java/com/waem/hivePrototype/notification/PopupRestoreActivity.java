@@ -1,4 +1,4 @@
-package com.waem.hivePrototype;
+package com.waem.hivePrototype.notification;
 
 import android.content.Intent;
 import android.os.Bundle;
