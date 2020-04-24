@@ -18,13 +18,52 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'DEVKEY', '"user"'
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable false
+            jniDebuggable true
+            renderscriptDebuggable false
+        }
+        debug{
+            buildConfigField 'String', 'DEVKEY', '"dev"'
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable true
+            jniDebuggable true
+            renderscriptDebuggable false
         }
     }
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
+    }
+
+    sourceSets{
+        main{
+            res.srcDirs = ['src/main/res']
+        }
+    }
+
+    flavorDimensions "mode"
+    productFlavors {
+
+        local {
+            dimension "mode"
+            buildConfigField 'String', 'HOST', '"내부 아이피"'// 채원씨
+//            buildConfigField 'String', 'HOST', '"내부 아이피"'// 이사님
+            buildConfigField 'String', 'REST_INDEX', '""'
+        }
+        devel {
+            dimension "mode"
+            buildConfigField 'String', 'HOST', '"개발서버 url"'
+            buildConfigField 'String', 'REST_INDEX', '"/hiveApiServer"'
+        }
+        prod {
+            dimension "mode"
+            buildConfigField 'String', 'HOST', '"Live서버 url"'
+            buildConfigField 'String', 'REST_INDEX', '"/hiveApiServer"'
+        }
     }
 
 }
@@ -34,6 +73,7 @@ realm {
     //아래의 코드는 kotlin extension 사용 시 추가
 //        kotlinExtensionsEnabled = true
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -62,6 +102,7 @@ dependencies {
     // 통신
     implementation("com.squareup.okhttp3:okhttp:4.5.0")
     implementation 'org.conscrypt:conscrypt-android:2.2.1'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.3.0'
 
     // 샘플 ndk 추가
     implementation project(path: ':ndklib')
@@ -70,6 +111,7 @@ dependencies {
     // 버터 나이프
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     // 버터 나이프
 
 

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.waem.hivePrototype.Constants;
+import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.adapter.ChatRoomAdapter;
 import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
@@ -58,7 +58,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 		//ChatRoom chatRoom = realm.where(ChatRoom.class).equalTo("roomId", "0c91e078-f1f7-4b1a-af34-5e6893b85652").findFirst();
 		ChatRoom chatRoom = realm.where(ChatRoom.class).findFirst();
 
-		Log.d(Constants.TAG, "init: " + chatRoom);
+		Log.d(GlobalConst.TAG, "init: " + chatRoom);
 		if(chatRoom != null ){
 
 			Message message1 = new Message("1", chatRoom.getRoomId(),"전지민",true,fileType,"1","안녕하신가?","123",false,false,0);
