@@ -1,5 +1,6 @@
 package com.waem.hivePrototype.login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -7,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.MainActivity;
@@ -30,6 +32,13 @@ public class LoginActivity extends AppCompatActivity {
 	@BindView(R.id.btn_login) Button btnLogin;
 	@BindView(R.id.tv_login_signup) TextView tvLoginSignup;
 	@BindView(R.id.tv_login_find) TextView tvLoginFind;
+	@BindView(R.id.login_pager) ViewPager login_pager;
+
+
+	/**
+	 * You shouldn't define first page = 0.
+	 * Let define firstpage = 'number viewpager size' to make endless carousel
+	 */
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,6 +50,13 @@ public class LoginActivity extends AppCompatActivity {
 		init();
 		listener();
 
+        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, this));
+        ShadowTransformer fragmentCardShadowTransformer = new ShadowTransformer(login_pager, pagerAdapter);
+        fragmentCardShadowTransformer.enableScaling(true);
+
+        login_pager.setAdapter(pagerAdapter);
+        login_pager.setPageTransformer(false, fragmentCardShadowTransformer);
+        login_pager.setOffscreenPageLimit(3);
 		// 테스트 코드
 
 //		Realm realm = Realm.getDefaultInstance();
@@ -99,5 +115,14 @@ public class LoginActivity extends AppCompatActivity {
 			startActivity(intent);
 		});
 
+	}
+
+	/**
+	 * Change value in dp to pixels
+	 * @param dp
+	 * @param context
+	 */
+	public static float dpToPixels(int dp, Context context) {
+		return dp * (context.getResources().getDisplayMetrics().density);
 	}
 }
