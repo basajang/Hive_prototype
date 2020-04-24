@@ -20,6 +20,7 @@ public class MainRestoreAdapter extends RecyclerView.Adapter<MainRestoreAdapter.
 
 	private ArrayList<Notification> notifications;
 	private Context context= null;
+
 	public MainRestoreAdapter(ArrayList<Notification> restoreList) {
 
 		this.notifications = restoreList;

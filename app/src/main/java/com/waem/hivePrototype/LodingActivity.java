@@ -73,6 +73,7 @@ public class LodingActivity extends Activity {
 //		}).build();
 
 
+
 		startLoading();
 
 	}

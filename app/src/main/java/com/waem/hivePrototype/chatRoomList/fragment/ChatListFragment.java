@@ -44,7 +44,6 @@ public class ChatListFragment extends Fragment {
 		view= inflater.inflate(R.layout.fragment_chat_list, container, false);
 
 
-
 		init();
 		listener();
 
@@ -57,8 +56,6 @@ public class ChatListFragment extends Fragment {
 		mainChatAdapter = new MainChatAdapter(chatRooms);
 		rvMainChatList.setLayoutManager(chatLayoutManager);
 		rvMainChatList.setAdapter(mainChatAdapter);
-
-
 
 
 		ChatRoom chatRoom1= new ChatRoom("친구1",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);

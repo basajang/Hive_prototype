@@ -40,10 +40,10 @@ public class PopupRestoreActivity extends AppCompatActivity {
 
 	private void listener(){
 		liTransparent.setOnClickListener(v -> {
-			finish();
+			this.finish();
 		});
 		btnPopupRestoreNo.setOnClickListener(v -> {
-			finish();
+			this.finish();
 		});
 		btnPopupRestoreYes.setOnClickListener(v -> {
 

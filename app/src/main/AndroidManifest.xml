@@ -33,7 +33,7 @@
         <activity android:name=".chatRoomList.ChatRoomActivity"/>
         <activity android:name=".chatRoomList.ChatRoomMenuActivity" />
         <activity android:name=".notification.PopupRestoreActivity"  android:theme="@style/Theme.AppCompat.Translucent"/>
-
+        <activity android:name=".find.FindActivity"/>
     </application>
 
 </manifest>

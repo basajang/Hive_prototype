@@ -42,8 +42,6 @@ public class FriendListFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		view =  inflater.inflate(R.layout.fragment_friend_list, container, false);
 
-
-
 		init();
 		listener();
 

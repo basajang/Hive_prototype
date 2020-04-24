@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.MainActivity;
 import com.waem.hivePrototype.R;
+import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
+import com.waem.hivePrototype.find.FindActivity;
 import com.waem.hivePrototype.join.SignupActivity;
 
 import butterknife.BindView;
@@ -27,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
 	@BindView(R.id.btn_login) Button btnLogin;
 	@BindView(R.id.tv_login_signup) TextView tvLoginSignup;
+	@BindView(R.id.tv_login_find) TextView tvLoginFind;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -89,6 +92,10 @@ public class LoginActivity extends AppCompatActivity {
 		});
 		btnLogin.setOnClickListener(view -> {
 			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+			startActivity(intent);
+		});
+		tvLoginFind.setOnClickListener(view ->{
+			Intent intent = new Intent(LoginActivity.this, FindActivity.class);
 			startActivity(intent);
 		});
 
