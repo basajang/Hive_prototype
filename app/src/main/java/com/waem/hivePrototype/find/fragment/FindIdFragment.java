@@ -17,7 +17,7 @@ public class FindIdFragment extends Fragment {
 
 	private View view;
 	private EditText etFindIdName;
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		view =  inflater.inflate(R.layout.fragment_find_id, container, false);
