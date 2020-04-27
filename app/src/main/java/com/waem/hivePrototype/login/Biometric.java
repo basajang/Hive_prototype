@@ -1,37 +1,34 @@
 package com.waem.hivePrototype.login;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.waem.hivePrototype.R;
 
 
-public class Biometric extends CardFragment {
+public class Biometric extends Fragment {
 
     private CardView cardView;
 
     @Override
-    public Fragment getInstance(int position) {
-        return super.getInstance(position);
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        if (container == null) {
+            return null;
+        }
 
-    @Override
-    public CardView getCardView() {
-        return cardView;
-    }
+        LinearLayout l = (LinearLayout)
+                inflater.inflate(R.layout.fragment_biometric, container, false);
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.biometric, container, false);
-        return view;
+        return l;
     }
 
 }

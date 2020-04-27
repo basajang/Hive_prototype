@@ -3,19 +3,26 @@ package com.waem.hivePrototype.login;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.waem.hivePrototype.ConfigureManager;
+import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.MainActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.find.FindActivity;
 import com.waem.hivePrototype.join.SignupActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,7 +41,11 @@ public class LoginActivity extends AppCompatActivity {
 	@BindView(R.id.tv_login_find) TextView tvLoginFind;
 	@BindView(R.id.login_pager) ViewPager login_pager;
 
-
+	public final static int PAGES = 4;
+	// You can choose a bigger number for LOOPS, but you know, nobody will fling
+	// more than 1000 times just in order to test your "infinite" ViewPager :D
+	public final static int LOOPS = 2;
+	public final static int FIRST_PAGE = PAGES * LOOPS / 2;
 	/**
 	 * You shouldn't define first page = 0.
 	 * Let define firstpage = 'number viewpager size' to make endless carousel
@@ -50,13 +61,60 @@ public class LoginActivity extends AppCompatActivity {
 		init();
 		listener();
 
-        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, this));
-        ShadowTransformer fragmentCardShadowTransformer = new ShadowTransformer(login_pager, pagerAdapter);
-        fragmentCardShadowTransformer.enableScaling(true);
+		List<Fragment> fragments = new ArrayList<>();
+		fragments.add(new Biometric());
+		fragments.add(new BasicLogin());
+		fragments.add(new LiveCERT());
+		fragments.add(new SNSLogin());
+        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(this, this.getSupportFragmentManager(), fragments);
+
+//		pagerAdapter.addFragment(new MyFragment());
+//		pagerAdapter.addFragment(new MyFragment());
+//		pagerAdapter.addFragment(new MyFragment());
+//		pagerAdapter.addFragment(new MyFragment());
+//        ShadowTransformer fragmentCardShadowTransformer = new ShadowTransformer(login_pager, pagerAdapter);
+//        fragmentCardShadowTransformer.enableScaling(true);
 
         login_pager.setAdapter(pagerAdapter);
-        login_pager.setPageTransformer(false, fragmentCardShadowTransformer);
-        login_pager.setOffscreenPageLimit(3);
+//        login_pager.setPageTransformer(false, fragmentCardShadowTransformer);
+//        login_pager.setOffscreenPageLimit(3);
+
+		login_pager.setPageMargin(100);
+		login_pager.setPageTransformer(false, new ViewPager.PageTransformer()
+		{
+			@Override
+			public void transformPage(View page, float position)
+			{
+				int pageWidth = login_pager.getMeasuredWidth() -
+						login_pager.getPaddingLeft() - login_pager.getPaddingRight();
+				int pageHeight = login_pager.getHeight();
+				int paddingLeft = login_pager.getPaddingLeft();
+				float transformPos = (float) (page.getLeft() -
+						(login_pager.getScrollX() + paddingLeft)) / pageWidth;
+				int max = pageHeight / 10;
+				if (transformPos < -1)
+				{
+					// [-Infinity,-1)
+					// This page is way off-screen to the left.
+//					page.setAlpha(0.5f);// to make left transparent
+					page.setScaleY(0.7f);
+				}
+				else if (transformPos <= 1)
+				{
+					// [-1,1]
+					page.setScaleY(1f);
+				}
+				else
+				{
+					// (1,+Infinity]
+					// This page is way off-screen to the right.
+//					page.setAlpha(0.5f);// to make right transparent
+					page.setScaleY(0.7f);
+				}
+			}
+		});
+		login_pager.setCurrentItem(1);
+		Log.d(GlobalConst.TAG, "onCreate: "+login_pager.getAdapter().getCount());
 		// 테스트 코드
 
 //		Realm realm = Realm.getDefaultInstance();
