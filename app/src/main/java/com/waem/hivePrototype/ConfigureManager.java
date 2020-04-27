@@ -1,11 +1,35 @@
 package com.waem.hivePrototype;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
+import android.provider.Settings;
+import android.telephony.CellInfo;
+import android.telephony.CellInfoCdma;
+import android.telephony.CellInfoGsm;
+import android.telephony.CellInfoLte;
+import android.telephony.CellInfoWcdma;
+import android.telephony.CellSignalStrengthCdma;
+import android.telephony.CellSignalStrengthGsm;
+import android.telephony.CellSignalStrengthLte;
+import android.telephony.CellSignalStrengthWcdma;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
 
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.chatRoomList.vo.RoomFile;
@@ -14,12 +38,23 @@ import java.io.File;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import static android.os.Looper.getMainLooper;
+
 public class ConfigureManager {
 
     private static ConfigureManager instance = new ConfigureManager();
     private static final int PERMISSION_REQUEST_CODE = 1;
     private Activity activity;
     private Context context;
+
+    private Activity currentActivity;
+
+    private int currVersionCode = 1;
+    private String currVersionName = "";
+    private int sessioncount = 1;
+    String androidId = "";
+    boolean isInitalize = false;
+
 
     public ConfigureManager() {
     }
@@ -67,6 +102,186 @@ public class ConfigureManager {
             return false;
         }
     }
+
+    public void checkNetworkStrength() {
+        if (android.os.Build.VERSION.SDK_INT >= 20) {
+            try{
+                ConnectivityManager cm = (ConnectivityManager) currentActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo Info = cm.getActiveNetworkInfo();
+
+                if (Info == null){
+                    showToast("인터넷이 연결 되어 있지 않습니다.", Toast.LENGTH_LONG);
+                }
+
+                if ( !Info.isConnectedOrConnecting()) {
+                    int netType = Info.getType();
+                    int netSubtype = Info.getSubtype();
+
+                    if (netType == ConnectivityManager.TYPE_WIFI) {
+                        WifiManager wifiManager = (WifiManager) currentActivity.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+                        int numberOfLevels = 5;
+                        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+                        int level = WifiManager.calculateSignalLevel(wifiInfo.getRssi(), numberOfLevels);
+                        if(level <= 1){
+                            showToast("네트워크 연결이 불안정 합니다.", Toast.LENGTH_LONG);
+                        }
+                    } else if (netType == ConnectivityManager.TYPE_MOBILE) {
+                        TelephonyManager telephonyManager = (TelephonyManager) currentActivity.getSystemService(Context.TELEPHONY_SERVICE);
+                        for(CellInfo cellInfo : telephonyManager.getAllCellInfo()){
+                            if (cellInfo.isRegistered()) {
+                                if (cellInfo instanceof CellInfoWcdma) {
+                                    CellInfoWcdma cellInfoWcdma = (CellInfoWcdma) cellInfo;
+                                    CellSignalStrengthWcdma cellSignalStrengthWcdma = cellInfoWcdma.getCellSignalStrength();
+                                    Log.d(GlobalConst.TAG, "checkNetworkStrength: cellSignalStrengthWcdma : "+cellSignalStrengthWcdma.getLevel());
+                                    if(cellSignalStrengthWcdma.getLevel() <= 1){
+                                        showToast("네트워크 연결이 불안정 합니다.", Toast.LENGTH_LONG);
+                                    }
+                                } else if (cellInfo instanceof CellInfoGsm) {
+                                    CellInfoGsm cellInfogsm = (CellInfoGsm) cellInfo;
+                                    CellSignalStrengthGsm cellSignalStrengthGsm = cellInfogsm.getCellSignalStrength();
+                                    Log.d(GlobalConst.TAG, "checkNetworkStrength: cellSignalStrengthGsm : "+cellSignalStrengthGsm.getLevel());
+                                    if(cellSignalStrengthGsm.getLevel() <= 1){
+                                        showToast("네트워크 연결이 불안정 합니다.", Toast.LENGTH_LONG);
+                                    }
+                                } else if (cellInfo instanceof CellInfoLte) {
+                                    CellInfoLte cellInfoLte = (CellInfoLte) cellInfo;
+                                    CellSignalStrengthLte cellSignalStrengthLte = cellInfoLte.getCellSignalStrength();
+                                    Log.d(GlobalConst.TAG, "checkNetworkStrength: cellSignalStrengthLte : "+cellSignalStrengthLte.getLevel());
+                                    if(cellSignalStrengthLte.getLevel() <= 1){
+                                        showToast("네트워크 연결이 불안정 합니다.", Toast.LENGTH_LONG);
+                                    }
+                                } else if (cellInfo instanceof CellInfoCdma) {
+                                    CellInfoCdma cellInfoCdma = (CellInfoCdma) cellInfo;
+                                    CellSignalStrengthCdma cellSignalStrengthCdma = cellInfoCdma.getCellSignalStrength();
+                                    Log.d(GlobalConst.TAG, "checkNetworkStrength: cellSignalStrengthCdma : "+cellSignalStrengthCdma.getLevel());
+                                    if(cellSignalStrengthCdma.getLevel() <= 1){
+                                        showToast("네트워크 연결이 불안정 합니다.", Toast.LENGTH_LONG);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public boolean grantPermission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+
+            if (currentActivity.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                return true;
+            }else{
+                ActivityCompat.requestPermissions(currentActivity, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+                return false;
+            }
+        }else{
+            return true;
+        }
+
+    }
+
+    public int getCurrVersionCode() {
+        return currVersionCode;
+    }
+
+    public void initialize(Context context) {
+        if (isInitalize) {
+            return;
+        }
+
+        loadCurrentVersion(context);
+        if (getAppCache("androidId") == null) {
+            androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+            setAppCache("androidId", androidId);
+        } else {
+            androidId = getAppCache("androidId");
+        }
+        isInitalize = true;
+    }
+
+
+    public void loadCurrentVersion(Context context) {
+        PackageInfo pi = null;
+
+        try {
+            pi = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            currVersionCode = pi.versionCode;
+            currVersionName = pi.versionName;
+
+        } catch (PackageManager.NameNotFoundException e) {
+
+            currVersionName = "";
+        } catch (NullPointerException e) {
+
+            currVersionName = "";
+        }
+    }
+
+    public void showToast(String text, int LENGTH){
+        if(this.currentActivity!= null){
+            try{
+                Handler mHandler = new Handler(getMainLooper());
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(currentActivity, text, LENGTH).show();
+                    }
+                });
+            }catch (Exception e1){
+                e1.printStackTrace();
+            }
+        }
+    }
+
+    public String getCurrVersionName() {
+        return currVersionName;
+    }
+
+    public String getAndroidId() {
+        return androidId;
+    }
+
+    public void setAppCache(String key, String data) {
+
+        SharedPreferences settings = this.activity.getSharedPreferences(GlobalConst.APP_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(key, data);
+        editor.commit();
+    }
+
+    public String getAppCache(String key) {
+        SharedPreferences settings = this.activity.getSharedPreferences(GlobalConst.APP_NAME, 0);
+        return settings.getString(key, null);
+    }
+
+    public void clearCookieAll(Activity activity) {
+        SharedPreferences settings = activity.getSharedPreferences(GlobalConst.APP_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+
+        editor.clear();
+        editor.commit();
+    }
+
+    /**
+     * 해당 어플리케이션이 설치 되어 있는지 확인 하는 메서드
+     *
+     * @param packagename 확인할 어플리케이션 패키지명
+     * @return
+     */
+
+    public boolean isPackageInstalled(String packagename) {
+        PackageManager pm = this.activity.getPackageManager();
+        try {
+            pm.getPackageInfo(packagename, PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
 
     public String getImageDir(ChatRoom chatRoom){
         String path = activity.getCacheDir().getAbsolutePath()+"/"+chatRoom.getRoomId()+"/image";

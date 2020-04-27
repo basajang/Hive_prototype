@@ -52,24 +52,26 @@ public class LodingActivity extends Activity {
 				.setRationaleMessage("접근 권한이 필요해요")
 				.setDeniedMessage("왜 거부하셨어요...\n하지만 [설정] > [권한] 에서 권한을 허용할 수 있어요.")
 				.setPermissions(Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_WIFI_STATE , Manifest.permission.INTERNET
-						, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
+						, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION)
 				.check();
 
 		ConfigureManager.getInstance().checkExternalStorage();
         Realm.init(getApplicationContext());
 		// realm DB 설정 참고 https://black-jin0427.tistory.com/98
-		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(3).migration(new RealmMigration() {
-			@Override
-			public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
-				RealmSchema realmSchema = realm.getSchema();
+//		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(3).migration(new RealmMigration() {
+//			@Override
+//			public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
+//				RealmSchema realmSchema = realm.getSchema();
+//
+//				if(oldVersion == 2){
+//					RealmObjectSchema realmObjectSchema = realmSchema.get("Message");
+//					realmObjectSchema.addField("itemViewType", int.class, null);
+//				}
+//
+//
+//			}
+//		}).build();
 
-				if(oldVersion == 2){
-					RealmObjectSchema realmObjectSchema = realmSchema.get("Message");
-					realmObjectSchema.addField("itemViewType", int.class, null);
-				}
-
-			}
-		}).build();
 
 
 		startLoading();

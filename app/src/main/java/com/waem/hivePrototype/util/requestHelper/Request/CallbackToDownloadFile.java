@@ -1,11 +1,5 @@
 package com.waem.hivePrototype.util.requestHelper.Request;
 
-import android.util.Log;
-import android.widget.Toast;
-
-import com.waem.hivePrototype.Constants;
-import com.waem.hivePrototype.MainActivity;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -16,7 +10,6 @@ import java.io.OutputStream;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.Request;
 import okhttp3.Response;
 
 public class CallbackToDownloadFile implements Callback {

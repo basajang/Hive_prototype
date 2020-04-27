@@ -8,28 +8,18 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 
 import com.google.android.material.tabs.TabLayout;
-import com.waem.hivePrototype.util.requestHelper.Request.HttpTask;
-import com.waem.hivePrototype.util.requestHelper.Request.file.UIProgressRequestListener;
-import com.waem.hivePrototype.util.requestHelper.Request.file.UIProgressResponseListener;
 import com.waem.hivePrototype.peopleList.adapter.TabPagerAdapter;
 import com.waem.hivePrototype.peopleList.fragment.FriendListFragment;
 
 import com.waem.ndklib.NativeWrapper;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.IOException;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
+
 /**
  * 메인 화면 액티비티
  * */
@@ -77,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 //                Log.d(TAG, "onResponse: "+response.body().string());
 //            }
 //        });
-        Log.d(Constants.TAG, "onCreate: ");
+        Log.d(GlobalConst.TAG, "onCreate: ");
 
 
         init();

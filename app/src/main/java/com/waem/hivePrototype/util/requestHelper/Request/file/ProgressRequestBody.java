@@ -2,7 +2,7 @@ package com.waem.hivePrototype.util.requestHelper.Request.file;
 
 import android.util.Log;
 
-import com.waem.hivePrototype.Constants;
+import com.waem.hivePrototype.GlobalConst;
 
 import java.io.IOException;
 
@@ -99,7 +99,7 @@ public class ProgressRequestBody extends RequestBody {
                 }
                 // Increase the number of bytes currently written
                 bytesWritten += byteCount;
-                Log.d(Constants.TAG, "write: bytesWritten = "+bytesWritten);
+                Log.d(GlobalConst.TAG, "write: bytesWritten = "+bytesWritten);
                 //callback
                 progressListener.onRequestProgress(bytesWritten, contentLength, bytesWritten == contentLength);
             }
