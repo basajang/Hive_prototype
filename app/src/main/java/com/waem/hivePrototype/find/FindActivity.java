@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.find.adapter.FindTabPagerAdapter;
 
@@ -18,7 +19,7 @@ public class FindActivity extends AppCompatActivity {
 
 	@BindView(R.id.tab_find) TabLayout tabFind;
 	@BindView(R.id.view_find) ViewPager viewFind;
-	@BindView(R.id.btn_find) Button btnFind;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,12 +29,14 @@ public class FindActivity extends AppCompatActivity {
 
 		init();
 		listener();
+		ConfigureManager.getInstance().setActivity(this);
 
 	}
 	private void init(){
 
 		tabFind.addTab(tabFind.newTab().setText("비밀번호 찾기"));
 		tabFind.addTab(tabFind.newTab().setText("아이디 찾기"));
+
 
 	}
 	private void listener(){

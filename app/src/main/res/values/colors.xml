@@ -5,9 +5,14 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorBlack50">#80000000</color>
     <color name="colorGrayLight">#ececec</color>
+    <color name="colorGrayLight50">#80ececec</color>
     <color name="colorGray">#909090</color>
 
     <color name="black_overlay">#dd000000</color>
     <color name="transparency">#00000000</color>
+
+    <color name="colorGray50">#80909090</color>
+
 </resources>
