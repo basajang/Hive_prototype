@@ -32,6 +32,8 @@ public class LoginActivity extends AppCompatActivity {
 	@BindView(R.id.btn_login) Button btnLogin;
 	@BindView(R.id.tv_login_signup) TextView tvLoginSignup;
 	@BindView(R.id.tv_login_find) TextView tvLoginFind;
+	@BindView(R.id.tv_login) TextView tvLogin;
+
 	@BindView(R.id.login_pager) ViewPager login_pager;
 
 
@@ -113,7 +115,12 @@ public class LoginActivity extends AppCompatActivity {
 		tvLoginFind.setOnClickListener(view ->{
 			Intent intent = new Intent(LoginActivity.this, FindActivity.class);
 			startActivity(intent);
+			finish();
 		});
+		tvLogin.setOnClickListener(view ->{
+			Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+			startActivity(intent);
+		} );
 
 	}
 
