@@ -37,7 +37,6 @@ public class FindActivity extends AppCompatActivity {
 		tabFind.addTab(tabFind.newTab().setText("비밀번호 찾기"));
 		tabFind.addTab(tabFind.newTab().setText("아이디 찾기"));
 
-
 	}
 	private void listener(){
 		/*텝 레이아웃 관련 코드*/
