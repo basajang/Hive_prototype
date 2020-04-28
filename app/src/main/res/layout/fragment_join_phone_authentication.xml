@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/edit_border_line"
+                android:hint="휴대폰번호(숫자만 입력)"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="인증요청"
+                android:background="@color/colorGray"
+                android:textColor="@color/colorWhite"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+            <EditText
+
+                android:paddingLeft="10dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="인증번호"
+                android:background="@drawable/edit_border_line"/>
+            <TextView
+
+                android:gravity="center"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:text="3:00"
+                android:background="@color/colorGrayLight"
+                android:textColor="@color/colorWhite"/>
+
+        </LinearLayout>
+        <TextView
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="에러 메시지"
+            android:layerType="software"
+            android:background="@drawable/layout_dotted_line"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="전화인증"
+            android:background="@color/colorGray"
+            android:textColor="@color/colorWhite"/>
+
+    </LinearLayout>
+</LinearLayout>
