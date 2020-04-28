@@ -20,6 +20,7 @@ import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.find.FindActivity;
 import com.waem.hivePrototype.join.SignupActivity;
+import com.waem.hivePrototype.util.UserAccount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -137,8 +138,6 @@ public class LoginActivity extends AppCompatActivity {
 //			Log.d(Constants.TAG, "onCreate: room "+room);
 //		}
 //
-//
-//
 //        new HttpTask().fileDownload("https://www.google.co.kr/logos/doodles/2020/stay-home-save-lives-april-20-copy-6753651837108785-law.gif")
 //				.download(new UIProgressResponseListener() {
 //            @Override
@@ -158,6 +157,7 @@ public class LoginActivity extends AppCompatActivity {
 		tvLoginSignup=(TextView) findViewById(R.id.tv_login_signup);
 
 		btnLogin=(Button) findViewById(R.id.btn_login);*/
+
 
 	}
 	private void listener(){

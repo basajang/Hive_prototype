@@ -194,6 +194,7 @@ public class ConfigureManager {
 
         loadCurrentVersion(context);
         if (getAppCache("androidId") == null) {
+            // 디바이스 id  저장 하는 부분 android 10 에서는 다른 방식으로 가져오길 권장
             androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
             setAppCache("androidId", androidId);
         } else {

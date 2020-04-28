@@ -7,22 +7,27 @@ import io.realm.RealmObject;
 
 public class Message extends RealmObject {
 
+    // 메세지의 고유값?
     private String id;
-
+    // 메세지의 룸 아이디
     private String roomId;
     /*senderId가 사용자 아이디랑 같으면 자기 메시지*/
     private String senderId;
     // true 일 경우 텍스트 메세지 이외 전부 파일 타입
     private boolean messageType = true;
     // 파일 타입일 경우 fileType. filePath  반드시 필요
+    // IMAGE, MOVIE, DOC eum갋으로 지정
     private String fileType;
+    // 파일의 경로
     private String filepath = "";
-
+    // 메세지일 경우 필수
     private String text ="";
-
+    // 메세지 발송 시간
     private String senderTime;
     private boolean read = false;
     private boolean delete = false;
+    // 텍스트의 길이
+    private int textCount = 0;
 
     /*테스트용 */
     private int itemViewType;

@@ -21,17 +21,19 @@ public class ChatRoom extends RealmObject {
     private String roomName;
     // 채팅방 리스트에 출력될 사용자들 프로필 사진의 list
     private RealmList<String> roomProfilePath = new RealmList<>();
-
+    //채팅방 내의 메세지 리스트
     private RealmList<Message> messageList;
-
     // 채팅방 파일 리스트  추후 변경 가능
     private RealmList<RoomFile> fileList;
-
+    // 채팅방 참가자 리스트
     private RealmList<People> peopleList;
+    // 채팅방 배경 화면
     @NotNull
     private String wallpapers = "";
+    // 즐겨 찾기 여부
     private boolean favorites = false;
 
+    // 각각의 분할 여부
     private boolean divisionMessage = true;
     private boolean divisionImage = true;
     private boolean divisionMovie = true;
@@ -44,6 +46,7 @@ public class ChatRoom extends RealmObject {
     //블라인드 시간 초로 계산
     private int blindTime = 10;
 
+    // 알림
     private boolean noti = true;
 
     public ChatRoom() {

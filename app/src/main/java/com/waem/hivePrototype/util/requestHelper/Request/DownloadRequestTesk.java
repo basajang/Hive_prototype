@@ -11,6 +11,10 @@ import okhttp3.RequestBody;
 
 public class DownloadRequestTesk extends RequestTesk {
 
+
+    //todo : 안드로이드 워커를 사용 하는 방향으로 바꿀것
+
+
     private RequestBody requestBody;
     private UIProgressResponseListener uiProgressResponseListener;
 
