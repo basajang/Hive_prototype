@@ -6,7 +6,7 @@ import java.util.Date;
 
 import io.realm.RealmObject;
 
-public class User extends People{
+public class User{
 
     // 사용자 ID
     @NotNull
