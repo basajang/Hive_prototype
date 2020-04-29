@@ -7,8 +7,11 @@ import java.util.Date;
 import io.realm.RealmObject;
 
 public class User {
-    /*people 상속 받아야 되는 거 같은데 Realm에서 상속/다형성에 대한 문제가 있어서
-    extends로 people 상속하면 Valid model classes must either extend RealmObject or implement RealmModel. 에러 뜸*/
+    /*
+    people 상속 받아야 되는 거 같은데 Realm에서 상속/다형성에 대한 문제가 있어서
+    extends로 people 상속하면 Valid model classes must either extend RealmObject or implement RealmModel. 에러 뜸
+    https://googry.tistory.com/20
+    */
 
     // 사용자 ID
     @NotNull
