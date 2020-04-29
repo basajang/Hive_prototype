@@ -23,6 +23,7 @@ public class PopupFriendActivity extends AppCompatActivity {
 	@BindView(R.id.li_transparent) LinearLayout liTransparent;
 	@BindView(R.id.tv_popup_friend_name) TextView tvPopupFriendName;
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

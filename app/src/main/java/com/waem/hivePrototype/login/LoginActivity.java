@@ -20,7 +20,9 @@ import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.find.FindActivity;
 import com.waem.hivePrototype.join.SignupActivity;
-import com.waem.hivePrototype.util.UserAccount;
+
+import com.waem.hivePrototype.join.TermsActivity;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -163,7 +165,7 @@ public class LoginActivity extends AppCompatActivity {
 	private void listener(){
 
 		tvLoginSignup.setOnClickListener(view -> {
-			Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+			Intent intent = new Intent(LoginActivity.this, TermsActivity.class);
 			startActivity(intent);
 		});
 		btnLogin.setOnClickListener(view -> {
