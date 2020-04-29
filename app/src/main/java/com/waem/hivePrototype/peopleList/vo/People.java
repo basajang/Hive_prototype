@@ -16,14 +16,12 @@ public class People extends RealmObject {
     private String name = "";
     // 프로필 이미지 주소
     private String profilePath = "";
-
     // 상태메세지
     private String statusMessage = "";
     // 즐겨찾기 여부
     private boolean favorites = false;
     // 마지막 로그인
     private Date lastUpdate;
-
     // 차단 사용자
     private boolean block = false;
     // 숨김 사용자
