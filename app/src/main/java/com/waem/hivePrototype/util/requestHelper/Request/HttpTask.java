@@ -24,10 +24,9 @@ public class HttpTask {
     public UploadRequestTesk fileUpload(String url){
         return new UploadRequestTesk(new OkHttpClient(), url);
     }
-//
+
     public DownloadRequestTesk fileDownload(String url){
         return new DownloadRequestTesk(new OkHttpClient(), url);
     }
-
 
 }

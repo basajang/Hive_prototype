@@ -14,31 +14,34 @@ public class People extends RealmObject {
     private String id = "";
     @NotNull
     private String name = "";
+    // 프로필 이미지 주소
     private String profilePath = "";
-    private String accessToken = null;
+
+    // 상태메세지
     private String statusMessage = "";
+    // 즐겨찾기 여부
     private boolean favorites = false;
-    private boolean Me = false;
+    // 마지막 로그인
     private Date lastUpdate;
 
+    // 차단 사용자
     private boolean block = false;
-    private boolean Hide = false;
+    // 숨김 사용자
+    private boolean hide = false;
 
     public People() {
 
     }
 
-    public People(@NotNull String id, @NotNull String name, String profilePath, String accessToken, String statusMessage, boolean favorites, boolean me, Date lastUpdate, boolean block, boolean hide) {
+    public People(@NotNull String id, @NotNull String name, String profilePath, String statusMessage, boolean favorites, Date lastUpdate, boolean block, boolean hide) {
         this.id = id;
         this.name = name;
         this.profilePath = profilePath;
-        this.accessToken = accessToken;
         this.statusMessage = statusMessage;
         this.favorites = favorites;
-        Me = me;
         this.lastUpdate = lastUpdate;
         this.block = block;
-        Hide = hide;
+        this.hide = hide;
     }
 
     @NotNull
@@ -67,14 +70,6 @@ public class People extends RealmObject {
         this.profilePath = profilePath;
     }
 
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
     public String getStatusMessage() {
         return statusMessage;
     }
@@ -89,14 +84,6 @@ public class People extends RealmObject {
 
     public void setFavorites(boolean favorites) {
         this.favorites = favorites;
-    }
-
-    public boolean isMe() {
-        return Me;
-    }
-
-    public void setMe(boolean me) {
-        Me = me;
     }
 
     public Date getLastUpdate() {
@@ -116,26 +103,10 @@ public class People extends RealmObject {
     }
 
     public boolean isHide() {
-        return Hide;
+        return hide;
     }
 
     public void setHide(boolean hide) {
-        Hide = hide;
-    }
-
-    @Override
-    public String toString() {
-        return "People{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", profilePath='" + profilePath + '\'' +
-                ", accessToken='" + accessToken + '\'' +
-                ", statusMessage='" + statusMessage + '\'' +
-                ", favorites=" + favorites +
-                ", Me=" + Me +
-                ", lastUpdate=" + lastUpdate +
-                ", block=" + block +
-                ", Hide=" + Hide +
-                '}';
+        this.hide = hide;
     }
 }

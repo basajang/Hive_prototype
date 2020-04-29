@@ -15,6 +15,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.waem.hivePrototype.peopleList.adapter.TabPagerAdapter;
 import com.waem.hivePrototype.peopleList.fragment.FriendListFragment;
 
+import com.waem.hivePrototype.util.FileUtil;
 import com.waem.ndklib.NativeWrapper;
 
 import butterknife.BindView;
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         tabMain.addTab(tabMain.newTab().setText("복원"));
 
         tvMainTitle=(TextView)findViewById(R.id.tv_main_title);
+
     }
     private void listener(){
 

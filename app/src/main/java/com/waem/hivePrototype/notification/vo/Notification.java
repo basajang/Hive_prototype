@@ -11,14 +11,30 @@ import io.realm.annotations.PrimaryKey;
 
 public class Notification {
 
+    // 알림 아이디
     @PrimaryKey
     private String id = UUID.randomUUID().toString();
 
+    // 표시될 알림의 제목
     private String title;
+    // 표시될 알림 요청자 ID
     private String userId;
+    // 표시될 알림 요청자 이름
     private String userName;
+    // 표시될 알림 요청자 프로필 이미지 주소 url 이거나 실제 파일path
     private String profilePath = "";
+    // 알림 발생 시간
     private Date updateTime;
+    // 알림의 타임
+    /*
+    RESTORE_REQUEST 복원 요청
+    RESTORE_REQUEST_SUCCESS 복원 성공
+    RESTORE_REQUEST_FAILURE 복원 실패
+    FRIEND_REQUEST 친구 요청
+    REJECT_FRIEND_REQUEST 친구요청 거절
+    MESSAGE 메세지
+    EXIT 방 나감
+    */
     @NotNull
     private String notiType;
 

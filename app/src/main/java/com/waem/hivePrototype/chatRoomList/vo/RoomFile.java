@@ -6,9 +6,13 @@ import io.realm.RealmModel;
 import io.realm.RealmObject;
 
 public class RoomFile extends RealmObject  {
+    // 파일 아이디
     private String id;
+    // 파일의 경로
     private String filePath;
+    // 파일 타입 fileType. filePath  반드시 필요
     private String fileType;
+    // 파일의 분할 여부
     private boolean division = true;
 
     public RoomFile() {
