@@ -187,6 +187,7 @@ public class ConfigureManager {
         return currVersionCode;
     }
 
+    /*디바이스 ID*/
     public void initialize(Context context) {
         if (isInitalize) {
             return;
