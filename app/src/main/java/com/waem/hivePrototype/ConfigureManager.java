@@ -333,13 +333,13 @@ public class ConfigureManager {
     }
 
     //해당 디바이스가 뱃지가 달린다면, 어플리케이션에 뱃지(숫자 넘버링)을 달아준다.
-    public void addBadge(int badgeCount) {
+    /*public void addBadge(int badgeCount) { //오레오 버전 전까지만 씀
         Intent badgeIntent = new Intent("android.intent.action.BADGE_COUNT_UPDATE");
         badgeIntent.putExtra("badge_count", badgeCount);
         badgeIntent.putExtra("badge_count_package_name", context.getPackageName());
         badgeIntent.putExtra("badge_count_class_name", getLauncherClass(context));
         context.sendBroadcast(badgeIntent);
-    }
+    }*/
 
     //해당 패키지의 런처클래스의 이름을 반환한다
     private static String getLauncherClass(Context context) {
