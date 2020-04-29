@@ -6,7 +6,9 @@ import java.util.Date;
 
 import io.realm.RealmObject;
 
-public class User{
+public class User {
+    /*people 상속 받아야 되는 거 같은데 Realm에서 상속/다형성에 대한 문제가 있어서
+    extends로 people 상속하면 Valid model classes must either extend RealmObject or implement RealmModel. 에러 뜸*/
 
     // 사용자 ID
     @NotNull
@@ -37,10 +39,12 @@ public class User{
     private boolean openPrivacy = false;
 
     public User() {
+
     }
 
     public User(@NotNull String id, @NotNull String name, String profilePath, String statusMessage, boolean favorites, Date lastUpdate, boolean block, boolean hide, @NotNull String id1, @NotNull String name1, String accessToken, String fcmToken, String deviceId, String liveCertOPT, String divisionKey, String statusMessage1, String facebookAt, String kakaoAt, String googleAt, String naverat, boolean openPrivacy) {
         super(id, name, profilePath, statusMessage, favorites, lastUpdate, block, hide);
+
         this.id = id1;
         this.name = name1;
         this.accessToken = accessToken;

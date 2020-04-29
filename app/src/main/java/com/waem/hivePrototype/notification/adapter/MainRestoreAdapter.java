@@ -1,5 +1,6 @@
 package com.waem.hivePrototype.notification.adapter;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -62,6 +63,7 @@ public class MainRestoreAdapter extends RecyclerView.Adapter<MainRestoreAdapter.
 			intent.putExtra("UserName",notifications.get(position).getUserName());
 			context.startActivity(intent);
 		});
+
 	}
 
 	@Override
