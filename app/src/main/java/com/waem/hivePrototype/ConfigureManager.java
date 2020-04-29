@@ -333,7 +333,7 @@ public class ConfigureManager {
     }
 
     //해당 디바이스가 뱃지가 달린다면, 어플리케이션에 뱃지(숫자 넘버링)을 달아준다.
-    public static void addBadge(Context context, int badgeCount) {
+    public void addBadge(int badgeCount) {
         Intent badgeIntent = new Intent("android.intent.action.BADGE_COUNT_UPDATE");
         badgeIntent.putExtra("badge_count", badgeCount);
         badgeIntent.putExtra("badge_count_package_name", context.getPackageName());
