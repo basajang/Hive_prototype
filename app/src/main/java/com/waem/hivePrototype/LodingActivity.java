@@ -23,6 +23,15 @@ import io.realm.RealmSchema;
 /**
  * 로딩 화면 클래스
  * */
+
+/**
+ * 테마 관련 소스
+ * https://github.com/android/user-interface-samples/tree/master/DarkTheme
+ *
+ * 기타 구글 도큐먼트 샘플
+ * https://github.com/android/user-interface-samples
+ *
+ */
 public class LodingActivity extends Activity {
 
 	@Override

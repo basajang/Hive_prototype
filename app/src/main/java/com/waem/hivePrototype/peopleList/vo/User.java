@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Date;
 
 import io.realm.RealmObject;
+import retrofit2.http.HEAD;
 
 public class User {
     /*
@@ -46,7 +47,7 @@ public class User {
     }
 
     public User(@NotNull String id, @NotNull String name, String profilePath, String statusMessage, boolean favorites, Date lastUpdate, boolean block, boolean hide, @NotNull String id1, @NotNull String name1, String accessToken, String fcmToken, String deviceId, String liveCertOPT, String divisionKey, String statusMessage1, String facebookAt, String kakaoAt, String googleAt, String naverat, boolean openPrivacy) {
-        super(id, name, profilePath, statusMessage, favorites, lastUpdate, block, hide);
+
 
         this.id = id1;
         this.name = name1;
@@ -61,17 +62,6 @@ public class User {
         this.googleAt = googleAt;
         this.naverat = naverat;
         this.openPrivacy = openPrivacy;
-    }
-
-    @Override
-    @NotNull
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(@NotNull String id) {
-        this.id = id;
     }
 
     @NotNull
