@@ -1,17 +1,18 @@
 package com.waem.hivePrototype.peopleList.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.waem.hivePrototype.peopleList.PopupFriendActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.peopleList.vo.People;
+
+import com.waem.hivePrototype.util.DialogUtil;
 
 import java.util.ArrayList;
 /**
@@ -21,6 +22,9 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 
 	private ArrayList<People> friendList;
 	private Context context=null;
+	private DialogUtil dialogUtil;
+
+
 
 	// Provide a reference to the views for each data item
 	// Complex data items may need more than one view per item, and
@@ -66,13 +70,47 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 		holder.tvFriendName.setText(friendList.get(position).getName());
 
 		holder.tvFriendName.setOnClickListener(view -> {
-			Intent intent =new Intent(context, PopupFriendActivity.class);
+			/*Intent intent =new Intent(context, PopupFriendActivity.class);
 			intent.putExtra("friendName",friendList.get(position).getName());
-			context.startActivity(intent);
+			context.startActivity(intent);*/
+			dialogUtil = new DialogUtil(context);
+			dialogUtil.setMessage(holder.tvFriendName.getText().toString()+"님과 채팅 하시겠습니까");
+			dialogUtil.setPositiveBtnText("예");
+			dialogUtil.setNegativeBtnText("아니요");
+			dialogUtil.setOnDialogListener(new DialogUtil.DialogListener() {
+				@Override
+				public void onPositiveClick() {
+					Toast.makeText(context,"예를 선택했습니다.",Toast.LENGTH_LONG).show();
+				}
+
+				@Override
+				public void onNegativeClick() {
+					Toast.makeText(context,"아니오를 선택했습니다.",Toast.LENGTH_LONG).show();
+				}
+			});
+			dialogUtil.show();
+
 		});
 
 	}
-
+	/*void show() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		builder.setTitle("AlertDialog Title");
+		builder.setMessage("AlertDialog Content");
+		builder.setPositiveButton("예",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						Toast.makeText(context,"예를 선택했습니다.",Toast.LENGTH_LONG).show();
+					}
+				});
+		builder.setNegativeButton("아니오",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						Toast.makeText(context,"아니오를 선택했습니다.",Toast.LENGTH_LONG).show();
+					}
+				});
+		builder.show();
+	}*/
 	// Return the size of your dataset (invoked by the layout manager)
 	/**
 	 * 전체아이템 갯수 리턴
