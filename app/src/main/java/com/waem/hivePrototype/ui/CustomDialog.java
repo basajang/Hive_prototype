@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 
 
-public class DialogUtil {
+public class CustomDialog {
 
 	private String message,positiveBtnText,negativeBtnText,oripositiveBtnText;
 	private int defaultTime = 0;
@@ -33,12 +33,12 @@ public class DialogUtil {
 	private TextView tvDialogMessage;
 
 
-	public DialogUtil(Context context){
+	public CustomDialog(Context context){
 		this.context = context;
 	}
 
 
-	public void DialogUtil(Context context, @NotNull String message,String positiveBtnText,String negativeBtnText, int defaultTime){
+	public void CustomDialog(Context context, @NotNull String message,String positiveBtnText,String negativeBtnText, int defaultTime){
 
 		this.context = context;
 		this.message = message;
@@ -137,27 +137,27 @@ public class DialogUtil {
 		}
 	}
 
-	public DialogUtil setMessage(String message){
+	public CustomDialog setMessage(String message){
 		this.message = message;
 		return this;
 	}
 
-	public DialogUtil setPositiveBtnText(String positiveBtnText){
+	public CustomDialog setPositiveBtnText(String positiveBtnText){
 		this.positiveBtnText = positiveBtnText;
 		return this;
 	}
 
-	public DialogUtil setNegativeBtnText(String negativeBtnText){
+	public CustomDialog setNegativeBtnText(String negativeBtnText){
 		this.negativeBtnText = negativeBtnText;
 		return this;
 	}
 
-	public DialogUtil setDefaultTime(int defaultTime) {
+	public CustomDialog setDefaultTime(int defaultTime) {
 		this.defaultTime = defaultTime;
 		return this;
 	}
 
-	public DialogUtil setOnDialogListener(DialogListener listener) {
+	public CustomDialog setOnDialogListener(DialogListener listener) {
 		this.dialogListener = listener;
 		return this;
 	}

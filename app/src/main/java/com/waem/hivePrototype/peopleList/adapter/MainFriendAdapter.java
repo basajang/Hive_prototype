@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.peopleList.vo.People;
 
-import com.waem.hivePrototype.ui.DialogUtil;
+import com.waem.hivePrototype.ui.CustomDialog;
 
 import java.util.ArrayList;
 /**
@@ -70,11 +70,11 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 			/*Intent intent =new Intent(context, PopupFriendActivity.class);
 			intent.putExtra("friendName",friendList.get(position).getName());
 			context.startActivity(intent);*/
-			DialogUtil dialogUtil = new DialogUtil(context);
-			dialogUtil.setMessage(holder.tvFriendName.getText().toString()+"님과 채팅 하시겠습니까");
-			dialogUtil.setPositiveBtnText("예");
-			dialogUtil.setNegativeBtnText("아니요");
-			dialogUtil.setOnDialogListener(new DialogUtil.DialogListener() {
+			CustomDialog customDialog = new CustomDialog(context);
+			customDialog.setMessage(holder.tvFriendName.getText().toString()+"님과 채팅 하시겠습니까");
+			customDialog.setPositiveBtnText("예");
+			customDialog.setNegativeBtnText("아니요");
+			customDialog.setOnDialogListener(new CustomDialog.DialogListener() {
 				@Override
 				public void onPositiveClick() {
 					Toast.makeText(context,"예를 선택했습니다.",Toast.LENGTH_LONG).show();
@@ -85,7 +85,7 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 					Toast.makeText(context,"아니오를 선택했습니다.",Toast.LENGTH_LONG).show();
 				}
 			});
-			dialogUtil.show();
+			customDialog.show();
 
 		});
 
