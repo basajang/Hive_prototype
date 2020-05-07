@@ -32,6 +32,12 @@ public class UserAccount {
         pref = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
+    /**
+     * 인스턴스 색성
+     * 사용자가 캐시 삭제 or 데이터 삭제시 해당 정보 삭제됨
+     * @param context activity 를 넣어도 무방
+     * @return
+     */
     public static UserAccount getInstance(Context context) {
         if (instance == null) {
             instance = new UserAccount(context);
@@ -40,6 +46,9 @@ public class UserAccount {
     }
 
 
+    /**
+     * 사용자 정보를 캐시에서 삭제
+     */
     public void logout(){
         setUserId(0);
         setAccessToken("");

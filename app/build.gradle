@@ -14,20 +14,31 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'waem'
+            keyPassword 'waem1!win'
+            storeFile file('D:/WAEM/waem.jks')
+            storePassword 'waem1!win'
+        }
     }
 
     buildTypes {
         release {
             buildConfigField 'String', 'DEVKEY', '"user"'
-//            minifyEnabled false
+            minifyEnabled true
 //            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             debuggable false
             jniDebuggable true
             renderscriptDebuggable false
+            signingConfig signingConfigs.release
         }
-        debug{
+        debug {
             buildConfigField 'String', 'DEVKEY', '"dev"'
-//            minifyEnabled false
+            minifyEnabled false
 //            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             debuggable true
             jniDebuggable true
@@ -47,6 +58,9 @@ android {
 
     flavorDimensions "mode"
     productFlavors {
+
+
+        //Flavors를 추가할수록 개발 속도가 드려짐 추가 하지 말것
 
         local {
             dimension "mode"
@@ -124,4 +138,5 @@ configurations.all {
                 details.useVersion "${targetSdk}.+"
             }
         }
-    }}
+    }
+}
