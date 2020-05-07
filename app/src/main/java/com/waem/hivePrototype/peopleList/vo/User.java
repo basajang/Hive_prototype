@@ -40,6 +40,7 @@ public class User {
     private String googleAt = null;
     private String naverat = null;
 
+    // 개인정보 공개 여부
     private boolean openPrivacy = false;
 
     public User() {

@@ -40,7 +40,15 @@ import java.util.regex.Pattern;
 
 import static android.os.Looper.getMainLooper;
 
+/**
+ * 원활한 사용을 위해서 activity를 생성하거나 activity할경우 반드시
+ * setActivity(this) 함수를 사용할것을 권장
+ * ex :
+ * setContentView(R.layout.activity_loding);
+ * ConfigureManager.getInstance().setActivity(this);
+ */
 public class ConfigureManager {
+
 
     private static ConfigureManager instance = new ConfigureManager();
     private static final int PERMISSION_REQUEST_CODE = 1;
@@ -193,7 +201,7 @@ public class ConfigureManager {
             return;
         }
 
-        loadCurrentVersion(context);
+        loadCurrentVersion();
         if (getAppCache("androidId") == null) {
             // 디바이스 id  저장 하는 부분 android 10 에서는 다른 방식으로 가져오길 권장
             androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -205,7 +213,7 @@ public class ConfigureManager {
     }
 
 
-    public void loadCurrentVersion(Context context) {
+    public void loadCurrentVersion() {
         PackageInfo pi = null;
 
         try {
@@ -222,8 +230,14 @@ public class ConfigureManager {
         }
     }
 
+    /**
+     * 백그라운드에서 포그라운드의 토스트 를 출력하기위한 메서드
+     * @param text 출력할 메세지
+     * @param LENGTH 시간 시간은 Toast.LENGTH_LONG or Toast.LENGTH_SHORT 으로만 출력 가능
+     */
     public void showToast(String text, int LENGTH){
         if(this.currentActivity!= null){
+
             try{
                 Handler mHandler = new Handler(getMainLooper());
                 mHandler.post(new Runnable() {
@@ -246,6 +260,12 @@ public class ConfigureManager {
         return androidId;
     }
 
+
+    /**
+     *  앱캐시에 데이터를 저장 하는 메서드
+     * @param key 저장 되는 값의 키
+     * @param data 저장 되는 값.  Integer일 경우 문자열로 캐스팅 하여 사용
+     */
     public void setAppCache(String key, String data) {
 
         SharedPreferences settings = this.activity.getSharedPreferences(GlobalConst.APP_NAME, 0);
@@ -254,12 +274,22 @@ public class ConfigureManager {
         editor.commit();
     }
 
+    /**
+     * 앱캐시에 데이터를 가져오는 메서드
+     * @param key 값의 키
+     * @return
+     */
     public String getAppCache(String key) {
         SharedPreferences settings = this.activity.getSharedPreferences(GlobalConst.APP_NAME, 0);
         return settings.getString(key, null);
     }
 
-    public void clearCookieAll(Activity activity) {
+    /**
+     * 앱캐시를 전체 삭제 하는 메서드
+     * 사용자가 로그아웃 할경우 이용을 권장
+     * @param activity
+     */
+    public void clearAppCache(Activity activity) {
         SharedPreferences settings = activity.getSharedPreferences(GlobalConst.APP_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
 
@@ -341,7 +371,11 @@ public class ConfigureManager {
         context.sendBroadcast(badgeIntent);
     }*/
 
-    //해당 패키지의 런처클래스의 이름을 반환한다
+    /**
+     * 해당 패키지의 런처클래스의 이름을 반환
+     * @param context
+     * @return
+     */
     private static String getLauncherClass(Context context) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);

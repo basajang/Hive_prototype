@@ -108,6 +108,11 @@ public class ZipUtil {
         return this;
     }
 
+
+    /**
+     * 압축 해제 dir 체크 하여 없다면 생성
+     * @param dir 해당 경로
+     */
     private void _dirChecker(String dir) {
         File f = new File(_location + dir);
 

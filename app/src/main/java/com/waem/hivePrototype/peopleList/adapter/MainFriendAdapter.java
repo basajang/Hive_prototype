@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.peopleList.vo.People;
 
-import com.waem.hivePrototype.util.DialogUtil;
+import com.waem.hivePrototype.ui.DialogUtil;
 
 import java.util.ArrayList;
 /**
@@ -21,10 +21,7 @@ import java.util.ArrayList;
 public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.FriendViewHolder>  {
 
 	private ArrayList<People> friendList;
-	private Context context=null;
-	private DialogUtil dialogUtil;
-
-
+	private Context context = null;
 
 	// Provide a reference to the views for each data item
 	// Complex data items may need more than one view per item, and
@@ -73,7 +70,7 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 			/*Intent intent =new Intent(context, PopupFriendActivity.class);
 			intent.putExtra("friendName",friendList.get(position).getName());
 			context.startActivity(intent);*/
-			dialogUtil = new DialogUtil(context);
+			DialogUtil dialogUtil = new DialogUtil(context);
 			dialogUtil.setMessage(holder.tvFriendName.getText().toString()+"님과 채팅 하시겠습니까");
 			dialogUtil.setPositiveBtnText("예");
 			dialogUtil.setNegativeBtnText("아니요");

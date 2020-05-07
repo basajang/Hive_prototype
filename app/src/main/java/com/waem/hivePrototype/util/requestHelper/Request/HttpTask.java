@@ -5,6 +5,11 @@ import android.telephony.mbms.DownloadRequest;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
+/**
+ * okhttp를 좀더 편리 하게 사용하려고 만든 객채
+ *
+ *
+ */
 public class HttpTask {
 
     private String TAG = "HttpTask";
