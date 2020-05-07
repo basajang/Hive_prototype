@@ -57,7 +57,8 @@ public class LodingActivity extends Activity {
 
 			@Override
 			public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-				Toast.makeText(ConfigureManager.getInstance().getActivity(), "권한 거부\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(ConfigureManager.getInstance().getActivity(), "권한 거부\n"
+						+ deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
 			}
 
 		};
@@ -66,8 +67,10 @@ public class LodingActivity extends Activity {
 		TedPermission.with(this).setPermissionListener(permissionlistener)
 				.setRationaleMessage("접근 권한이 필요해요")
 				.setDeniedMessage("왜 거부하셨어요...\n하지만 [설정] > [권한] 에서 권한을 허용할 수 있어요.")
-				.setPermissions(Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_WIFI_STATE , Manifest.permission.INTERNET
-						, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION)
+				.setPermissions(Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_WIFI_STATE
+						, Manifest.permission.INTERNET
+						, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE
+						, Manifest.permission.ACCESS_COARSE_LOCATION)
 				.check();
 
 		ConfigureManager.getInstance().checkExternalStorage();

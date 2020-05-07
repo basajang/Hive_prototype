@@ -152,6 +152,7 @@ public class ConfigureManager {
                                         showToast("네트워크 연결이 불안정 합니다.", Toast.LENGTH_LONG);
                                     }
                                 } else if (cellInfo instanceof CellInfoLte) {
+
                                     CellInfoLte cellInfoLte = (CellInfoLte) cellInfo;
                                     CellSignalStrengthLte cellSignalStrengthLte = cellInfoLte.getCellSignalStrength();
                                     Log.d(GlobalConst.TAG, "checkNetworkStrength: cellSignalStrengthLte : "+cellSignalStrengthLte.getLevel());
@@ -182,7 +183,9 @@ public class ConfigureManager {
             if (currentActivity.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 return true;
             }else{
-                ActivityCompat.requestPermissions(currentActivity, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+                ActivityCompat.requestPermissions(currentActivity, new String[]{
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                }, 1);
                 return false;
             }
         }else{

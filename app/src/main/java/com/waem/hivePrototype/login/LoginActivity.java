@@ -80,7 +80,8 @@ public class LoginActivity extends AppCompatActivity {
         fragments.add(new BasicLogin());
         fragments.add(new LiveCERT());
         fragments.add(new SNSLogin());
-        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(this, this.getSupportFragmentManager(), fragments);
+        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(this,
+                this.getSupportFragmentManager(), fragments);
 
 //		pagerAdapter.addFragment(new MyFragment());
 //		pagerAdapter.addFragment(new MyFragment());
