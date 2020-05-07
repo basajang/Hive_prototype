@@ -6,13 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.notification.vo.Notification;
-import com.waem.hivePrototype.ui.DialogUtil;
+import com.waem.hivePrototype.ui.CustomDialog;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ public class MainRestoreAdapter extends RecyclerView.Adapter<MainRestoreAdapter.
 
 	private ArrayList<Notification> notifications;
 	private Context context= null;
-	private DialogUtil dialogUtil;
+
 
 	public MainRestoreAdapter(ArrayList<Notification> restoreList) {
 
@@ -59,28 +60,23 @@ public class MainRestoreAdapter extends RecyclerView.Adapter<MainRestoreAdapter.
 		holder.tvRestoreRequestText.setText(notifications.get(position).getTitle());
 
 		holder.tvRestoreRequestText.setOnClickListener(v -> {
-			/*Intent intent = new Intent(context, PopupRestoreActivity.class);
-			intent.putExtra("UserName",notifications.get(position).getUserName());
-			context.startActivity(intent);*/
-			dialogUtil = new DialogUtil(context);
 
-			dialogUtil.setMessage(holder.tvRestoreUserName.getText().toString()+"님의 요청을 수락하시겠습니까.");
-			dialogUtil.setPositiveBtnText("예");
-			dialogUtil.setNegativeBtnText("아니요");
-
-			dialogUtil.setOnDialogListener(new DialogUtil.DialogListener() {
+			CustomDialog customDialog = new CustomDialog(context);
+			customDialog.setMessage(holder.tvRestoreUserName.getText().toString()+"님의 요청을 수락하시겠습니까.");
+			customDialog.setPositiveBtnText("예");
+			customDialog.setNegativeBtnText("아니요");
+			customDialog.setOnDialogListener(new CustomDialog.DialogListener() {
 				@Override
 				public void onPositiveClick() {
-
+					Toast.makeText(context,"예를 눌렀습니다.",Toast.LENGTH_SHORT).show();
 				}
-
 				@Override
 				public void onNegativeClick() {
-
+					Toast.makeText(context,"아니오를 눌렀습니다.",Toast.LENGTH_SHORT).show();
 				}
 			});
 
-			dialogUtil.show();
+			customDialog.show();
 		});
 
 	}
