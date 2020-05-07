@@ -1,4 +1,4 @@
-package com.waem.hivePrototype.util;
+package com.waem.hivePrototype.ui;
 
 import android.app.Dialog;
 import android.content.Context;

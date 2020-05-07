@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.notification.vo.Notification;
-import com.waem.hivePrototype.util.DialogUtil;
+import com.waem.hivePrototype.ui.DialogUtil;
 
 import java.util.ArrayList;
 
