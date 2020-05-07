@@ -22,7 +22,7 @@ import com.waem.hivePrototype.find.FindActivity;
 import com.waem.hivePrototype.join.SignupActivity;
 
 import com.waem.hivePrototype.join.TermsActivity;
-import com.waem.hivePrototype.ui.DialogUtil;
+import com.waem.hivePrototype.ui.CustomDialog;
 
 
 import java.util.ArrayList;
@@ -123,9 +123,9 @@ public class LoginActivity extends AppCompatActivity {
         login_pager.setCurrentItem(1);
         Log.d(GlobalConst.TAG, "onCreate: " + login_pager.getAdapter().getCount());
 
-        DialogUtil dialogUtil = new DialogUtil(this).setDefaultTime(5).setMessage("dkdkdk")
+        CustomDialog customDialog = new CustomDialog(this).setMessage("dkdkdk")
                 .setNegativeBtnText("아니요").setPositiveBtnText("ㅁ").
-                        setOnDialogListener(new DialogUtil.DialogListener() {
+                        setOnDialogListener(new CustomDialog.DialogListener() {
                             @Override
                             public void onPositiveClick() {
 
@@ -136,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
                         });
-		dialogUtil.show();
+        customDialog.show();
         // 테스트 코드
 
 //		Realm realm = Realm.getDefaultInstance();
