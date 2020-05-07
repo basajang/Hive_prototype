@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 public class CustomDialog {
 
 	private String message,positiveBtnText,negativeBtnText,oripositiveBtnText;
-	private int defaultTime = 0;
+	private int defaultTime = -1;
 
 	private DialogListener dialogListener;
 	private View view;
@@ -63,7 +63,7 @@ public class CustomDialog {
 			btnDialogNegative = view.findViewById(R.id.btn_dialog_negative);
 			tvDialogMessage = view.findViewById(R.id.tv_dialog_message);
 
-			if(defaultTime >= 0){
+			if(defaultTime > 0){
 				message = message+"("+defaultTime+")";
 			}
 
