@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,24 +60,19 @@ public class MainRestoreAdapter extends RecyclerView.Adapter<MainRestoreAdapter.
 		holder.tvRestoreRequestText.setText(notifications.get(position).getTitle());
 
 		holder.tvRestoreRequestText.setOnClickListener(v -> {
-			/*Intent intent = new Intent(context, PopupRestoreActivity.class);
-			intent.putExtra("UserName",notifications.get(position).getUserName());
-			context.startActivity(intent);*/
-			dialogUtil = new DialogUtil(context);
 
+			dialogUtil = new DialogUtil(context);
 			dialogUtil.setMessage(holder.tvRestoreUserName.getText().toString()+"님의 요청을 수락하시겠습니까.");
 			dialogUtil.setPositiveBtnText("예");
 			dialogUtil.setNegativeBtnText("아니요");
-
 			dialogUtil.setOnDialogListener(new DialogUtil.DialogListener() {
 				@Override
 				public void onPositiveClick() {
-
+					Toast.makeText(context,"예를 눌렀습니다.",Toast.LENGTH_SHORT).show();
 				}
-
 				@Override
 				public void onNegativeClick() {
-
+					Toast.makeText(context,"아니오를 눌렀습니다.",Toast.LENGTH_SHORT).show();
 				}
 			});
 

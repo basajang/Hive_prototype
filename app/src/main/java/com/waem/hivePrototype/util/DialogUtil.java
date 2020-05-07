@@ -73,7 +73,7 @@ public class DialogUtil {
 				btnDialogPositive.setText(positiveBtnText);
 				positiveBtnText = oripositiveBtnText;
 			}
-			if(negativeBtnText !=null){
+			if(negativeBtnText != null){
 				btnDialogNegative.setText(negativeBtnText);
 			}
 
