@@ -63,6 +63,10 @@ public class DialogUtil {
 			btnDialogNegative = view.findViewById(R.id.btn_dialog_negative);
 			tvDialogMessage = view.findViewById(R.id.tv_dialog_message);
 
+			if(defaultTime >= 0){
+				message = message+"("+defaultTime+")";
+			}
+
 			tvDialogMessage.setText(message);
 
 			if(positiveBtnText == null){
@@ -123,8 +127,8 @@ public class DialogUtil {
 				public void run() {
 					setDefaultTime(defaultTime -1);
 					if(defaultTime <= -1){
+						dialog.dismiss();
 						handler.removeCallbacks(this);
-						buildDialog();
 					}else {
 						buildDialog();
 					}
