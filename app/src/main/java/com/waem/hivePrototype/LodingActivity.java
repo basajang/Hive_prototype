@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.gun0912.tedpermission.PermissionListener;
@@ -40,6 +41,11 @@ public class LodingActivity extends Activity {
 
 		setContentView(R.layout.activity_loding);
 		ConfigureManager.getInstance().setActivity(this);
+		Log.d(GlobalConst.TAG, "onCreate: BuildConfig.DEVKEY == "+BuildConfig.DEVKEY);
+		if(GlobalConst.DEVKEY.equals(BuildConfig.DEVKEY)){
+			Log.d(GlobalConst.TAG, "onCreate: "+BuildConfig.DEVKEY);
+
+		}
 
 		PermissionListener permissionlistener = new PermissionListener() {
 			@Override

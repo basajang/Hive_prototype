@@ -26,6 +26,7 @@ public class Notification {
     // 알림 발생 시간
     private Date updateTime;
     // 알림의 타임
+
     /*
     RESTORE_REQUEST 복원 요청
     RESTORE_REQUEST_SUCCESS 복원 성공
