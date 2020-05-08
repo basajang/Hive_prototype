@@ -1,6 +1,7 @@
 package com.waem.hivePrototype.chatRoomList.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.MainActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.adapter.MainChatAdapter;
@@ -76,32 +78,15 @@ public class ChatListFragment extends Fragment {
 			RealmManager.getInstance().getChatRoom().insert(chatRoom4);
 			RealmManager.getInstance().getChatRoom().insert(chatRoom5);
 
+
 		}
+		Log.d(GlobalConst.TAG, "채팅방: "+RealmManager.getInstance().getChatRoom().getChatRoomList());
+		Log.d(GlobalConst.TAG, "채팅방: "+RealmManager.getInstance().getChatRoom().getChatRoomList().size());
+
+
 
 		chatRoomList = RealmManager.getInstance().getChatRoom().getChatRoomList();
-//		ChatRoom chatRoom2= new ChatRoom("b","김홍도",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
-//		ChatRoom chatRoom3= new ChatRoom("c","동아리 톡방",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
-//		ChatRoom chatRoom4= new ChatRoom("d","봉사활동",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
-//		ChatRoom chatRoom5= new ChatRoom("e","고등학교 친구들",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
-//		ChatRoom chatRoom6= new ChatRoom("f","중학교 친구들",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
-//		ChatRoom chatRoom7= new ChatRoom("g","동길홍",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
-//		ChatRoom chatRoom8= new ChatRoom("h","대학교 단체 톡1",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
-//		ChatRoom chatRoom9= new ChatRoom("i","대학교 단체 톡2",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
-//		ChatRoom chatRoom10= new ChatRoom("j","대학교 단체 톡3",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
-//
-//
-
-
-//		chatRooms.add(chatRoom2);
-//		chatRooms.add(chatRoom3);
-//		chatRooms.add(chatRoom4);
-//		chatRooms.add(chatRoom5);
-//		chatRooms.add(chatRoom6);
-//		chatRooms.add(chatRoom7);
-//		chatRooms.add(chatRoom8);
-//		chatRooms.add(chatRoom9);
-//		chatRooms.add(chatRoom10);
-
+		mainChatAdapter.notifyDataSetChanged();
 	}
 	private void listener(){
 

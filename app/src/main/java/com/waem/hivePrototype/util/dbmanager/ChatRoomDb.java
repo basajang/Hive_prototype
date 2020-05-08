@@ -6,6 +6,7 @@ import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 
 import java.util.List;
+import java.util.UUID;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
@@ -36,7 +37,7 @@ public class ChatRoomDb {
             @Override
             public void execute(Realm realm) {
 
-                ChatRoom realmChatRoom = realm.createObject(ChatRoom.class);
+                ChatRoom realmChatRoom = realm.createObject(ChatRoom.class, UUID.randomUUID().toString());
 
                 // get,set Method 생성해야함
                 realmChatRoom.setRoomName(chatRoom.getRoomName());
