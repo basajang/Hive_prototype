@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -43,12 +44,30 @@
                     android:hint="가입한 이름을 입력하세요."
                     android:background="@drawable/edit_border_line"/>
                 <LinearLayout
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/ccp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:ccp_defaultPhoneCode="82"
+                        app:ccp_textSize="12sp"
+                        android:layout_gravity="fill_horizontal">
 
+                    </com.hbb20.CountryCodePicker>
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_border_line"
+                        android:hint="전화번호"
+                        android:paddingLeft="10dp"/>
                 </LinearLayout>
                 <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

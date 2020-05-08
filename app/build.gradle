@@ -126,9 +126,9 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    // 버터 나이프
 
-
+    //국가 코드 (CCP)
+    implementation 'com.hbb20:ccp:2.3.8'
 }
 configurations.all {
     resolutionStrategy.eachDependency { DependencyResolveDetails details ->
