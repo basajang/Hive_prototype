@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 import static io.realm.internal.SyncObjectServerFacade.getApplicationContext;
 
@@ -61,7 +62,19 @@ public class ChatRoomDb {
             }
         });
 
+    }
+    public void delete(){
 
+        final RealmResults<ChatRoom> chatRoomList = (RealmResults<ChatRoom>) getChatRoomList();
+
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+
+                chatRoomList.deleteAllFromRealm();
+                Log.d(GlobalConst.TAG,"realm 데이터 삭제 완료");
+            }
+        });
     }
 
 }

@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 
 
 import com.google.android.material.tabs.TabLayout;
+import com.waem.hivePrototype.chatRoomList.adapter.MainChatAdapter;
 import com.waem.hivePrototype.peopleList.adapter.TabPagerAdapter;
 import com.waem.hivePrototype.peopleList.fragment.FriendListFragment;
 
@@ -44,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private FragmentTransaction fragmentTransaction;
     private FriendListFragment fragment;
 
-    @Override
+
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -147,4 +149,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
         <!-- 프래그먼트 채팅 리스트 -->
 <!--    <ScrollView-->
 <!--        android:layout_width="match_parent"-->
@@ -12,7 +13,28 @@
             android:id="@+id/rv_main_chat_list"
             android:overScrollMode="never"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+        <LinearLayout
+            android:id="@+id/li_main_chat_list_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+                <Button
+                    android:id="@+id/btn_main_chat_list_test_insert"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="테스트용Insert" />
+                <Button
+                    android:id="@+id/btn_main_chat_list_test_delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="테스트용 Delete" />
+        </LinearLayout>
 
  <!--   </ScrollView>-->
 

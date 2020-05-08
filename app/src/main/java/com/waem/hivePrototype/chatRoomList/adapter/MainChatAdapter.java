@@ -27,6 +27,7 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 	private List<ChatRoom> chatRooms = new ArrayList<>();
 	private Context context=null;
 
+
 	public static class ChatViewHolder extends RecyclerView.ViewHolder {
 		// each data item is just a string in this case
 
@@ -79,4 +80,8 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 		notifyDataSetChanged();
 
 	}
+	public void setItem(List<ChatRoom> chatRoomList){
+		this.chatRooms= chatRoomList;
+	}
+
 }

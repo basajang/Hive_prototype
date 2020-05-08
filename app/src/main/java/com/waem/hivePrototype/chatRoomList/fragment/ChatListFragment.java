@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,6 +44,8 @@ public class ChatListFragment extends Fragment {
 	private RealmList<String> roomProfilePath = new RealmList<>();
 	private RealmList<Message> messageList = new RealmList<>();
 	private RealmList<RoomFile> fileList = new RealmList<>();
+	private Button btnMainChatlistTestInsert,btnMainChatlistTestDelete;
+	private LinearLayout liMainChatListTest;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,11 +55,15 @@ public class ChatListFragment extends Fragment {
 		Log.i(GlobalConst.TAG, "onCreateView: ");
 		init();
 		listener();
-
+		test();
 		return view;
 	}
 	private void init(){
-		rvMainChatList=(RecyclerView)view.findViewById(R.id.rv_main_chat_list);
+		btnMainChatlistTestInsert = (Button) view.findViewById(R.id.btn_main_chat_list_test_insert);
+		btnMainChatlistTestDelete = (Button) view.findViewById(R.id.btn_main_chat_list_test_delete);
+		liMainChatListTest = (LinearLayout) view.findViewById(R.id.li_main_chat_list_test);
+
+		rvMainChatList = (RecyclerView)view.findViewById(R.id.rv_main_chat_list);
 
 		chatLayoutManager = new LinearLayoutManager(getActivity());
 		mainChatAdapter = new MainChatAdapter(chatRoomList);
@@ -82,16 +90,32 @@ public class ChatListFragment extends Fragment {
 
 
 		}
+
+
+		btnMainChatlistTestInsert.setOnClickListener(v -> {
+
+			ChatRoom chatRoom6= new ChatRoom("친구3",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
+			RealmManager.getInstance().getChatRoom().insert(chatRoom6);
+
+		});
+		btnMainChatlistTestDelete.setOnClickListener(v -> {
+
+			RealmManager.getInstance().getChatRoom().delete();
+
+		});
+
 		Log.d(GlobalConst.TAG, "채팅방: "+RealmManager.getInstance().getChatRoom().getChatRoomList());
 		Log.d(GlobalConst.TAG, "채팅방: "+RealmManager.getInstance().getChatRoom().getChatRoomList().size());
 
-		///////
-
-
 		chatRoomList = RealmManager.getInstance().getChatRoom().getChatRoomList();
+
 		for(ChatRoom chatRoom : chatRoomList){
+
 			mainChatAdapter.addChatroom(chatRoom);
+
 		}
+		mainChatAdapter.setItem(chatRoomList);
+		mainChatAdapter.notifyDataSetChanged();
 	}
 	private void listener(){
 
@@ -99,9 +123,10 @@ public class ChatListFragment extends Fragment {
 
 	public void test(){
 		if(GlobalConst.DEVKEY.equals(BuildConfig.DEVKEY)){
-			rvMainChatList.setVisibility(View.VISIBLE);
-
+			liMainChatListTest.setVisibility(View.VISIBLE);
 
 		}
 	}
+
+
 }
