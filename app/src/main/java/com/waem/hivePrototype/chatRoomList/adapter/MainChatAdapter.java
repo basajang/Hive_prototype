@@ -2,6 +2,7 @@ package com.waem.hivePrototype.chatRoomList.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.chatRoomList.ChatRoomActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
@@ -22,7 +24,7 @@ import java.util.List;
  * */
 public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatViewHolder> {
 
-	private List<ChatRoom> chatRooms;
+	private List<ChatRoom> chatRooms = new ArrayList<>();
 	private Context context=null;
 
 	public static class ChatViewHolder extends RecyclerView.ViewHolder {
@@ -56,6 +58,8 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 	@Override
 	public void onBindViewHolder(@NonNull MainChatAdapter.ChatViewHolder holder, int position) {
 
+
+		Log.d(GlobalConst.TAG, "onBindViewHolder: "+position);
 		holder.tvChatName.setText(chatRooms.get(position).getRoomName());
 
 		holder.tvChatName.setOnClickListener(view -> {
@@ -69,4 +73,10 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 		return chatRooms.size();
 	}
 
+
+	public void addChatroom(ChatRoom chatRoom){
+		chatRooms.add(chatRoom);
+		notifyDataSetChanged();
+
+	}
 }

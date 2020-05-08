@@ -1,5 +1,6 @@
 package com.waem.hivePrototype.chatRoomList.fragment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.waem.hivePrototype.BuildConfig;
 import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.MainActivity;
 import com.waem.hivePrototype.R;
@@ -46,7 +48,7 @@ public class ChatListFragment extends Fragment {
 		// Inflate the layout for this fragment
 		view= inflater.inflate(R.layout.fragment_chat_list, container, false);
 
-
+		Log.i(GlobalConst.TAG, "onCreateView: ");
 		init();
 		listener();
 
@@ -83,13 +85,23 @@ public class ChatListFragment extends Fragment {
 		Log.d(GlobalConst.TAG, "채팅방: "+RealmManager.getInstance().getChatRoom().getChatRoomList());
 		Log.d(GlobalConst.TAG, "채팅방: "+RealmManager.getInstance().getChatRoom().getChatRoomList().size());
 
+		///////
 
 
 		chatRoomList = RealmManager.getInstance().getChatRoom().getChatRoomList();
-		mainChatAdapter.notifyDataSetChanged();
+		for(ChatRoom chatRoom : chatRoomList){
+			mainChatAdapter.addChatroom(chatRoom);
+		}
 	}
 	private void listener(){
 
 	}
 
+	public void test(){
+		if(GlobalConst.DEVKEY.equals(BuildConfig.DEVKEY)){
+			rvMainChatList.setVisibility(View.VISIBLE);
+
+
+		}
+	}
 }
