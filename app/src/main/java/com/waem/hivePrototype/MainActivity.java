@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ConfigureManager.getInstance().setActivity(this);
         ButterKnife.bind(this);
 
         // ndk 샘플 실행

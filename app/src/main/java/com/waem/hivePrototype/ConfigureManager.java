@@ -41,7 +41,7 @@ import java.util.regex.Pattern;
 import static android.os.Looper.getMainLooper;
 
 /**
- * 원활한 사용을 위해서 activity를 생성하거나 activity할경우 반드시
+ * 원활한 사용을 위해서 activity를 생성하거나 activity 이동할경우 반드시
  * setActivity(this) 함수를 사용할것을 권장
  * ex :
  * setContentView(R.layout.activity_loding);

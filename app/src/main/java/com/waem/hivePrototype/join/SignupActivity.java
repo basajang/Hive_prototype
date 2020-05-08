@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.join.adapter.JoinTabPagerAdapter;
 import com.waem.hivePrototype.login.LoginActivity;
 import com.waem.hivePrototype.R;
@@ -28,6 +29,7 @@ public class SignupActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_signup);
+		ConfigureManager.getInstance().setActivity(this);
 
 		ButterKnife.bind(this);
 

@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.R;
 
 import butterknife.BindView;
@@ -18,6 +19,7 @@ public class TermsActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_terms);
+		ConfigureManager.getInstance().setActivity(this);
 
 		ButterKnife.bind(this);
 

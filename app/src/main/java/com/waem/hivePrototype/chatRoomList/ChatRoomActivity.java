@@ -11,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.util.dbmanager.RealmManager;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Realm;
 
 public class ChatRoomActivity extends AppCompatActivity {
 
@@ -39,6 +41,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chat_room_menu);
+		ConfigureManager.getInstance().setActivity(this);
 
 		ButterKnife.bind(this);
 
@@ -57,6 +60,10 @@ public class ChatRoomActivity extends AppCompatActivity {
         fileType = FileType.IMAGE;
 
 		//ChatRoom chatRoom = realm.where(ChatRoom.class).equalTo("roomId", "0c91e078-f1f7-4b1a-af34-5e6893b85652").findFirst();
+
+		/*렐름 매니저 사용예제*/
+		Log.d(GlobalConst.TAG, "init: "+RealmManager.getInstance().getChatRoom().getChatRoomList());
+		Log.d(GlobalConst.TAG, "init: "+RealmManager.getInstance().getChatRoom().getChatRoomList().size());
 
 		ChatRoom chatRoom = RealmManager.getInstance().getChatRoom().getChatRoomList().get(0);
 

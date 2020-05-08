@@ -7,6 +7,8 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmQuery;
 
+import static io.realm.internal.SyncObjectServerFacade.getApplicationContext;
+
 public class ChatRoomDb {
 
     private Realm realm;
@@ -16,6 +18,7 @@ public class ChatRoomDb {
     }
 
     public RealmQuery getDb(){
+
         return realm.where(ChatRoom.class);
     }
 

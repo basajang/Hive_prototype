@@ -24,12 +24,13 @@ public class FindActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_find);
+		ConfigureManager.getInstance().setActivity(this);
 
 		ButterKnife.bind(this);
 
 		init();
 		listener();
-		ConfigureManager.getInstance().setActivity(this);
+
 
 	}
 	private void init(){
