@@ -15,6 +15,7 @@ import com.waem.hivePrototype.chatRoomList.adapter.MainChatAdapter;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.chatRoomList.vo.Message;
 import com.waem.hivePrototype.chatRoomList.vo.RoomFile;
+import com.waem.hivePrototype.util.dbmanager.RealmManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class ChatListFragment extends Fragment {
 	private RecyclerView.LayoutManager chatLayoutManager;
 
 	/*테스트용 변수*/
-	private ArrayList<ChatRoom> chatRooms =new ArrayList<>();
+	private List<ChatRoom> chatRoomList =new ArrayList<>();
 	private RealmList<String> roomProfilePath = new RealmList<>();
 	private RealmList<Message> messageList = new RealmList<>();
 	private RealmList<RoomFile> fileList = new RealmList<>();
@@ -53,20 +54,31 @@ public class ChatListFragment extends Fragment {
 		rvMainChatList=(RecyclerView)view.findViewById(R.id.rv_main_chat_list);
 
 		chatLayoutManager = new LinearLayoutManager(getActivity());
-		mainChatAdapter = new MainChatAdapter(chatRooms);
+		mainChatAdapter = new MainChatAdapter(chatRoomList);
 		rvMainChatList.setLayoutManager(chatLayoutManager);
 		rvMainChatList.setAdapter(mainChatAdapter);
 
+		if(RealmManager.getInstance().getChatRoom().getChatRoomList().size() == 0){
 
-		ChatRoom chatRoom1= new ChatRoom("친구1",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
+			ChatRoom chatRoom1= new ChatRoom("친구1",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
 
-		ChatRoom chatRoom2= new ChatRoom("대학교 단체 톡",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
+			ChatRoom chatRoom2= new ChatRoom("대학교 단체 톡",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
 
-		ChatRoom chatRoom3= new ChatRoom("친구2",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
+			ChatRoom chatRoom3= new ChatRoom("친구2",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
 
-		ChatRoom chatRoom4= new ChatRoom("동아리 톡",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
+			ChatRoom chatRoom4= new ChatRoom("동아리 톡",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
 
-		ChatRoom chatRoom5= new ChatRoom("친구3",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
+			ChatRoom chatRoom5= new ChatRoom("친구3",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
+
+			RealmManager.getInstance().getChatRoom().insert(chatRoom1);
+			RealmManager.getInstance().getChatRoom().insert(chatRoom2);
+			RealmManager.getInstance().getChatRoom().insert(chatRoom3);
+			RealmManager.getInstance().getChatRoom().insert(chatRoom4);
+			RealmManager.getInstance().getChatRoom().insert(chatRoom5);
+
+		}
+
+		chatRoomList = RealmManager.getInstance().getChatRoom().getChatRoomList();
 //		ChatRoom chatRoom2= new ChatRoom("b","김홍도",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
 //		ChatRoom chatRoom3= new ChatRoom("c","동아리 톡방",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
 //		ChatRoom chatRoom4= new ChatRoom("d","봉사활동",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
@@ -78,11 +90,7 @@ public class ChatListFragment extends Fragment {
 //		ChatRoom chatRoom10= new ChatRoom("j","대학교 단체 톡3",roomProfilePath,messageList,fileList,"123",false,false,false,false,false,1,1,10,false);
 //
 //
-		chatRooms.add(chatRoom1);
-		chatRooms.add(chatRoom2);
-		chatRooms.add(chatRoom3);
-		chatRooms.add(chatRoom4);
-		chatRooms.add(chatRoom5);
+
 
 //		chatRooms.add(chatRoom2);
 //		chatRooms.add(chatRoom3);

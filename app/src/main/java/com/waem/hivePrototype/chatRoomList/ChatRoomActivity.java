@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
+import retrofit2.http.HEAD;
 
 public class ChatRoomActivity extends AppCompatActivity {
 
@@ -40,6 +41,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.activity_chat_room_menu);
 		ConfigureManager.getInstance().setActivity(this);
 

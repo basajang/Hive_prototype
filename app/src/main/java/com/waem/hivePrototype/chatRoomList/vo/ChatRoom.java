@@ -83,7 +83,7 @@ public class ChatRoom extends RealmObject {
         this.roomName = roomName;
     }
 
-    public List<String> getRoomProfilePath() {
+    public RealmList<String> getRoomProfilePath() {
         return roomProfilePath;
     }
 

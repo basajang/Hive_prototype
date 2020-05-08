@@ -1,6 +1,5 @@
 package com.waem.hivePrototype.util.dbmanager;
 
-import android.content.Context;
 
 import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
@@ -20,7 +19,7 @@ public class RealmManager {
     private static RealmManager instance = new RealmManager();
 
     private Realm realm;
-    private Context context;
+
 
     public RealmManager() {
 
