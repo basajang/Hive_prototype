@@ -63,9 +63,9 @@ public class CustomDialog {
 			btnDialogNegative = view.findViewById(R.id.btn_dialog_negative);
 			tvDialogMessage = view.findViewById(R.id.tv_dialog_message);
 
-			if(defaultTime > 0){
-				message = message+"("+defaultTime+")";
-			}
+//			if(defaultTime > 0){
+//				message = message+"("+defaultTime+")";
+//			}
 
 			tvDialogMessage.setText(message);
 

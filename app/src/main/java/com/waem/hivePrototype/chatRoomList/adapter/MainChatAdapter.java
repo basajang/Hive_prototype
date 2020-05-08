@@ -73,7 +73,6 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 		return chatRooms.size();
 	}
 
-
 	public void addChatroom(ChatRoom chatRoom){
 		chatRooms.add(chatRoom);
 		notifyDataSetChanged();
