@@ -4,6 +4,7 @@ package com.waem.hivePrototype;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -16,10 +17,19 @@ import com.waem.hivePrototype.peopleList.adapter.TabPagerAdapter;
 import com.waem.hivePrototype.peopleList.fragment.FriendListFragment;
 
 import com.waem.hivePrototype.util.FileUtil;
+import com.waem.hivePrototype.util.requestHelper.BaseResult;
+import com.waem.hivePrototype.util.requestHelper.Request.HttpTask;
 import com.waem.ndklib.NativeWrapper;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * 메인 화면 액티비티
@@ -43,8 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
         // ndk 샘플 실행
         NativeWrapper wrapper = new NativeWrapper();
-        wrapper.nativeSum(10, 20);
 
+        Log.d(GlobalConst.TAG, "onCreate: nativeSum "+wrapper.nativeSum(10, 20));
+        Log.d(GlobalConst.TAG, "onCreate: nativeSub "+wrapper.nativeSub(30, 10));
        /* fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -53,21 +64,28 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();*/
 
 
+
 //        Map<String, String> map = new HashMap<>();
 //        map.put("key", "val");
 //
 //        new HttpTask().get("http://www.google.co.kr/").execute();
-//        new HttpTask().get("http://www.google.co.kr/").enqueue(new Callback() {
-//            @Override
-//            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-//                Log.d(TAG, "onFailure: ");
-//            }
-//
-//            @Override
-//            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-//                Log.d(TAG, "onResponse: "+response.body().string());
-//            }
-//        });
+        new HttpTask().get("http://www.google.co.kr/").enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                Log.d(GlobalConst.TAG, "onFailure: ");
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                Log.d(GlobalConst.TAG, "onResponse: "+response.body().string());
+
+                BaseResult baseResult = new BaseResult();
+                baseResult.getCode();
+                baseResult.getMessages();
+                ConfigureManager.getInstance().showToast(baseResult.getMessages(), Toast.LENGTH_LONG);
+
+            }
+        });
         Log.d(GlobalConst.TAG, "onCreate: ");
 
 

@@ -14,7 +14,8 @@ extern "C" {
  */
 JNIEXPORT jint JNICALL Java_com_waem_ndklib_NativeWrapper_nativeSum
   (JNIEnv *, jobject, jint, jint);
-
+JNIEXPORT jint JNICALL Java_com_waem_ndklib_NativeWrapper_nativeSub
+  (JNIEnv *, jobject, jint, jint);
 #ifdef __cplusplus
 }
 #endif
