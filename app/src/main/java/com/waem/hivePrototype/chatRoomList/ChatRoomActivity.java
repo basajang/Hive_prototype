@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.util.dbmanager.RealmManager;
@@ -37,7 +38,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chat_room);
-
+		ConfigureManager.getInstance().setActivity(this);
 		ButterKnife.bind(this);
 
 		init();

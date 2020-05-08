@@ -15,12 +15,14 @@ import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 
 import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 채팅리스트 리사이클러뷰 어댑터
  * */
 public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatViewHolder> {
 
-	private ArrayList<ChatRoom> chatRooms;
+	private List<ChatRoom> chatRooms;
 	private Context context=null;
 
 	public static class ChatViewHolder extends RecyclerView.ViewHolder {
@@ -47,7 +49,7 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 
 	}
 
-	public MainChatAdapter(ArrayList<ChatRoom> myDataset) {
+	public MainChatAdapter(List<ChatRoom> myDataset) {
 		this.chatRooms = myDataset;
 	}
 

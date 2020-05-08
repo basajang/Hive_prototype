@@ -1,5 +1,6 @@
 package com.waem.hivePrototype.util.dbmanager;
 
+import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.chatRoomList.vo.Message;
 import com.waem.hivePrototype.chatRoomList.vo.RoomFile;
@@ -31,7 +32,7 @@ public class RealmManager {
     }
 
     public void build(){
-        Realm.init(getApplicationContext());
+        Realm.init(ConfigureManager.getInstance().getActivity().getApplicationContext());
         realm = Realm.getDefaultInstance();
     }
 
