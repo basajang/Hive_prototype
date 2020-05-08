@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 import com.waem.hivePrototype.login.LoginActivity;
+import com.waem.hivePrototype.util.dbmanager.RealmManager;
 
 import java.util.ArrayList;
 
@@ -41,12 +42,16 @@ public class LodingActivity extends Activity {
 
 		setContentView(R.layout.activity_loding);
 		ConfigureManager.getInstance().setActivity(this);
-		Log.d(GlobalConst.TAG, "onCreate: BuildConfig.DEVKEY == "+BuildConfig.DEVKEY);
+
+		/** 개발 버전에서 테스트 및 개발 편의 성을 위하여
+		 * BuildConfig.DEVKEY 가 GlobalConst.DEVKEY와 같을때 동작하는 소스를 하기에 기입
+ 		 */
 		if(GlobalConst.DEVKEY.equals(BuildConfig.DEVKEY)){
 			Log.d(GlobalConst.TAG, "onCreate: "+BuildConfig.DEVKEY);
 
 		}
 
+		// 사용자에게 권한을 요청 하고 응답 받는 리스너
 		PermissionListener permissionlistener = new PermissionListener() {
 			@Override
 			public void onPermissionGranted() {
@@ -57,6 +62,8 @@ public class LodingActivity extends Activity {
 
 			@Override
 			public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+				//권한 거부시 작업할 코드를 작성
+
 				Toast.makeText(ConfigureManager.getInstance().getActivity(), "권한 거부\n"
 						+ deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
 			}
@@ -64,6 +71,10 @@ public class LodingActivity extends Activity {
 		};
 
 
+		/**
+		 * 권한 요청 팝업 출력 시킬 코드
+		 * setPermissions 에 권한 들을 입력
+		 */
 		TedPermission.with(this).setPermissionListener(permissionlistener)
 				.setRationaleMessage("접근 권한이 필요해요")
 				.setDeniedMessage("왜 거부하셨어요...\n하지만 [설정] > [권한] 에서 권한을 허용할 수 있어요.")
@@ -74,7 +85,11 @@ public class LodingActivity extends Activity {
 				.check();
 
 		ConfigureManager.getInstance().checkExternalStorage();
-        Realm.init(getApplicationContext());
+
+		/**
+		 * Realm db를 사용 하기 위하여 init
+		 */
+
 		// realm DB 설정 참고 https://black-jin0427.tistory.com/98
 //		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(3).migration(new RealmMigration() {
 //			@Override
@@ -89,9 +104,6 @@ public class LodingActivity extends Activity {
 //
 //			}
 //		}).build();
-
-
-
 		startLoading();
 
 	}

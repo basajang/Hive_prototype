@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.R;
+import com.waem.hivePrototype.util.dbmanager.RealmManager;
 import com.waem.hivePrototype.chatRoomList.adapter.ChatRoomAdapter;
 import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
@@ -22,7 +23,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
 
 public class ChatRoomActivity extends AppCompatActivity {
 
@@ -55,23 +55,12 @@ public class ChatRoomActivity extends AppCompatActivity {
 		rvChatRoom=(RecyclerView) findViewById(R.id.rv_chat_room);
 
         fileType = FileType.IMAGE;
-		Realm.init(getApplicationContext());
-		Realm realm = Realm.getDefaultInstance ();
-
-
-		/*Realm realm ;
-		try {
-			realm = Realm.getDefaultInstance ();
-		} catch (IllegalStateException fuckYouTooAndroid) {
-			Realm.init (context.getApplicationContext ());
-			realm = Realm.getDefaultInstance ();
-		}*/
-
 
 		//ChatRoom chatRoom = realm.where(ChatRoom.class).equalTo("roomId", "0c91e078-f1f7-4b1a-af34-5e6893b85652").findFirst();
-		ChatRoom chatRoom = realm.where(ChatRoom.class).findFirst();
 
-		Log.d(GlobalConst.TAG, "init: " + chatRoom);
+		ChatRoom chatRoom = RealmManager.getInstance().getChatRoom().getChatRoomList().get(0);
+
+		Log.d(GlobalConst.TAG, "init: " + chatRoom.getRoomId());
 		if(chatRoom != null ){
 
 			Message message1 = new Message("1", chatRoom.getRoomId(),"전지민",true,fileType,"1","안녕하신가?","123",false,false,0);

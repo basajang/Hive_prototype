@@ -5,6 +5,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := ndklib
 
 FILES := NativeSum.cpp
+FILES += NativeSub.cpp
 
 LOCAL_SRC_FILES := $(FILES)
 

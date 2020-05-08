@@ -23,6 +23,7 @@ import com.waem.hivePrototype.join.SignupActivity;
 
 import com.waem.hivePrototype.join.TermsActivity;
 import com.waem.hivePrototype.ui.CustomDialog;
+import com.waem.ndklib.NativeWrapper;
 
 
 import java.util.ArrayList;
@@ -72,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         ConfigureManager.getInstance().setActivity(this);
-        init();
+
         listener();
 
         List<Fragment> fragments = new ArrayList<>();
@@ -138,6 +139,13 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         });
         customDialog.show();
+
+        // ndk 샘플 실행
+        NativeWrapper wrapper = new NativeWrapper();
+
+        Log.d(GlobalConst.TAG, "onCreate: nativeSum "+wrapper.nativeSum(10, 20));
+        Log.d(GlobalConst.TAG, "onCreate: nativeSub "+wrapper.nativeSub(30, 10));
+       /* fragmentManager = getSupportFragmentManager();
         // 테스트 코드
 
 //		Realm realm = Realm.getDefaultInstance();

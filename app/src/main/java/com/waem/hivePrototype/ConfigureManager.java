@@ -318,6 +318,12 @@ public class ConfigureManager {
     }
 
 
+    /**
+     * 채팅방의 이미지 경로 가져오는 메서드
+     * 앱캐시 디랙토리/채팅방 룸 ID//image
+     * @param chatRoom
+     * @return
+     */
     public String getImageDir(ChatRoom chatRoom){
         String path = activity.getCacheDir().getAbsolutePath()+"/"+chatRoom.getRoomId()+"/image";
         if(isExists(path)){
@@ -326,6 +332,12 @@ public class ConfigureManager {
         return path;
     }
 
+    /**
+     * 채팅방의 동영상 경로 가져오는 메서드
+     * 앱캐시 디랙토리/채팅방 룸 ID/movie
+     * @param chatRoom
+     * @return
+     */
     public String getMovieDir(ChatRoom chatRoom){
         String path = activity.getCacheDir().getAbsolutePath()+"/"+chatRoom.getRoomId()+"/movie";
         if(isExists(path)){
@@ -334,6 +346,12 @@ public class ConfigureManager {
         return path;
     }
 
+    /**
+     * 채팅방의 문서 경로 가져오는 메서드
+     * 앱캐시 디랙토리/채팅방 룸 ID/doc
+     * @param chatRoom
+     * @return
+     */
     public String getDocDir(ChatRoom chatRoom){
         String path = activity.getCacheDir().getAbsolutePath()+"/"+chatRoom.getRoomId()+"/doc";
         if(isExists(path)){
