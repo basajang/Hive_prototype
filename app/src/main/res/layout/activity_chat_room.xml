@@ -51,6 +51,7 @@
                 android:background="@drawable/chatsetting"/>
         </LinearLayout>
     </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_chat_room"
         android:overScrollMode="never"
@@ -58,6 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorGrayLight"/>
+
     <!--채팅 하단 부분-->
     <LinearLayout
         android:paddingRight="21dp"

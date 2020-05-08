@@ -1,11 +1,13 @@
 package com.waem.hivePrototype.chatRoomList;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,12 +33,12 @@ public class ChatRoomActivity extends AppCompatActivity {
 	private RecyclerView rvChatRoom;
 	private RecyclerView.LayoutManager layoutManager;
 	private ChatRoomAdapter chatRoomAdapter;
-
+	private Context context;
 	private FileType fileType=null;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_chat_room);
+		setContentView(R.layout.activity_chat_room_menu);
 
 		ButterKnife.bind(this);
 
@@ -53,8 +55,19 @@ public class ChatRoomActivity extends AppCompatActivity {
 		rvChatRoom=(RecyclerView) findViewById(R.id.rv_chat_room);
 
         fileType = FileType.IMAGE;
+		Realm.init(getApplicationContext());
+		Realm realm = Realm.getDefaultInstance ();
 
-		Realm realm = Realm.getDefaultInstance();
+
+		/*Realm realm ;
+		try {
+			realm = Realm.getDefaultInstance ();
+		} catch (IllegalStateException fuckYouTooAndroid) {
+			Realm.init (context.getApplicationContext ());
+			realm = Realm.getDefaultInstance ();
+		}*/
+
+
 		//ChatRoom chatRoom = realm.where(ChatRoom.class).equalTo("roomId", "0c91e078-f1f7-4b1a-af34-5e6893b85652").findFirst();
 		ChatRoom chatRoom = realm.where(ChatRoom.class).findFirst();
 
@@ -79,9 +92,14 @@ public class ChatRoomActivity extends AppCompatActivity {
 		});
 		liChatroomMenu.setOnClickListener(view -> {
 
-			Intent intent =new Intent(ChatRoomActivity.this, ChatRoomMenuActivity.class);
-			startActivity(intent);
 
+			LinearLayout liChatroomMenu =findViewById(R.id.li_chatroom_menu);
+			liChatroomMenu.setOnClickListener(v -> {
+				DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+				if (!drawer.isDrawerOpen(Gravity.RIGHT)) {
+					drawer.openDrawer(Gravity.RIGHT);
+				}
+			});
 		});
 
 	}

@@ -125,8 +125,8 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(GlobalConst.TAG, "onCreate: " + login_pager.getAdapter().getCount());
 
         CustomDialog customDialog = new CustomDialog(this).setMessage("dkdkdk")
-                .setNegativeBtnText("아니요").setPositiveBtnText("ㅁ").
-                        setOnDialogListener(new CustomDialog.DialogListener() {
+                .setNegativeBtnText("아니요").setPositiveBtnText("ㅁ").setDefaultTime(3)
+                        .setOnDialogListener(new CustomDialog.DialogListener() {
                             @Override
                             public void onPositiveClick() {
 
