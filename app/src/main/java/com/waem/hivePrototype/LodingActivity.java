@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 import com.waem.hivePrototype.login.LoginActivity;
+import com.waem.hivePrototype.util.dbmanager.RealmManager;
 
 import java.util.ArrayList;
 
@@ -88,7 +89,7 @@ public class LodingActivity extends Activity {
 		/**
 		 * Realm db를 사용 하기 위하여 init
 		 */
-		Realm.init(getApplicationContext());
+
 		// realm DB 설정 참고 https://black-jin0427.tistory.com/98
 //		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(3).migration(new RealmMigration() {
 //			@Override
@@ -103,9 +104,6 @@ public class LodingActivity extends Activity {
 //
 //			}
 //		}).build();
-
-
-
 		startLoading();
 
 	}

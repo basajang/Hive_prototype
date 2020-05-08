@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.R;
+import com.waem.hivePrototype.util.dbmanager.RealmManager;
 import com.waem.hivePrototype.chatRoomList.adapter.ChatRoomAdapter;
 import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
@@ -20,7 +21,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
 
 public class ChatRoomActivity extends AppCompatActivity {
 
@@ -54,9 +54,9 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         fileType = FileType.IMAGE;
 
-		Realm realm = Realm.getDefaultInstance();
+
 		//ChatRoom chatRoom = realm.where(ChatRoom.class).equalTo("roomId", "0c91e078-f1f7-4b1a-af34-5e6893b85652").findFirst();
-		ChatRoom chatRoom = realm.where(ChatRoom.class).findFirst();
+		ChatRoom chatRoom = RealmManager.getInstance().getRealm().where(ChatRoom.class).findFirst();
 
 		Log.d(GlobalConst.TAG, "init: " + chatRoom);
 		if(chatRoom != null ){
