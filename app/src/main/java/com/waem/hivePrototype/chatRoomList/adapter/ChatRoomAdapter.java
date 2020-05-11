@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 채팅방의 리사이클러뷰 어뎁터입니다.
+ * 채팅 리사이클러뷰 어뎁터입니다.(채팅방리스트 눌러서 들어가면 나오는 채팅리스트)
  * */
 public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -82,7 +82,6 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 		}else {
 			return VIEW_TYPE_B;
 		}
-
 	}
 
 	public class MyViewHolder extends RecyclerView.ViewHolder{

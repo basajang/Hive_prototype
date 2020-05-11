@@ -13,7 +13,9 @@ import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 import static io.realm.internal.SyncObjectServerFacade.getApplicationContext;
-
+/**
+ * 채팅방 리스트에 대해 insert함수나 delete 함수 같은 거 만든 곳
+ * */
 public class ChatRoomDb {
 
     private Realm realm;
@@ -63,6 +65,8 @@ public class ChatRoomDb {
         });
 
     }
+
+    /*테스트 용*/
     public void delete(){
 
         final RealmResults<ChatRoom> chatRoomList = (RealmResults<ChatRoom>) getChatRoomList();

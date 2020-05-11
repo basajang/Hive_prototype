@@ -10,6 +10,9 @@ import com.waem.hivePrototype.find.fragment.FindPasswordFragment;
 import com.waem.hivePrototype.join.fragment.JoinEmailFragment;
 import com.waem.hivePrototype.join.fragment.JoinPhoneFragment;
 
+/**
+ * 회원가입 인증 부분 탭페이저 어뎁터
+ * */
 public class JoinTabPagerAdapter extends FragmentStatePagerAdapter {
 
 	private int tabCount;

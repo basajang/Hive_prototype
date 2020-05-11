@@ -1,8 +1,10 @@
 package com.waem.hivePrototype;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.waem.hivePrototype.chatRoomList.adapter.MainChatAdapter;
 import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
+import com.waem.hivePrototype.peopleList.FriendPlusActivity;
 import com.waem.hivePrototype.peopleList.adapter.TabPagerAdapter;
 import com.waem.hivePrototype.peopleList.fragment.FriendListFragment;
 
@@ -35,7 +38,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-import static com.waem.hivePrototype.chatRoomList.fragment.ChatListFragment.mainChatAdapter;
+
 
 /**
  * 메인 화면 액티비티
@@ -45,17 +48,18 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tab_main) TabLayout tabMain;
     @BindView(R.id.viewer) ViewPager viewPager;
     @BindView(R.id.tv_main_title) TextView tvMainTitle;
+    @BindView(R.id.iv_main_friend_plus_test) ImageView ivMainFriendPlusTest;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private FriendListFragment fragment;
-
 
     private TabPagerAdapter tabPagerAdapter;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         ConfigureManager.getInstance().setActivity(this);
         ButterKnife.bind(this);
@@ -97,23 +101,15 @@ public class MainActivity extends AppCompatActivity {
         });
         Log.d(GlobalConst.TAG, "onCreate: ");
 
-
         init();
         listener();
 
     }
     private void init(){
 
-      /*  viewPager =(ViewPager) findViewById(R.id.viewer);
-
-        tabMain=(TabLayout) findViewById(R.id.tab_main);*/
-
         tabMain.addTab(tabMain.newTab().setText("친구"));
         tabMain.addTab(tabMain.newTab().setText("채팅"));
         tabMain.addTab(tabMain.newTab().setText("복원"));
-
-        tvMainTitle=(TextView)findViewById(R.id.tv_main_title);
-
 
     }
     private void listener(){
@@ -154,7 +150,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
+        ivMainFriendPlusTest.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, FriendPlusActivity.class);
+            startActivity(intent);
+        });
 
     }
 

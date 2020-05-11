@@ -12,7 +12,7 @@ import com.waem.hivePrototype.notification.fragment.RestoreFragment;
 import com.waem.hivePrototype.peopleList.fragment.FriendListFragment;
 
 /**
- * 탭 레이아웃 어댑터
+ * id/password 탭 레이아웃 어댑터
  * */
 public class FindTabPagerAdapter extends FragmentStatePagerAdapter {
 

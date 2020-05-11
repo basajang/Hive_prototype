@@ -30,13 +30,13 @@ import io.realm.RealmList;
 
 
 /**
- * 채팅 리스트 프래그먼트
+ * 채팅방 리스트 프래그먼트 (채팅 리스트 아님)
  * */
 public class ChatListFragment extends Fragment {
 
 	private View view;
 	private RecyclerView rvMainChatList;
-	public static MainChatAdapter mainChatAdapter;
+	private MainChatAdapter mainChatAdapter;
 	private RecyclerView.LayoutManager chatLayoutManager;
 
 	/*테스트용 변수*/
@@ -54,15 +54,15 @@ public class ChatListFragment extends Fragment {
 
 		Log.i(GlobalConst.TAG, "onCreateView: ");
 		init();
-		listener();
+
 		test();
 		return view;
 	}
 	private void init(){
+
 		btnMainChatlistTestInsert = (Button) view.findViewById(R.id.btn_main_chat_list_test_insert);
 		btnMainChatlistTestDelete = (Button) view.findViewById(R.id.btn_main_chat_list_test_delete);
 		liMainChatListTest = (LinearLayout) view.findViewById(R.id.li_main_chat_list_test);
-
 		rvMainChatList = (RecyclerView)view.findViewById(R.id.rv_main_chat_list);
 
 		chatLayoutManager = new LinearLayoutManager(getActivity());
@@ -88,18 +88,15 @@ public class ChatListFragment extends Fragment {
 			RealmManager.getInstance().getChatRoom().insert(chatRoom4);
 			RealmManager.getInstance().getChatRoom().insert(chatRoom5);
 
-
 		}
 
-
 		btnMainChatlistTestInsert.setOnClickListener(v -> {
-
 			ChatRoom chatRoom6= new ChatRoom("친구3",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
 			RealmManager.getInstance().getChatRoom().insert(chatRoom6);
 			mainChatAdapter.notifyDataSetChanged();
 		});
-		btnMainChatlistTestDelete.setOnClickListener(v -> {
 
+		btnMainChatlistTestDelete.setOnClickListener(v -> {
 			RealmManager.getInstance().getChatRoom().delete();
 			mainChatAdapter.notifyDataSetChanged();
 		});
@@ -118,16 +115,13 @@ public class ChatListFragment extends Fragment {
 		mainChatAdapter.setItem(chatRoomList);
 
 	}
-	private void listener(){
-
-	}
 
 	public void test(){
 		if(GlobalConst.DEVKEY.equals(BuildConfig.DEVKEY)){
+
 			liMainChatListTest.setVisibility(View.VISIBLE);
 
 		}
 	}
-
 
 }

@@ -12,6 +12,9 @@ import com.waem.hivePrototype.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * 약관동의 화면 액티비티
+ * */
 public class TermsActivity extends AppCompatActivity {
 
 	@BindView(R.id.btn_terms_agree) Button btnTermsAgree;

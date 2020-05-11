@@ -20,6 +20,11 @@
             android:text="친구"
             android:textSize="18sp"
             android:layout_gravity="center"/>
+        <ImageView
+            android:id="@+id/iv_main_friend_plus_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/test_friend_plus"/>
     </LinearLayout>
     <!--뷰페이저-->
     <androidx.viewpager.widget.ViewPager

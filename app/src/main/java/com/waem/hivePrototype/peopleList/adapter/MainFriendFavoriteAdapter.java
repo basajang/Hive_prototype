@@ -12,12 +12,14 @@ import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.peopleList.vo.People;
 
 import java.util.ArrayList;
+import java.util.List;
+
 /**
- *  친구 즐겨찾기 리사이클러뷰 어댑터
+ *  친구 즐겨찾기리스트 리사이클러뷰 어댑터
 * */
 public class MainFriendFavoriteAdapter extends RecyclerView.Adapter<MainFriendFavoriteAdapter.FriendFavoriteViewHolder> {
 
-	private ArrayList<People> friendFavoriteList;
+	private List<People> friendFavoriteList;
 
 	public class FriendFavoriteViewHolder extends RecyclerView.ViewHolder {
 
@@ -30,7 +32,7 @@ public class MainFriendFavoriteAdapter extends RecyclerView.Adapter<MainFriendFa
 
 		}
 	}
-	public MainFriendFavoriteAdapter(ArrayList<People> mydataset){
+	public MainFriendFavoriteAdapter(List<People> mydataset){
 
 		this.friendFavoriteList = mydataset;
 

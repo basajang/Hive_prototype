@@ -14,6 +14,7 @@ import com.waem.hivePrototype.chatRoomList.adapter.MainChatAdapter;
 import com.waem.hivePrototype.notification.adapter.MainRestoreAdapter;
 import com.waem.hivePrototype.notification.notiEnum.NotiType;
 import com.waem.hivePrototype.notification.vo.Notification;
+import com.waem.hivePrototype.util.dbmanager.RealmManager;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,10 +42,9 @@ public class RestoreFragment extends Fragment {
 		view= inflater.inflate(R.layout.fragment_restore, container, false);
 
 		init();
-		listener();
+
 
 		return view;
-
 	}
 
 	private void init(){
@@ -55,6 +55,7 @@ public class RestoreFragment extends Fragment {
 		mainRestoreAdapter = new MainRestoreAdapter(restoreList);
 		rvMainRestorelist.setLayoutManager(restoreLayoutManager);
 		rvMainRestorelist.setAdapter(mainRestoreAdapter);
+
 
 		Notification notification1 = new Notification("1","복구하게 수락해주세요.","q","홍길동","1",time,notiType,false);
 		Notification notification2 = new Notification("2","복구하게 수락해주세요.","q","홍길순","1",time,notiType,false);
@@ -75,7 +76,7 @@ public class RestoreFragment extends Fragment {
 		restoreList.add(notification8);
 
 	}
-	private void listener(){
 
-	}
+
+
 }

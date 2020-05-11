@@ -33,6 +33,7 @@
         <activity android:name=".chatRoomList.ChatRoomActivity"/>
         <activity android:name=".chatRoomList.ChatRoomMenuActivity" />
         <activity android:name=".find.FindActivity"/>
+        <activity android:name=".peopleList.FriendPlusActivity"/>
     </application>
 
 </manifest>

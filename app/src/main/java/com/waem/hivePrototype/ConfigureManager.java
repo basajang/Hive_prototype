@@ -49,7 +49,6 @@ import static android.os.Looper.getMainLooper;
  */
 public class ConfigureManager {
 
-
     private static ConfigureManager instance = new ConfigureManager();
     private static final int PERMISSION_REQUEST_CODE = 1;
     private Activity activity;
@@ -68,7 +67,6 @@ public class ConfigureManager {
     }
 
     public static ConfigureManager getInstance() {
-
         if (null == instance) {
             instance = new ConfigureManager();
         }
@@ -188,6 +186,7 @@ public class ConfigureManager {
                 }, 1);
                 return false;
             }
+
         }else{
             return true;
         }

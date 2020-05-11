@@ -15,6 +15,9 @@ import com.waem.hivePrototype.find.adapter.FindTabPagerAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * Id/Password 찾기 액티비티
+ * */
 public class FindActivity extends AppCompatActivity {
 
 	@BindView(R.id.tab_find) TabLayout tabFind;

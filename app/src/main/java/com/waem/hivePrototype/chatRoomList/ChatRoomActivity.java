@@ -27,6 +27,9 @@ import butterknife.ButterKnife;
 import io.realm.Realm;
 import retrofit2.http.HEAD;
 
+/**
+ *채팅방 액티비티
+ * */
 public class ChatRoomActivity extends AppCompatActivity {
 
 	@BindView(R.id.li_chatroom_back) LinearLayout liChatroomBack;
@@ -44,7 +47,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
 		setContentView(R.layout.activity_chat_room_menu);
 		ConfigureManager.getInstance().setActivity(this);
-
+		/*버터나이프 호출*/
 		ButterKnife.bind(this);
 
 		init();

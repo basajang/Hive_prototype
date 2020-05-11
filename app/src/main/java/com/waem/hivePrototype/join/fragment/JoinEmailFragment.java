@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment;
 
 import com.waem.hivePrototype.R;
 
+/**
+ * 회원가입 이메일 인증 프래그먼트
+ * */
 public class JoinEmailFragment extends Fragment {
 
 	private View view;

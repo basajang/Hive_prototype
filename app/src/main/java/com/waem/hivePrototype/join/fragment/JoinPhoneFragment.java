@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment;
 
 import com.waem.hivePrototype.R;
 
+/**
+ * 회원가입 핸드폰 번호 인증 프래그먼트
+ * */
 public class JoinPhoneFragment extends Fragment {
 
 	private View view;

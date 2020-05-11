@@ -10,17 +10,20 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.waem.hivePrototype.R;
+import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.peopleList.vo.People;
 
 import com.waem.hivePrototype.ui.CustomDialog;
 
 import java.util.ArrayList;
+import java.util.List;
+
 /**
- * 친구 리사이클러뷰 어댑터
+ * 친구리스트 리사이클러뷰 어댑터
  * */
 public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.FriendViewHolder>  {
 
-	private ArrayList<People> friendList;
+	private List<People> friendList;
 	private Context context = null;
 
 	// Provide a reference to the views for each data item
@@ -40,7 +43,7 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 	}
 
 	// Provide a suitable constructor (depends on the kind of dataset)
-	public MainFriendAdapter(ArrayList<People> myDataset) {
+	public MainFriendAdapter(List<People> myDataset) {
 		this.friendList = myDataset;
 	}
 
@@ -108,6 +111,17 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 				});
 		builder.show();
 	}*/
+
+	public void addPeople(People people){
+		friendList.add(people);
+		notifyDataSetChanged();
+	}
+
+	public void setItem(List<People> friendList){
+		this.friendList= friendList;
+	}
+
+
 	// Return the size of your dataset (invoked by the layout manager)
 	/**
 	 * 전체아이템 갯수 리턴

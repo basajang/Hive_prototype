@@ -20,13 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 채팅리스트 리사이클러뷰 어댑터
+ * 채팅방리스트 리사이클러뷰 어댑터
  * */
 public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatViewHolder> {
 
 	private List<ChatRoom> chatRooms = new ArrayList<>();
 	private Context context=null;
-
 
 	public static class ChatViewHolder extends RecyclerView.ViewHolder {
 		// each data item is just a string in this case
@@ -34,8 +33,8 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 		private TextView tvChatName;
 
 		public ChatViewHolder(@NonNull View itemView) {
-
 			super(itemView);
+
 			tvChatName = (TextView) itemView.findViewById(R.id.tv_chat_name);
 
 		}
@@ -48,8 +47,8 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 		View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_chatlist_item,parent,false);
 		ChatViewHolder cvh= new ChatViewHolder(view);
 		context=parent.getContext();
-		return cvh;
 
+		return cvh;
 	}
 
 	public MainChatAdapter(List<ChatRoom> myDataset) {
@@ -58,7 +57,6 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 
 	@Override
 	public void onBindViewHolder(@NonNull MainChatAdapter.ChatViewHolder holder, int position) {
-
 
 		Log.d(GlobalConst.TAG, "onBindViewHolder: "+position);
 		holder.tvChatName.setText(chatRooms.get(position).getRoomName());
@@ -69,19 +67,20 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 		});
 	}
 
+	public void addChatroom(ChatRoom chatRoom){
+		chatRooms.add(chatRoom);
+		notifyDataSetChanged();
+	}
+
+	public void setItem(List<ChatRoom> chatRoomList){
+		this.chatRooms= chatRoomList;
+	}
+
 	@Override
 	public int getItemCount() {
 		return chatRooms.size();
 	}
 
-	public void addChatroom(ChatRoom chatRoom){
-		chatRooms.add(chatRoom);
-		notifyDataSetChanged();
-
-	}
-	public void setItem(List<ChatRoom> chatRoomList){
-		this.chatRooms= chatRoomList;
-	}
 
 
 }

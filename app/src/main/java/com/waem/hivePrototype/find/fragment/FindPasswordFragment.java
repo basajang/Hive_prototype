@@ -22,6 +22,9 @@ import com.waem.hivePrototype.login.LoginActivity;
 import com.waem.hivePrototype.peopleList.adapter.MainFriendAdapter;
 import com.waem.hivePrototype.peopleList.adapter.MainFriendFavoriteAdapter;
 
+/**
+ * 비밀번호 찾기 프래그먼트
+ * */
 public class FindPasswordFragment extends Fragment {
 
 	private View view;

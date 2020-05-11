@@ -15,7 +15,9 @@ import com.waem.hivePrototype.R;
 import org.jetbrains.annotations.NotNull;
 
 
-
+/**
+ * 커스텀 다이어로그 클래스
+ * */
 public class CustomDialog {
 
 	private String message,positiveBtnText,negativeBtnText,oripositiveBtnText;
@@ -55,6 +57,9 @@ public class CustomDialog {
 
 	}
 
+	/**
+	 * 다이얼로그 빌드 하는 거
+	 * */
 	public void buildDialog(){
 
 		if(view != null){
@@ -105,6 +110,9 @@ public class CustomDialog {
 		}
 		startHandler();
 	}
+	/**
+	 * 다이얼로그 화면에 띄우는 함수
+	 * */
 	public void show(){
 		view = View.inflate(context,R.layout.custom_dialog,null);
 		dialog = new Dialog(context);

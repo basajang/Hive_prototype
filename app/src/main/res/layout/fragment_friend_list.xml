@@ -92,7 +92,47 @@
                     android:overScrollMode="never"/>
 
             </RelativeLayout>
-        </RelativeLayout>
-    </ScrollView>
 
+        </RelativeLayout>
+
+    </ScrollView>
+    <!--테스트용 레이아웃-->
+    <LinearLayout
+        android:id="@+id/li_main_friend_list_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        >
+        <EditText
+            android:id="@+id/et_main_friend_test_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="테스트용 id 입력"/>
+        <EditText
+            android:id="@+id/et_main_friend_test_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="테스트용 이름 입력"/>
+        <Button
+            android:id="@+id/btn_main_friend_list_test_insert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="테스트용Insert" />
+        <Button
+            android:id="@+id/btn_main_friend_list_test_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="테스트용 Delete" />
+        <Button
+            android:id="@+id/btn_main_friend_list_test_delete_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="테스트용 전체Delete" />
+    </LinearLayout>
 </RelativeLayout>

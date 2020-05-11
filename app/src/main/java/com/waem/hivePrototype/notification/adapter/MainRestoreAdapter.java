@@ -17,6 +17,9 @@ import com.waem.hivePrototype.ui.CustomDialog;
 
 import java.util.ArrayList;
 
+/**
+ *복구리스트 리사이클러뷰 어뎁터
+ * */
 public class MainRestoreAdapter extends RecyclerView.Adapter<MainRestoreAdapter.RestoreViewHolder> {
 
 	private ArrayList<Notification> notifications;
