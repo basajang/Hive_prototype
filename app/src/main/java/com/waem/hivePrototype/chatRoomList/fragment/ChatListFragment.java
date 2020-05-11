@@ -36,7 +36,7 @@ public class ChatListFragment extends Fragment {
 
 	private View view;
 	private RecyclerView rvMainChatList;
-	private MainChatAdapter mainChatAdapter;
+	public static MainChatAdapter mainChatAdapter;
 	private RecyclerView.LayoutManager chatLayoutManager;
 
 	/*테스트용 변수*/
@@ -96,12 +96,12 @@ public class ChatListFragment extends Fragment {
 
 			ChatRoom chatRoom6= new ChatRoom("친구3",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
 			RealmManager.getInstance().getChatRoom().insert(chatRoom6);
-
+			mainChatAdapter.notifyDataSetChanged();
 		});
 		btnMainChatlistTestDelete.setOnClickListener(v -> {
 
 			RealmManager.getInstance().getChatRoom().delete();
-
+			mainChatAdapter.notifyDataSetChanged();
 		});
 
 		Log.d(GlobalConst.TAG, "채팅방: "+RealmManager.getInstance().getChatRoom().getChatRoomList());
@@ -114,8 +114,9 @@ public class ChatListFragment extends Fragment {
 			mainChatAdapter.addChatroom(chatRoom);
 
 		}
+
 		mainChatAdapter.setItem(chatRoomList);
-		mainChatAdapter.notifyDataSetChanged();
+
 	}
 	private void listener(){
 

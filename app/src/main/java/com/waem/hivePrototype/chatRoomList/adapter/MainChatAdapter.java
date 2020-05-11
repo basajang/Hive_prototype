@@ -83,4 +83,6 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 		this.chatRooms= chatRoomList;
 	}
 
+
 }
+

@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.waem.hivePrototype.chatRoomList.adapter.MainChatAdapter;
+import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.peopleList.adapter.TabPagerAdapter;
 import com.waem.hivePrototype.peopleList.fragment.FriendListFragment;
 
@@ -25,12 +26,16 @@ import com.waem.ndklib.NativeWrapper;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+
+import static com.waem.hivePrototype.chatRoomList.fragment.ChatListFragment.mainChatAdapter;
 
 /**
  * 메인 화면 액티비티
@@ -45,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     private FragmentTransaction fragmentTransaction;
     private FriendListFragment fragment;
 
+
+    private TabPagerAdapter tabPagerAdapter;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,11 +114,12 @@ public class MainActivity extends AppCompatActivity {
 
         tvMainTitle=(TextView)findViewById(R.id.tv_main_title);
 
+
     }
     private void listener(){
 
         /*텝 레이아웃 관련 코드*/
-        TabPagerAdapter tabPagerAdapter =new TabPagerAdapter(getSupportFragmentManager(), tabMain.getTabCount());
+        tabPagerAdapter =new TabPagerAdapter(getSupportFragmentManager(), tabMain.getTabCount());
         viewPager.setAdapter(tabPagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabMain));
         tabMain.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -149,5 +157,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 }
