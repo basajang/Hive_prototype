@@ -42,6 +42,7 @@
                 android:background="@drawable/layout_round_white"
                 android:elevation="10dp">
                 <EditText
+                    android:id="@+id/et_join_name"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="21dp"
@@ -58,12 +59,14 @@
                     android:layout_height="40dp"
                     android:orientation="horizontal">
                     <EditText
+                        android:id="@+id/et_join_id"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="ID"
                         android:background="@drawable/edit_border_line"/>
                     <Button
+                        android:id="@+id/btn_join_overlap"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="중복"
@@ -72,7 +75,7 @@
                 </LinearLayout>
 
                 <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tab_signup"
+                    android:id="@+id/tab_join"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     app:tabGravity="fill"
@@ -83,7 +86,7 @@
                     />
 
                 <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/view_signup"
+                    android:id="@+id/vp_join"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -123,6 +126,7 @@
                     android:gravity="center"/>
 
                 <EditText
+                    android:id="@+id/et_join_pw"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="21dp"
                     android:layout_marginRight="21dp"
@@ -133,6 +137,7 @@
                     android:background="@drawable/edit_border_line"/>
 
                 <EditText
+                    android:id="@+id/et_join_pw_confirm"
                     android:layout_marginLeft="21dp"
                     android:layout_marginRight="21dp"
                     android:layout_marginBottom="10dp"
@@ -151,7 +156,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/btn_signup"
+            android:id="@+id/btn_join"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="가입완료"

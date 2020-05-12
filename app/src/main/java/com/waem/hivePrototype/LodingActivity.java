@@ -91,19 +91,21 @@ public class LodingActivity extends Activity {
 		 */
 
 		// realm DB 설정 참고 https://black-jin0427.tistory.com/98
-/*		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(4).migration(new RealmMigration() {
+	/*	RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().schemaVersion(5).migration(new RealmMigration() {
 			@Override
 			public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
 				RealmSchema realmSchema = realm.getSchema();
 
-				if(oldVersion == 3){
+				if(oldVersion == 4){
 					RealmObjectSchema realmObjectSchema = realmSchema.get("Message");
-					realmObjectSchema.addField("itemViewType", int.class, null);
+					realmObjectSchema.addField("messageId", int.class, null);
 				}
 
 
 			}
-		}).build();*/
+		}).build();
+
+	 */
 		startLoading();
 
 	}

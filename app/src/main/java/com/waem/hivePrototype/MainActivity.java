@@ -21,6 +21,7 @@ import com.waem.hivePrototype.peopleList.FriendPlusActivity;
 import com.waem.hivePrototype.peopleList.adapter.TabPagerAdapter;
 import com.waem.hivePrototype.peopleList.fragment.FriendListFragment;
 
+import com.waem.hivePrototype.util.BackPressClose;
 import com.waem.hivePrototype.util.FileUtil;
 import com.waem.hivePrototype.util.requestHelper.BaseResult;
 import com.waem.hivePrototype.util.requestHelper.Request.HttpTask;
@@ -38,6 +39,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+import static com.waem.hivePrototype.util.BackPressClose.backPressClose;
 
 
 /**
@@ -56,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TabPagerAdapter tabPagerAdapter;
 
-	@Override
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -103,6 +106,9 @@ public class MainActivity extends AppCompatActivity {
 
         init();
         listener();
+
+        /*뒤로가기 두번 누르면 앱 종료 되는 함수*/
+        backPressClose = new BackPressClose(this);
 
     }
 
@@ -159,6 +165,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
+    @Override
+    public void onBackPressed() {
+        /*super.onBackPressed();*/
+        backPressClose.OnBackPressed();
+    }
 }

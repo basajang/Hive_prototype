@@ -36,8 +36,9 @@ public class TermsActivity extends AppCompatActivity {
 	private void listener(){
 
 		btnTermsAgree.setOnClickListener(v ->{
-			Intent intent = new Intent(TermsActivity.this,SignupActivity.class);
+			Intent intent = new Intent(TermsActivity.this, JoinActivity.class);
 			startActivity(intent);
+			finish();
 		} );
 
 		btnTermsCancel.setOnClickListener(v -> {

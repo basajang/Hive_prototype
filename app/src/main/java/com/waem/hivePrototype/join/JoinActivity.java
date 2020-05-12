@@ -3,7 +3,6 @@ package com.waem.hivePrototype.join;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -20,15 +19,15 @@ import butterknife.ButterKnife;
 /**
  * 회원가입 화면 액티비티
  * */
-public class SignupActivity extends AppCompatActivity {
+public class JoinActivity extends AppCompatActivity {
 
-	@BindView(R.id.btn_signup) Button btnSignup;
-	@BindView(R.id.tab_signup) TabLayout tabSignup;
-	@BindView(R.id.view_signup) ViewPager viewSignup;
+	@BindView(R.id.btn_join) Button btnJoin;
+	@BindView(R.id.tab_join) TabLayout tabJoin;
+	@BindView(R.id.vp_join) ViewPager vpSignup;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_signup);
+		setContentView(R.layout.activity_join);
 		ConfigureManager.getInstance().setActivity(this);
 
 		ButterKnife.bind(this);
@@ -40,21 +39,21 @@ public class SignupActivity extends AppCompatActivity {
 
 	private void init(){
 
-		tabSignup.addTab(tabSignup.newTab().setText("이메일 인증"));
-		tabSignup.addTab(tabSignup.newTab().setText("휴대폰 인증"));
+		tabJoin.addTab(tabJoin.newTab().setText("이메일 인증"));
+		tabJoin.addTab(tabJoin.newTab().setText("휴대폰 인증"));
 
 	}
 
 	private void listener(){
 
-		JoinTabPagerAdapter joinTabPagerAdapter = new JoinTabPagerAdapter(getSupportFragmentManager(),tabSignup.getTabCount());
-		viewSignup.setAdapter(joinTabPagerAdapter);
-		viewSignup.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabSignup));
-		tabSignup.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+		JoinTabPagerAdapter joinTabPagerAdapter = new JoinTabPagerAdapter(getSupportFragmentManager(),tabJoin.getTabCount());
+		vpSignup.setAdapter(joinTabPagerAdapter);
+		vpSignup.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabJoin));
+		tabJoin.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
 			@Override
 			public void onTabSelected(TabLayout.Tab tab) {
-				viewSignup.setCurrentItem(tab.getPosition());
+				vpSignup.setCurrentItem(tab.getPosition());
 			}
 
 			@Override
@@ -70,11 +69,10 @@ public class SignupActivity extends AppCompatActivity {
 		});
 
 
-
-
-		btnSignup.setOnClickListener(view -> {
-			Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-			startActivity(intent);
+		btnJoin.setOnClickListener(view -> {
+			/*Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
+			startActivity(intent);*/
+			this.finish();
 		});
 
 	}

@@ -17,12 +17,11 @@ import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.MainActivity;
 import com.waem.hivePrototype.R;
-import com.waem.hivePrototype.chatRoomList.vo.ChatRoom;
 import com.waem.hivePrototype.find.FindActivity;
-import com.waem.hivePrototype.join.SignupActivity;
 
 import com.waem.hivePrototype.join.TermsActivity;
 import com.waem.hivePrototype.ui.CustomDialog;
+import com.waem.hivePrototype.util.BackPressClose;
 import com.waem.ndklib.NativeWrapper;
 
 
@@ -31,6 +30,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.waem.hivePrototype.util.BackPressClose.backPressClose;
 
 /**
  * 로그인 화면 액티비티
@@ -185,6 +186,8 @@ public class LoginActivity extends AppCompatActivity {
 
 		btnLogin=(Button) findViewById(R.id.btn_login);*/
 
+       /*뒤로가기 두번 누르면 앱종료*/
+       backPressClose = new BackPressClose(this);
     }
 
     private void listener() {
@@ -202,10 +205,9 @@ public class LoginActivity extends AppCompatActivity {
         tvLoginFind.setOnClickListener(view -> {
             Intent intent = new Intent(LoginActivity.this, FindActivity.class);
             startActivity(intent);
-            finish();
+
         });
 
-        
 
     }
 
@@ -217,5 +219,10 @@ public class LoginActivity extends AppCompatActivity {
      */
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
+    }
+    @Override
+    public void onBackPressed() {
+        /*super.onBackPressed();*/
+        backPressClose.OnBackPressed();
     }
 }
