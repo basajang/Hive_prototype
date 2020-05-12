@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 public class TermsActivity extends AppCompatActivity {
 
 	@BindView(R.id.btn_terms_agree) Button btnTermsAgree;
-
+	@BindView(R.id.btn_terms_cancel) Button btnTermsCancel;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_terms);
@@ -35,10 +35,13 @@ public class TermsActivity extends AppCompatActivity {
 	}
 	private void listener(){
 
-		btnTermsAgree.setOnClickListener(view ->{
-			Intent intent =new Intent(TermsActivity.this,SignupActivity.class);
+		btnTermsAgree.setOnClickListener(v ->{
+			Intent intent = new Intent(TermsActivity.this,SignupActivity.class);
 			startActivity(intent);
 		} );
 
+		btnTermsCancel.setOnClickListener(v -> {
+			finish();
+		});
 	}
 }

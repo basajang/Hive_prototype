@@ -44,8 +44,8 @@ public class MainFriendFavoriteAdapter extends RecyclerView.Adapter<MainFriendFa
 
 		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_friendlist_item, parent, false);
 		FriendFavoriteViewHolder ffvh =new FriendFavoriteViewHolder(view);
-		return ffvh;
 
+		return ffvh;
 	}
 
 	@Override

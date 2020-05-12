@@ -1,14 +1,26 @@
 package com.waem.hivePrototype.chatRoomList.vo;
 
 import com.waem.hivePrototype.chatRoomList.roomEnum.FileType;
+import com.waem.hivePrototype.util.dbmanager.MessageDb;
+import com.waem.hivePrototype.util.dbmanager.RealmManager;
 
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.UUID;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Message extends RealmObject {
 
+    /**필드 속성이나 이름 바꾸면 마이그레이션 오류가 날 수 있다.
+     * 그럴 땐 앱을 재설치 (그래도 에러나면 앱데이터삭제)
+     * */
+
+    @PrimaryKey
     // 메세지의 고유값?
-    private String id;
+    private int messageId = RealmManager.getInstance().getMessage().autoIncrement();
     // 메세지의 룸 아이디
     private String roomId;
     /*senderId가 사용자 아이디랑 같으면 자기 메시지*/
@@ -35,9 +47,24 @@ public class Message extends RealmObject {
     public Message() {
     }
 
-    public Message(String id, String roomId, String senderId, boolean messageType, FileType fileType, String filepath,String text, String senderTime, boolean read, boolean delete,int itemViewType) {
+  /*  public Message(int messageId, String roomId, String senderId, boolean messageType, FileType fileType, String filepath,String text, String senderTime, boolean read, boolean delete,int itemViewType) {
 
-        this.id = id;
+        this.messageId = messageId;
+        this.roomId = roomId;
+        this.senderId = senderId;
+        this.messageType = messageType;
+        this.fileType = fileType.toString();
+        this.filepath = filepath;
+        this.text=text;
+        this.senderTime = senderTime;
+        this.text = text;
+        this.read = read;
+        this.delete = delete;
+        this.itemViewType= itemViewType;
+    }*/
+    public Message(String roomId, String senderId, boolean messageType, FileType fileType, String filepath,String text, String senderTime, boolean read, boolean delete,int itemViewType) {
+
+
         this.roomId = roomId;
         this.senderId = senderId;
         this.messageType = messageType;
@@ -51,13 +78,13 @@ public class Message extends RealmObject {
         this.itemViewType= itemViewType;
     }
 
-    public String getId() {
-        return id;
+    public int getMessageId() {
+        return messageId;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    /*public void setMessageId(int messageId) {
+        this.messageId = messageId;
+    }*/
 
 
     public String getRoomId() {
@@ -139,10 +166,11 @@ public class Message extends RealmObject {
     public void setItemViewType(int itemViewType) {
         this.itemViewType = itemViewType;
     }
+
     @Override
     public String toString() {
         return "Message{" +
-                "id='" + id + '\'' +
+                "messageId='" + messageId + '\'' +
                 ", senderId='" + senderId + '\'' +
                 ", messageType=" + messageType +
                 ", fileType=" + fileType +

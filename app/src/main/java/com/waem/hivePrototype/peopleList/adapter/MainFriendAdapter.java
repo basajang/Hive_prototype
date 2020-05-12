@@ -54,9 +54,9 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 	public MainFriendAdapter.FriendViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		// create a new view
 		View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_friendlist_item, parent, false);
-
 		FriendViewHolder fvh = new FriendViewHolder(v);
 		context=parent.getContext();
+
 		return fvh;
 	}
 
@@ -70,14 +70,13 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 		holder.tvFriendName.setText(friendList.get(position).getName());
 
 		holder.tvFriendName.setOnClickListener(view -> {
-			/*Intent intent =new Intent(context, PopupFriendActivity.class);
-			intent.putExtra("friendName",friendList.get(position).getName());
-			context.startActivity(intent);*/
+
 			CustomDialog customDialog = new CustomDialog(context);
 			customDialog.setMessage(holder.tvFriendName.getText().toString()+"님과 채팅 하시겠습니까");
 			customDialog.setPositiveBtnText("예");
 			customDialog.setNegativeBtnText("아니요");
 			customDialog.setOnDialogListener(new CustomDialog.DialogListener() {
+
 				@Override
 				public void onPositiveClick() {
 					Toast.makeText(context,"예를 선택했습니다.",Toast.LENGTH_LONG).show();
@@ -87,6 +86,7 @@ public class MainFriendAdapter extends RecyclerView.Adapter<MainFriendAdapter.Fr
 				public void onNegativeClick() {
 					Toast.makeText(context,"아니오를 선택했습니다.",Toast.LENGTH_LONG).show();
 				}
+
 			});
 			customDialog.show();
 

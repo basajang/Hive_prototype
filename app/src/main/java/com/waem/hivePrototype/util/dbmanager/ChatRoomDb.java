@@ -34,7 +34,9 @@ public class ChatRoomDb {
         return getDb().findAll();
 
     }
-
+    /**
+     * 채팅방 추가 함수
+     * */
     public void insert(ChatRoom chatRoom){
         realm.executeTransaction(new Realm.Transaction() {
             @Override
@@ -66,7 +68,9 @@ public class ChatRoomDb {
 
     }
 
-    /*테스트 용*/
+    /**
+     * 테스트 용 전체 삭제 함수
+     * */
     public void delete(){
 
         final RealmResults<ChatRoom> chatRoomList = (RealmResults<ChatRoom>) getChatRoomList();

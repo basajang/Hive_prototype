@@ -42,6 +42,9 @@ public class PeopleDb {
         return getPeopleDb().equalTo("block", true).findAll();
     }
 
+    /**
+     *데이터 추가 함수
+     * */
     public void insert(People people){
         realm.executeTransaction(new Realm.Transaction() {
             @Override
@@ -62,6 +65,9 @@ public class PeopleDb {
             }
         });
     }
+    /**
+     *조건에 맞는 데이터 삭제 함수
+     * */
     public void delete(String friendId){
 
         realm.executeTransaction(new Realm.Transaction() {
@@ -80,6 +86,9 @@ public class PeopleDb {
         });
 
      }
+     /**
+      * 테스트용 전체 삭제 함수
+      * */
      public void deleteAll(){
          final RealmResults<People> peopleList = (RealmResults<People>) getActivPeopleList();
 

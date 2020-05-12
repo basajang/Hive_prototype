@@ -20,7 +20,6 @@ public class RealmManager {
 
     private Realm realm;
 
-
     public RealmManager() {
 
     }

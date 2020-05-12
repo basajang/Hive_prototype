@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         listener();
 
     }
+
     private void init(){
 
         tabMain.addTab(tabMain.newTab().setText("친구"));
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
         tabMain.addTab(tabMain.newTab().setText("복원"));
 
     }
+
     private void listener(){
 
         /*텝 레이아웃 관련 코드*/
@@ -150,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
         ivMainFriendPlusTest.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, FriendPlusActivity.class);
             startActivity(intent);

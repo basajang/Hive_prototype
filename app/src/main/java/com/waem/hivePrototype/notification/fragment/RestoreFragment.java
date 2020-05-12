@@ -36,13 +36,13 @@ public class RestoreFragment extends Fragment {
 
 	private Date time = new Date();
 	private NotiType notiType= RESTORE_REQUEST_SUCCESS;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
 		view= inflater.inflate(R.layout.fragment_restore, container, false);
 
 		init();
-
 
 		return view;
 	}
@@ -76,7 +76,5 @@ public class RestoreFragment extends Fragment {
 		restoreList.add(notification8);
 
 	}
-
-
 
 }

@@ -49,8 +49,6 @@ public class LoginActivity extends AppCompatActivity {
     TextView tvLoginSignup;
     @BindView(R.id.tv_login_find)
     TextView tvLoginFind;
-    @BindView(R.id.tv_login)
-    TextView tvLogin;
 
     @BindView(R.id.login_pager)
     ViewPager login_pager;
@@ -187,7 +185,6 @@ public class LoginActivity extends AppCompatActivity {
 
 		btnLogin=(Button) findViewById(R.id.btn_login);*/
 
-
     }
 
     private void listener() {
@@ -196,19 +193,19 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, TermsActivity.class);
             startActivity(intent);
         });
+
         btnLogin.setOnClickListener(view -> {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         });
+
         tvLoginFind.setOnClickListener(view -> {
             Intent intent = new Intent(LoginActivity.this, FindActivity.class);
             startActivity(intent);
             finish();
         });
-        tvLogin.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-        });
+
+        
 
     }
 

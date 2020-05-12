@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 public class FindActivity extends AppCompatActivity {
 
 	@BindView(R.id.tab_find) TabLayout tabFind;
-	@BindView(R.id.view_find) ViewPager viewFind;
+	@BindView(R.id.vp_find) ViewPager viewFind;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

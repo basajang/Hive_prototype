@@ -22,12 +22,13 @@ import java.util.List;
 public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 	private ArrayList<ChatRoom> chatRooms;
-	private ArrayList<Message> messages;
+	private List<Message> messages;
 	private Context context;
+
 	public static final int VIEW_TYPE_A = 0;
 	public static final int VIEW_TYPE_B = 1;
 
-	public ChatRoomAdapter(ArrayList<Message> messages) {
+	public ChatRoomAdapter(List<Message> messages) {
 
 		this.messages = messages;
 
@@ -110,7 +111,13 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 		}
 
 	}
-
+	public void addMessage(Message message){
+		messages.add(message);
+		notifyDataSetChanged();
+	}
+	public void setItem(List<Message> messageList){
+		this.messages= messageList;
+	}
 	@Override
 	public int getItemCount() {
 

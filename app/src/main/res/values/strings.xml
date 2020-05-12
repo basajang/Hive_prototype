@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Hive_prototype</string>
-
+    <string name="text_friend">친구</string>
+    <string name="text_chatting">채팅</string>
+    <string name="text_login">Login</string>
+    <string name="text_join">회원가입</string>
+    <string name="text_id">아이디</string>
+    <string name="text_password">비밀번호</string>
 </resources>

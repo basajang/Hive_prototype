@@ -25,7 +25,6 @@ public class MainRestoreAdapter extends RecyclerView.Adapter<MainRestoreAdapter.
 	private ArrayList<Notification> notifications;
 	private Context context= null;
 
-
 	public MainRestoreAdapter(ArrayList<Notification> restoreList) {
 
 		this.notifications = restoreList;
@@ -52,8 +51,8 @@ public class MainRestoreAdapter extends RecyclerView.Adapter<MainRestoreAdapter.
 		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_restore_item,parent,false);
 		RestoreViewHolder rvh = new RestoreViewHolder(view);
 		context=parent.getContext();
-		return rvh;
 
+		return rvh;
 	}
 
 	@Override
@@ -69,14 +68,17 @@ public class MainRestoreAdapter extends RecyclerView.Adapter<MainRestoreAdapter.
 			customDialog.setPositiveBtnText("예");
 			customDialog.setNegativeBtnText("아니요");
 			customDialog.setOnDialogListener(new CustomDialog.DialogListener() {
+
 				@Override
 				public void onPositiveClick() {
 					Toast.makeText(context,"예를 눌렀습니다.",Toast.LENGTH_SHORT).show();
 				}
+
 				@Override
 				public void onNegativeClick() {
 					Toast.makeText(context,"아니오를 눌렀습니다.",Toast.LENGTH_SHORT).show();
 				}
+
 			});
 
 			customDialog.show();
@@ -88,6 +90,5 @@ public class MainRestoreAdapter extends RecyclerView.Adapter<MainRestoreAdapter.
 	public int getItemCount() {
 		return notifications.size();
 	}
-
 
 }

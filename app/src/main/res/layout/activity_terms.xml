@@ -174,14 +174,15 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_terms_agree"
             android:layout_marginLeft="21dp"
             android:layout_marginRight="21dp"
-            android:id="@+id/btn_terms_agree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:text="Agree"/>
         <Button
+            android:id="@+id/btn_terms_cancel"
             android:layout_marginLeft="21dp"
             android:layout_marginRight="21dp"
             android:layout_width="match_parent"

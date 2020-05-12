@@ -59,8 +59,6 @@ public class FriendListFragment extends Fragment {
 		init();
 		test();
 
-
-
 		return view;
 
 	}

@@ -18,7 +18,7 @@
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="로그인" />
+            android:text="@string/text_login" />
 
         <EditText
             android:id="@+id/et_login_pw"
@@ -46,8 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:gravity="center_vertical"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/login_pager"
@@ -76,7 +75,6 @@
             android:id="@+id/tv_login_signup"
             android:layout_width="200dp"
             android:layout_height="30dp"
-
             android:layout_gravity="center"
             android:background="#616161"
             android:gravity="center"
@@ -87,12 +85,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="비밀번호/아이디 찾기"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/tv_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그인"
             android:layout_gravity="center"/>
 
     </LinearLayout>
