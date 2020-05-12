@@ -5,6 +5,8 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
+import com.waem.hivePrototype.login.adapter.CardFragmentPagerAdapter;
+
 public class MyLinearLayout extends LinearLayout {
     private float scale = CardFragmentPagerAdapter.BIG_SCALE;
 

@@ -44,7 +44,7 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 	@Override
 	public MainChatAdapter.ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-		View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_chatlist_item,parent,false);
+		View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_chat_room_list_item,parent,false);
 		ChatViewHolder cvh= new ChatViewHolder(view);
 		context=parent.getContext();
 
@@ -80,8 +80,6 @@ public class MainChatAdapter extends RecyclerView.Adapter<MainChatAdapter.ChatVi
 	public int getItemCount() {
 		return chatRooms.size();
 	}
-
-
 
 }
 

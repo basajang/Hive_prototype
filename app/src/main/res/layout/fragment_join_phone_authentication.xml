@@ -17,6 +17,7 @@
             android:layout_height="40dp"
             android:orientation="horizontal">
             <EditText
+                android:id="@+id/et_join_phone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -24,6 +25,7 @@
                 android:hint="휴대폰번호(숫자만 입력)"
                 />
             <Button
+                android:id="@+id/btn_join_phone_auth"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="인증요청"
@@ -39,7 +41,7 @@
             android:layout_height="30dp"
             android:orientation="horizontal">
             <EditText
-
+                android:id="@+id/et_join_phone_code"
                 android:paddingLeft="10dp"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -66,6 +68,7 @@
             android:layerType="software"
             android:background="@drawable/layout_dotted_line"/>
         <Button
+            android:id="@+id/btn_join_phone_code_auth"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="전화인증"

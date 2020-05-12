@@ -1,4 +1,4 @@
-package com.waem.hivePrototype.login;
+package com.waem.hivePrototype.login.adapter;
 
 import android.app.Activity;
 import android.util.Log;
@@ -15,6 +15,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.R;
+import com.waem.hivePrototype.login.LoginActivity;
+import com.waem.hivePrototype.login.MyLinearLayout;
 import com.waem.hivePrototype.login.interfaces.CardAdapter;
 
 import java.util.ArrayList;

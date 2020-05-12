@@ -20,6 +20,11 @@ import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.find.FindActivity;
 
 import com.waem.hivePrototype.join.TermsActivity;
+import com.waem.hivePrototype.login.adapter.CardFragmentPagerAdapter;
+import com.waem.hivePrototype.login.fragment.BasicLogin;
+import com.waem.hivePrototype.login.fragment.Biometric;
+import com.waem.hivePrototype.login.fragment.LiveCERT;
+import com.waem.hivePrototype.login.fragment.SNSLogin;
 import com.waem.hivePrototype.ui.CustomDialog;
 import com.waem.hivePrototype.util.BackPressClose;
 import com.waem.ndklib.NativeWrapper;
@@ -51,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.tv_login_find)
     TextView tvLoginFind;
 
-    @BindView(R.id.login_pager)
-    ViewPager login_pager;
+    @BindView(R.id.vp_login)
+    ViewPager vpLogin;
 
     public final static int PAGES = 4;
     // You can choose a bigger number for LOOPS, but you know, nobody will fling
@@ -70,10 +75,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         ButterKnife.bind(this);
-
         ConfigureManager.getInstance().setActivity(this);
 
+
         listener();
+
+        /*뒤로가기 두번 누르면 앱종료*/
+        backPressClose = new BackPressClose(this);
 
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new Biometric());
@@ -90,20 +98,20 @@ public class LoginActivity extends AppCompatActivity {
 //        ShadowTransformer fragmentCardShadowTransformer = new ShadowTransformer(login_pager, pagerAdapter);
 //        fragmentCardShadowTransformer.enableScaling(true);
 
-        login_pager.setAdapter(pagerAdapter);
+        vpLogin.setAdapter(pagerAdapter);
 //        login_pager.setPageTransformer(false, fragmentCardShadowTransformer);
 //        login_pager.setOffscreenPageLimit(3);
 
-        login_pager.setPageMargin(100);
-        login_pager.setPageTransformer(false, new ViewPager.PageTransformer() {
+        vpLogin.setPageMargin(100);
+        vpLogin.setPageTransformer(false, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(View page, float position) {
-                int pageWidth = login_pager.getMeasuredWidth() -
-                        login_pager.getPaddingLeft() - login_pager.getPaddingRight();
-                int pageHeight = login_pager.getHeight();
-                int paddingLeft = login_pager.getPaddingLeft();
+                int pageWidth = vpLogin.getMeasuredWidth() -
+                        vpLogin.getPaddingLeft() - vpLogin.getPaddingRight();
+                int pageHeight = vpLogin.getHeight();
+                int paddingLeft = vpLogin.getPaddingLeft();
                 float transformPos = (float) (page.getLeft() -
-                        (login_pager.getScrollX() + paddingLeft)) / pageWidth;
+                        (vpLogin.getScrollX() + paddingLeft)) / pageWidth;
                 int max = pageHeight / 10;
                 if (transformPos < -1) {
                     // [-Infinity,-1)
@@ -121,29 +129,30 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-        login_pager.setCurrentItem(1);
-        Log.d(GlobalConst.TAG, "onCreate: " + login_pager.getAdapter().getCount());
+        vpLogin.setCurrentItem(1);
+        Log.d(GlobalConst.TAG, "onCreate: " + vpLogin.getAdapter().getCount());
 
         CustomDialog customDialog = new CustomDialog(this).setMessage("dkdkdk")
                 .setNegativeBtnText("아니요").setPositiveBtnText("ㅁ").setDefaultTime(3)
-                        .setOnDialogListener(new CustomDialog.DialogListener() {
-                            @Override
-                            public void onPositiveClick() {
+                .setOnDialogListener(new CustomDialog.DialogListener() {
+                    @Override
+                    public void onPositiveClick() {
 
-                            }
+                    }
 
-                            @Override
-                            public void onNegativeClick() {
+                    @Override
+                    public void onNegativeClick() {
 
-                            }
-                        });
+                    }
+                });
         customDialog.show();
 
         // ndk 샘플 실행
         NativeWrapper wrapper = new NativeWrapper();
 
-        Log.d(GlobalConst.TAG, "onCreate: nativeSum "+wrapper.nativeSum(10, 20));
-        Log.d(GlobalConst.TAG, "onCreate: nativeSub "+wrapper.nativeSub(30, 10));
+        Log.d(GlobalConst.TAG, "onCreate: nativeSum " + wrapper.nativeSum(10, 20));
+        Log.d(GlobalConst.TAG, "onCreate: nativeSub " + wrapper.nativeSub(30, 10));
+
        /* fragmentManager = getSupportFragmentManager();
         // 테스트 코드
 
@@ -177,19 +186,19 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    }
     private void init() {
 
-	/*	etLoginId=(EditText)findViewById(R.id.et_login_id);
+	    etLoginId=(EditText)findViewById(R.id.et_login_id);
 		etLoginPw=(EditText)findViewById(R.id.et_login_pw);
 
 		tvLoginSignup=(TextView) findViewById(R.id.tv_login_signup);
 
-		btnLogin=(Button) findViewById(R.id.btn_login);*/
+		btnLogin=(Button) findViewById(R.id.btn_login);
+		}
+		*/
 
-       /*뒤로가기 두번 누르면 앱종료*/
-       backPressClose = new BackPressClose(this);
     }
-
     private void listener() {
 
         tvLoginSignup.setOnClickListener(view -> {
@@ -207,7 +216,6 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
 
         });
-
 
     }
 

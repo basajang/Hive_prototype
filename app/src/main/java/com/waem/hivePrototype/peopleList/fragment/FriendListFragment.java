@@ -57,10 +57,10 @@ public class FriendListFragment extends Fragment {
 		view =  inflater.inflate(R.layout.fragment_friend_list, container, false);
 
 		init();
+		listener();
 		test();
 
 		return view;
-
 	}
 
 	private void init(){
@@ -115,7 +115,12 @@ public class FriendListFragment extends Fragment {
 
 		}
 
+	}
+
+	private void listener(){
+
 		btnMainFriendListTestInsert.setOnClickListener(v -> {
+
 			String testId = etMainFriendTestId.getText().toString();
 			String testName = etMainFriendTestName.getText().toString();
 
@@ -125,15 +130,23 @@ public class FriendListFragment extends Fragment {
 
 			Log.d(GlobalConst.TAG,"입력한 친구 id : "+testId);
 			Log.d(GlobalConst.TAG,"입력한 친구 name : "+testName);
+
 		});
+
 		btnMainFriendListTestDelete.setOnClickListener(v -> {
+
 			String testid = etMainFriendTestId.getText().toString();
+
 			RealmManager.getInstance().getPeople().delete(testid);
 			mainFriendAdapter.notifyDataSetChanged();
+
 		});
+
 		btnMainFriendListTestDeleteAll.setOnClickListener(v -> {
+
 			RealmManager.getInstance().getPeople().deleteAll();
 			mainFriendAdapter.notifyDataSetChanged();
+
 		});
 
 		Log.d(GlobalConst.TAG, "친구목록: "+RealmManager.getInstance().getPeople().getActivPeopleList());
@@ -149,7 +162,6 @@ public class FriendListFragment extends Fragment {
 
 		mainFriendAdapter.setItem(friendArray);
 	}
-
 	private void test(){
 		if(GlobalConst.DEVKEY.equals(BuildConfig.DEVKEY)){
 			liMainFriendListTest.setVisibility(View.VISIBLE);

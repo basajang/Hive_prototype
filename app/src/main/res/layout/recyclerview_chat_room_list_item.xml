@@ -5,7 +5,7 @@
     android:layout_height="65dp">
     <!--    리사이클러뷰 채팅 목록 item-->
     <LinearLayout
-        android:id="@+id/li_chat"
+        android:id="@+id/li_chat_room"
         android:layout_marginLeft="21dp"
         android:layout_marginRight="21dp"
         android:layout_marginBottom="5dp"

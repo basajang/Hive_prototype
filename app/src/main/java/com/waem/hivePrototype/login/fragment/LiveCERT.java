@@ -1,4 +1,4 @@
-package com.waem.hivePrototype.login;
+package com.waem.hivePrototype.login.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,9 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.waem.hivePrototype.R;
 
-
-public class Biometric extends Fragment {
-
+public class LiveCERT extends Fragment{
     private CardView cardView;
 
     @Override
@@ -26,9 +24,8 @@ public class Biometric extends Fragment {
         }
 
         LinearLayout l = (LinearLayout)
-                inflater.inflate(R.layout.fragment_biometric, container, false);
+                inflater.inflate(R.layout.fragment_live_cert, container, false);
 
         return l;
     }
-
 }

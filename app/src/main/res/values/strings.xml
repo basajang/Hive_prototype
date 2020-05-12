@@ -6,4 +6,7 @@
     <string name="text_join">회원가입</string>
     <string name="text_id">아이디</string>
     <string name="text_password">비밀번호</string>
+    <string name="text_all">전체</string>
+    <string name="text_favorite">즐겨찾기</string>
+
 </resources>

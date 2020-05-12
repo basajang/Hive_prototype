@@ -54,7 +54,7 @@ public class ChatListFragment extends Fragment {
 
 		Log.i(GlobalConst.TAG, "onCreateView: ");
 		init();
-
+		listener();
 		test();
 		return view;
 	}
@@ -90,6 +90,11 @@ public class ChatListFragment extends Fragment {
 
 		}
 
+
+	}
+
+	private void listener(){
+
 		btnMainChatlistTestInsert.setOnClickListener(v -> {
 			ChatRoom chatRoom6= new ChatRoom("친구3",roomProfilePath,messageList,fileList,"qwe",false,false,false,false,false,1,1,1,false);
 			RealmManager.getInstance().getChatRoom().insert(chatRoom6);
@@ -113,7 +118,6 @@ public class ChatListFragment extends Fragment {
 		}
 
 		mainChatAdapter.setItem(chatRoomList);
-
 	}
 
 	public void test(){

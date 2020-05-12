@@ -43,6 +43,7 @@ public class RestoreFragment extends Fragment {
 		view= inflater.inflate(R.layout.fragment_restore, container, false);
 
 		init();
+		listener();
 
 		return view;
 	}
@@ -74,6 +75,9 @@ public class RestoreFragment extends Fragment {
 		restoreList.add(notification6);
 		restoreList.add(notification7);
 		restoreList.add(notification8);
+
+	}
+	private void listener(){
 
 	}
 

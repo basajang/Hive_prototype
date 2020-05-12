@@ -1,4 +1,4 @@
-package com.waem.hivePrototype.login;
+package com.waem.hivePrototype.login.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;

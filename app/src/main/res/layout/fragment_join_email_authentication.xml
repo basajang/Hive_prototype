@@ -13,7 +13,7 @@
 
 
         <EditText
-            android:id="@+id/et_find_pw_email"
+            android:id="@+id/et_join_email"
             android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -21,7 +21,7 @@
             android:background="@drawable/edit_border_line"
             />
         <Button
-            android:id="@+id/btn_find_pw_email"
+            android:id="@+id/btn_join_email_auth"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -34,7 +34,7 @@
             android:layout_height="30dp"
             android:orientation="horizontal">
             <EditText
-                android:id="@+id/et_find_pw_code"
+                android:id="@+id/et_join_email_code"
                 android:paddingLeft="10dp"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
                 android:background="@color/colorGrayLight"
                 android:textColor="@color/colorWhite"/>
             <Button
-                android:id="@+id/btn_find_pw_code"
+                android:id="@+id/btn_join_email_code_auth"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

@@ -48,7 +48,7 @@ import static com.waem.hivePrototype.util.BackPressClose.backPressClose;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.tab_main) TabLayout tabMain;
-    @BindView(R.id.viewer) ViewPager viewPager;
+    @BindView(R.id.vp_main) ViewPager vp_main;
     @BindView(R.id.tv_main_title) TextView tvMainTitle;
     @BindView(R.id.iv_main_friend_plus_test) ImageView ivMainFriendPlusTest;
 
@@ -114,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
 
-        tabMain.addTab(tabMain.newTab().setText("친구"));
-        tabMain.addTab(tabMain.newTab().setText("채팅"));
+        tabMain.addTab(tabMain.newTab().setText(R.string.text_friend));
+        tabMain.addTab(tabMain.newTab().setText(R.string.text_chatting));
         tabMain.addTab(tabMain.newTab().setText("복원"));
 
     }
@@ -124,21 +124,21 @@ public class MainActivity extends AppCompatActivity {
 
         /*텝 레이아웃 관련 코드*/
         tabPagerAdapter =new TabPagerAdapter(getSupportFragmentManager(), tabMain.getTabCount());
-        viewPager.setAdapter(tabPagerAdapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabMain));
+        vp_main.setAdapter(tabPagerAdapter);
+        vp_main.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabMain));
         tabMain.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
+                vp_main.setCurrentItem(tab.getPosition());
 
                 switch (tab.getPosition()){
 
                     case 0:
-                        tvMainTitle.setText("친구");
+                        tvMainTitle.setText(R.string.text_friend);
                         return;
                     case 1:
-                        tvMainTitle.setText("채팅");
+                        tvMainTitle.setText(R.string.text_chatting);
                         return;
                     case 2:
                         tvMainTitle.setText("복원알림");

@@ -18,13 +18,19 @@ public class FriendPlusActivity extends AppCompatActivity {
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_friend_plus);
+
 		ConfigureManager.getInstance().setActivity(this);
 		ButterKnife.bind(this);
 
+		init();
+		listener();
 
 	}
 
 	private void init(){
+
+	}
+	private void listener(){
 
 	}
 }
