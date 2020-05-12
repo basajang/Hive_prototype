@@ -7,6 +7,10 @@ import java.util.Date;
 import io.realm.RealmObject;
 import retrofit2.http.HEAD;
 
+/*사용자?*/
+
+/*수요일 DB 필드명 체크 한번 해야할 듯*/
+
 public class User {
     /*
     people 상속 받아야 되는 거 같은데 Realm에서 상속/다형성에 대한 문제가 있어서
@@ -14,10 +18,14 @@ public class User {
     https://googry.tistory.com/20
     */
 
-    // 사용자 ID
+
+
     @NotNull
     /*사용자 아이디*/
     private String id = "";
+    @NotNull
+    private String password ="";
+
     @NotNull
     private String name = "";
 
@@ -27,7 +35,7 @@ public class User {
     private String fcmToken = null;
 
     // 기기 아이디 https://brunch.co.kr/magazine/androidq widevine ID 조사 
-    private String deviceId = null;
+    private String deviceId = null; /*디바이스 아이디가 곧 사용자 고유 아이디인가?*/
     private String liveCertOPT = null;
     private String divisionKey = null;
 
@@ -47,11 +55,11 @@ public class User {
 
     }
 
-    public User(@NotNull String id, @NotNull String name, String profilePath, String statusMessage, boolean favorites, Date lastUpdate, boolean block, boolean hide, @NotNull String id1, @NotNull String name1, String accessToken, String fcmToken, String deviceId, String liveCertOPT, String divisionKey, String statusMessage1, String facebookAt, String kakaoAt, String googleAt, String naverat, boolean openPrivacy) {
+    /*public User(@NotNull String id, @NotNull String name, String profilePath, String statusMessage, boolean favorites, Date lastUpdate, boolean block, boolean hide, @NotNull String id1, @NotNull String name1, String accessToken, String fcmToken, String deviceId, String liveCertOPT, String divisionKey, String statusMessage1, String facebookAt, String kakaoAt, String googleAt, String naverat, boolean openPrivacy) {
 
 
-        this.id = id1;
-        this.name = name1;
+        this.id = id;
+        this.name = name;
         this.accessToken = accessToken;
         this.fcmToken = fcmToken;
         this.deviceId = deviceId;
@@ -63,7 +71,27 @@ public class User {
         this.googleAt = googleAt;
         this.naverat = naverat;
         this.openPrivacy = openPrivacy;
+    }*/
+
+    public User(@NotNull String id,@NotNull String password, @NotNull String name, String accessToken, String fcmToken, String deviceId, String liveCertOPT, String divisionKey, String statusMessage, String facebookAt, String kakaoAt, String googleAt, String naverat, Boolean openPrivacy){
+
+        this.id = id;
+        this.password = password;
+        this.name = name;
+        this.accessToken = accessToken;
+        this.fcmToken = fcmToken;
+        this.deviceId = deviceId;
+        this.liveCertOPT = liveCertOPT;
+        this.divisionKey = divisionKey;
+        this.statusMessage = statusMessage;
+        this.facebookAt = facebookAt;
+        this.kakaoAt = kakaoAt;
+        this.googleAt = googleAt;
+        this.naverat = naverat;
+        this.openPrivacy = openPrivacy;
+        
     }
+
 
     @NotNull
     public String getName() {

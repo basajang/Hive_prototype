@@ -6,6 +6,7 @@ import java.util.Date;
 
 import io.realm.RealmObject;
 
+/*친구*/
 public class People extends RealmObject {
 
     // 사용자 ID

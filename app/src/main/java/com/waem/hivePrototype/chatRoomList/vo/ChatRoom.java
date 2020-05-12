@@ -14,9 +14,11 @@ import io.realm.annotations.PrimaryKey;
 
 public class ChatRoom extends RealmObject {
 
+    /*기본키로 사용하기 위해선 Primary key 어노테이션을 사용해야함*/
     @NotNull
     @PrimaryKey
     private String roomId = UUID.randomUUID().toString();
+    /*채팅방 이름*/
     @NotNull
     private String roomName;
     // 채팅방 리스트에 출력될 사용자들 프로필 사진의 list
