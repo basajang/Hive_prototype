@@ -30,7 +30,6 @@ public class MessageDb {
         return realm.where(Message.class);
     }
 
-
     public void userInsert(Message message){
         realm.executeTransaction(new Realm.Transaction() {
             @Override

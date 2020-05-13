@@ -66,7 +66,7 @@ public class BasicLogin extends Fragment {
 
                 Intent intent = new Intent(context, MainActivity.class);
                 startActivity(intent);
-                Toast.makeText(context,"로그인되었습니다.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context," 로그인 되었습니다.",Toast.LENGTH_SHORT).show();
             }else {
                 Toast.makeText(context,"로그인에 실패하였습니다.",Toast.LENGTH_SHORT).show();
             }

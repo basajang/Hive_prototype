@@ -13,9 +13,10 @@ public class UserTest extends RealmObject {
 	private String id = "";
 	@NotNull
 	private String password ="";
-
 	@NotNull
 	private String name = "";
+
+	private String email = "";
 
 	// 사용자 로그인 토큰
 	private String accessToken = null;
@@ -45,11 +46,13 @@ public class UserTest extends RealmObject {
 
 	}
 
-	public UserTest(@NotNull String id, @NotNull String password, @NotNull String name, String accessToken, String fcmToken, String deviceId, String liveCertOPT, String divisionKey, String statusMessage, String facebookAt, String kakaoAt, String googleAt, String naverat, Boolean openPrivacy){
+
+	public UserTest(@NotNull String id, @NotNull String password, @NotNull String name,String email, String accessToken, String fcmToken, String deviceId, String liveCertOPT, String divisionKey, String statusMessage, String facebookAt, String kakaoAt, String googleAt, String naverat, Boolean openPrivacy){
 
 		this.id = id;
 		this.password = password;
 		this.name = name;
+		this.email = email;
 		this.accessToken = accessToken;
 		this.fcmToken = fcmToken;
 		this.deviceId = deviceId;
@@ -89,6 +92,14 @@ public class UserTest extends RealmObject {
 
 	public void setName(@NotNull String name) {
 		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getAccessToken() {

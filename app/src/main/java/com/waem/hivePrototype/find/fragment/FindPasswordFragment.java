@@ -21,6 +21,8 @@ import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.login.LoginActivity;
 import com.waem.hivePrototype.peopleList.adapter.MainFriendAdapter;
 import com.waem.hivePrototype.peopleList.adapter.MainFriendFavoriteAdapter;
+import com.waem.hivePrototype.peopleList.vo.UserTest;
+import com.waem.hivePrototype.util.dbmanager.RealmManager;
 
 /**
  * 비밀번호 찾기 프래그먼트
@@ -92,10 +94,17 @@ public class FindPasswordFragment extends Fragment {
 			}
 		} );
 		btnFindPw.setOnClickListener(view ->{
+			String email = etFindPwEmail.getText().toString();
+			String password = etFindPwPassword2.getText().toString();
 			if(etFindPwPassword1.getText().toString().replace(" ", "").equals("") || etFindPwPassword2.getText().toString().replace(" ", "").equals("")){
 				Toast.makeText(context, "비밀번호를 입력하시오", Toast.LENGTH_SHORT).show();
 			}else {
+
+				UserTest userTest = new UserTest();
+
+				RealmManager.getInstance().getUserTest().pwUpdate(userTest,email,password);
 				Toast.makeText(context, "비밀번호가 변경되었습니다.", Toast.LENGTH_SHORT).show();
+
 
 				ConfigureManager.getInstance().getActivity().finish();
 

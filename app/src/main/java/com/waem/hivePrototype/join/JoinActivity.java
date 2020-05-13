@@ -13,6 +13,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.waem.hivePrototype.ConfigureManager;
 import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.join.adapter.JoinTabPagerAdapter;
+import com.waem.hivePrototype.join.fragment.JoinEmailFragment;
 import com.waem.hivePrototype.login.LoginActivity;
 import com.waem.hivePrototype.R;
 import com.waem.hivePrototype.peopleList.vo.UserTest;
@@ -21,6 +22,9 @@ import com.waem.hivePrototype.util.dbmanager.UserTestDb;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.waem.hivePrototype.join.fragment.JoinEmailFragment.getJoinEmail;
+import static com.waem.hivePrototype.join.fragment.JoinEmailFragment.joinEmail;
 
 /**
  * 회원가입 화면 액티비티
@@ -34,6 +38,7 @@ public class JoinActivity extends AppCompatActivity {
 	@BindView(R.id.et_join_id) EditText etJoinId;
 	@BindView(R.id.et_join_pw) EditText etJoinPw;
 	@BindView(R.id.et_join_pw_confirm) EditText etJoinPwConfirm;
+
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -80,14 +85,14 @@ public class JoinActivity extends AppCompatActivity {
 
 		btnJoin.setOnClickListener(view -> {
 
-			String joinid = etJoinId.getText().toString();
-			String joinname = etJoinName.getText().toString();
-			String joinpw = etJoinPw.getText().toString();
+			String joinId = etJoinId.getText().toString();
+			String joinName = etJoinName.getText().toString();
+			String joinPw = etJoinPw.getText().toString();
 
 
-			UserTest userTest = new UserTest(joinid,joinpw,joinname,"","","","","","","","","","",false);
-			RealmManager.getInstance().getUserTest().insert(userTest);
-
+			UserTest userTest = new UserTest(joinId,joinPw,joinName,getJoinEmail(),"","","","","","","","","","",false);
+			RealmManager.getInstance().getUserTest().join(userTest);
+			Log.d(GlobalConst.TAG,"회원가입 이메일 : "+getJoinEmail());
 			Log.d(GlobalConst.TAG,"회원가입 : "+RealmManager.getInstance().getUserTest().getAllUser());
 			Log.d(GlobalConst.TAG,"회원가입 : "+RealmManager.getInstance().getUserTest().getAllUser().size());
 			/*Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
