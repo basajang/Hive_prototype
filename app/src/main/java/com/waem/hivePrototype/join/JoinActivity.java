@@ -2,16 +2,22 @@ package com.waem.hivePrototype.join;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.waem.hivePrototype.ConfigureManager;
+import com.waem.hivePrototype.GlobalConst;
 import com.waem.hivePrototype.join.adapter.JoinTabPagerAdapter;
 import com.waem.hivePrototype.login.LoginActivity;
 import com.waem.hivePrototype.R;
+import com.waem.hivePrototype.peopleList.vo.UserTest;
+import com.waem.hivePrototype.util.dbmanager.RealmManager;
+import com.waem.hivePrototype.util.dbmanager.UserTestDb;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +30,10 @@ public class JoinActivity extends AppCompatActivity {
 	@BindView(R.id.btn_join) Button btnJoin;
 	@BindView(R.id.tab_join) TabLayout tabJoin;
 	@BindView(R.id.vp_join) ViewPager vpSignup;
+	@BindView(R.id.et_join_name) EditText etJoinName;
+	@BindView(R.id.et_join_id) EditText etJoinId;
+	@BindView(R.id.et_join_pw) EditText etJoinPw;
+	@BindView(R.id.et_join_pw_confirm) EditText etJoinPwConfirm;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -68,8 +78,18 @@ public class JoinActivity extends AppCompatActivity {
 
 		});
 
-
 		btnJoin.setOnClickListener(view -> {
+
+			String joinid = etJoinId.getText().toString();
+			String joinname = etJoinName.getText().toString();
+			String joinpw = etJoinPw.getText().toString();
+
+
+			UserTest userTest = new UserTest(joinid,joinpw,joinname,"","","","","","","","","","",false);
+			RealmManager.getInstance().getUserTest().insert(userTest);
+
+			Log.d(GlobalConst.TAG,"회원가입 : "+RealmManager.getInstance().getUserTest().getAllUser());
+			Log.d(GlobalConst.TAG,"회원가입 : "+RealmManager.getInstance().getUserTest().getAllUser().size());
 			/*Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
 			startActivity(intent);*/
 			this.finish();

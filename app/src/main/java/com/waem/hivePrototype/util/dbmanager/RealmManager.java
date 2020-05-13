@@ -71,8 +71,9 @@ public class RealmManager {
         return new RoomFileDb(getRealm());
     }
 
-
-
+    public UserTestDb getUserTest(){
+        return new UserTestDb(getRealm());
+    }
 
 
 

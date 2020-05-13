@@ -1,5 +1,7 @@
 package com.waem.hivePrototype.peopleList.vo;
 
+import com.waem.hivePrototype.util.dbmanager.RealmManager;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
@@ -9,9 +11,9 @@ import retrofit2.http.HEAD;
 
 /*사용자?*/
 
-/*수요일 DB 필드명 체크 한번 해야할 듯*/
+/* realm DB 필드 체크 한번 해야할 듯*/
 
-public class User {
+public class User extends RealmObject {
     /*
     people 상속 받아야 되는 거 같은데 Realm에서 상속/다형성에 대한 문제가 있어서
     extends로 people 상속하면 Valid model classes must either extend RealmObject or implement RealmModel. 에러 뜸
@@ -89,9 +91,26 @@ public class User {
         this.googleAt = googleAt;
         this.naverat = naverat;
         this.openPrivacy = openPrivacy;
-        
+
     }
 
+    @NotNull
+    public String getId() {
+        return id;
+    }
+
+    public void setId(@NotNull String id) {
+        this.id = id;
+    }
+
+    @NotNull
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@NotNull String password) {
+        this.password = password;
+    }
 
     @NotNull
     public String getName() {
@@ -194,6 +213,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", accessToken='" + accessToken + '\'' +
                 ", fcmToken='" + fcmToken + '\'' +
